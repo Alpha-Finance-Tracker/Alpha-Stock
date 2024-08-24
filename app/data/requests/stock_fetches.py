@@ -3,10 +3,6 @@ import requests
 from alpha_vantage.fundamentaldata import FundamentalData
 from dotenv import dotenv_values
 import yfinance as yf
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 
 from app.api.AI_features.open_ai_services import fetch_competitors
 
