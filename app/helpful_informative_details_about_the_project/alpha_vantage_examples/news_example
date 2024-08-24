@@ -1,0 +1,2411 @@
+{
+  "items": "50",
+  "sentiment_score_definition": "x <= -0.35: Bearish; -0.35 < x <= -0.15: Somewhat-Bearish; -0.15 < x < 0.15: Neutral; 0.15 <= x < 0.35: Somewhat_Bullish; x >= 0.35: Bullish",
+  "relevance_score_definition": "0 < x <= 1, with a higher score indicating higher relevance.",
+  "feed": [
+    {
+      "title": "Will Segmental Sales Aid Huntington Ingalls'  ( HII )  Q2 Earnings?",
+      "url": "https://www.zacks.com/stock/news/2310174/will-segmental-sales-aid-huntington-ingalls-hii-q2-earnings",
+      "time_published": "20240726T152900",
+      "authors": [
+        "Zacks Equity Research"
+      ],
+      "summary": "Huntington Ingalls' (HII) Q2 results are likely to reflect a solid sales performance across its business segments, along with the benefits of margin improvement at its shipbuilding business.",
+      "banner_image": "https://staticx-tuner.zacks.com/images/articles/main/6d/60158.jpg",
+      "source": "Zacks Commentary",
+      "category_within_source": "n/a",
+      "source_domain": "www.zacks.com",
+      "topics": [
+        {
+          "topic": "Earnings",
+          "relevance_score": "0.999999"
+        },
+        {
+          "topic": "Technology",
+          "relevance_score": "0.5"
+        },
+        {
+          "topic": "Manufacturing",
+          "relevance_score": "0.5"
+        }
+      ],
+      "overall_sentiment_score": 0.19433,
+      "overall_sentiment_label": "Somewhat-Bullish",
+      "ticker_sentiment": [
+        {
+          "ticker": "CW",
+          "relevance_score": "0.109956",
+          "ticker_sentiment_score": "0.0",
+          "ticker_sentiment_label": "Neutral"
+        },
+        {
+          "ticker": "HII",
+          "relevance_score": "0.321673",
+          "ticker_sentiment_score": "0.17573",
+          "ticker_sentiment_label": "Somewhat-Bullish"
+        },
+        {
+          "ticker": "LDOS",
+          "relevance_score": "0.164282",
+          "ticker_sentiment_score": "0.115488",
+          "ticker_sentiment_label": "Neutral"
+        }
+      ]
+    },
+    {
+      "title": "4 Aerospace-Defense Stocks Poised to Beat on Q2 Earnings",
+      "url": "https://www.zacks.com/stock/news/2309867/4-aerospace-defense-stocks-poised-to-beat-on-q2-earnings",
+      "time_published": "20240726T122200",
+      "authors": [
+        "Aparajita Dutta"
+      ],
+      "summary": "Second-quarter earnings for the Aerospace sector, which houses aerospace-defense stocks, are expected to have declined 2.3%. Let's see how LDOS, CW, ERJ & HII report.",
+      "banner_image": "https://staticx-tuner.zacks.com/images/articles/main/55/60428.jpg",
+      "source": "Zacks Commentary",
+      "category_within_source": "n/a",
+      "source_domain": "www.zacks.com",
+      "topics": [
+        {
+          "topic": "Earnings",
+          "relevance_score": "1.0"
+        },
+        {
+          "topic": "Technology",
+          "relevance_score": "0.5"
+        },
+        {
+          "topic": "Manufacturing",
+          "relevance_score": "0.5"
+        }
+      ],
+      "overall_sentiment_score": 0.191519,
+      "overall_sentiment_label": "Somewhat-Bullish",
+      "ticker_sentiment": [
+        {
+          "ticker": "EADSF",
+          "relevance_score": "0.031612",
+          "ticker_sentiment_score": "-0.037367",
+          "ticker_sentiment_label": "Neutral"
+        },
+        {
+          "ticker": "TXT",
+          "relevance_score": "0.031612",
+          "ticker_sentiment_score": "0.071819",
+          "ticker_sentiment_label": "Neutral"
+        },
+        {
+          "ticker": "LMT",
+          "relevance_score": "0.031612",
+          "ticker_sentiment_score": "0.071819",
+          "ticker_sentiment_label": "Neutral"
+        },
+        {
+          "ticker": "NOC",
+          "relevance_score": "0.031612",
+          "ticker_sentiment_score": "0.071819",
+          "ticker_sentiment_label": "Neutral"
+        },
+        {
+          "ticker": "CW",
+          "relevance_score": "0.187949",
+          "ticker_sentiment_score": "0.073723",
+          "ticker_sentiment_label": "Neutral"
+        },
+        {
+          "ticker": "HII",
+          "relevance_score": "0.187949",
+          "ticker_sentiment_score": "0.019376",
+          "ticker_sentiment_label": "Neutral"
+        },
+        {
+          "ticker": "ERJ",
+          "relevance_score": "0.218535",
+          "ticker_sentiment_score": "0.148957",
+          "ticker_sentiment_label": "Neutral"
+        },
+        {
+          "ticker": "GD",
+          "relevance_score": "0.031612",
+          "ticker_sentiment_score": "0.071819",
+          "ticker_sentiment_label": "Neutral"
+        },
+        {
+          "ticker": "BA",
+          "relevance_score": "0.031612",
+          "ticker_sentiment_score": "-0.037367",
+          "ticker_sentiment_label": "Neutral"
+        },
+        {
+          "ticker": "LDOS",
+          "relevance_score": "0.248787",
+          "ticker_sentiment_score": "0.1633",
+          "ticker_sentiment_label": "Somewhat-Bullish"
+        }
+      ]
+    },
+    {
+      "title": "Should Leidos  ( LDOS )  Stock Be in Your Portfolio Pre-Q2 Earnings?",
+      "url": "https://www.zacks.com/stock/news/2309210/should-leidos-ldos-stock-be-in-your-portfolio-pre-q2-earnings",
+      "time_published": "20240725T140900",
+      "authors": [
+        "Aparajita Dutta"
+      ],
+      "summary": "Leidos' (LDOS) impressive earnings surprise history, anticipated notable growth from its sales and product diversity make it worth keeping in your portfolio ahead of its Q2 results.",
+      "banner_image": "https://staticx-tuner.zacks.com/images/articles/main/60/11879.jpg",
+      "source": "Zacks Commentary",
+      "category_within_source": "n/a",
+      "source_domain": "www.zacks.com",
+      "topics": [
+        {
+          "topic": "Economy - Monetary",
+          "relevance_score": "0.158519"
+        },
+        {
+          "topic": "Financial Markets",
+          "relevance_score": "0.266143"
+        },
+        {
+          "topic": "Manufacturing",
+          "relevance_score": "0.5"
+        },
+        {
+          "topic": "Earnings",
+          "relevance_score": "0.997845"
+        },
+        {
+          "topic": "Technology",
+          "relevance_score": "0.5"
+        }
+      ],
+      "overall_sentiment_score": 0.329064,
+      "overall_sentiment_label": "Somewhat-Bullish",
+      "ticker_sentiment": [
+        {
+          "ticker": "LMT",
+          "relevance_score": "0.110717",
+          "ticker_sentiment_score": "0.070683",
+          "ticker_sentiment_label": "Neutral"
+        },
+        {
+          "ticker": "GD",
+          "relevance_score": "0.110717",
+          "ticker_sentiment_score": "0.070683",
+          "ticker_sentiment_label": "Neutral"
+        },
+        {
+          "ticker": "LHX",
+          "relevance_score": "0.110717",
+          "ticker_sentiment_score": "0.070683",
+          "ticker_sentiment_label": "Neutral"
+        },
+        {
+          "ticker": "LDOS",
+          "relevance_score": "0.814",
+          "ticker_sentiment_score": "0.504817",
+          "ticker_sentiment_label": "Bullish"
+        }
+      ]
+    },
+    {
+      "title": "Leidos Holdings, Inc.  ( LDOS )  Is a Trending Stock: Facts to Know Before Betting on It",
+      "url": "https://www.zacks.com/stock/news/2308708/leidos-holdings-inc-ldos-is-a-trending-stock-facts-to-know-before-betting-on-it",
+      "time_published": "20240725T130013",
+      "authors": [
+        "Zacks Equity Research"
+      ],
+      "summary": "Leidos (LDOS) has received quite a bit of attention from Zacks.com users lately. Therefore, it is wise to be aware of the facts that can impact the stock's prospects.",
+      "banner_image": "https://staticx-tuner.zacks.com/images/default_article_images/default212.jpg",
+      "source": "Zacks Commentary",
+      "category_within_source": "n/a",
+      "source_domain": "www.zacks.com",
+      "topics": [
+        {
+          "topic": "Earnings",
+          "relevance_score": "0.999999"
+        },
+        {
+          "topic": "Technology",
+          "relevance_score": "1.0"
+        },
+        {
+          "topic": "Financial Markets",
+          "relevance_score": "0.5855"
+        }
+      ],
+      "overall_sentiment_score": 0.226264,
+      "overall_sentiment_label": "Somewhat-Bullish",
+      "ticker_sentiment": [
+        {
+          "ticker": "LDOS",
+          "relevance_score": "0.482982",
+          "ticker_sentiment_score": "0.146044",
+          "ticker_sentiment_label": "Neutral"
+        }
+      ]
+    },
+    {
+      "title": "Northrop Grumman  ( NOC )  Tops Q2 Earnings and Revenue Estimates",
+      "url": "https://www.zacks.com/stock/news/2308580/northrop-grumman-noc-tops-q2-earnings-and-revenue-estimates",
+      "time_published": "20240725T115506",
+      "authors": [
+        "Zacks Equity Research"
+      ],
+      "summary": "Northrop Grumman (NOC) delivered earnings and revenue surprises of 6.89% and 1.45%, respectively, for the quarter ended June 2024. Do the numbers hold clues to what lies ahead for the stock?",
+      "banner_image": "https://staticx-tuner.zacks.com/images/default_article_images/default247.jpg",
+      "source": "Zacks Commentary",
+      "category_within_source": "n/a",
+      "source_domain": "www.zacks.com",
+      "topics": [
+        {
+          "topic": "Financial Markets",
+          "relevance_score": "0.266143"
+        },
+        {
+          "topic": "Manufacturing",
+          "relevance_score": "0.5"
+        },
+        {
+          "topic": "Earnings",
+          "relevance_score": "0.999997"
+        },
+        {
+          "topic": "Technology",
+          "relevance_score": "0.5"
+        }
+      ],
+      "overall_sentiment_score": 0.175574,
+      "overall_sentiment_label": "Somewhat-Bullish",
+      "ticker_sentiment": [
+        {
+          "ticker": "LDOS",
+          "relevance_score": "0.20698",
+          "ticker_sentiment_score": "0.0",
+          "ticker_sentiment_label": "Neutral"
+        },
+        {
+          "ticker": "NOC",
+          "relevance_score": "0.400265",
+          "ticker_sentiment_score": "0.164238",
+          "ticker_sentiment_label": "Somewhat-Bullish"
+        }
+      ]
+    },
+    {
+      "title": "Analysts Estimate Boeing  ( BA )  to Report a Decline in Earnings: What to Look Out for",
+      "url": "https://www.zacks.com/stock/news/2307911/analysts-estimate-boeing-ba-to-report-a-decline-in-earnings-what-to-look-out-for",
+      "time_published": "20240724T140130",
+      "authors": [
+        "Zacks Equity Research"
+      ],
+      "summary": "Boeing (BA) doesn't possess the right combination of the two key ingredients for a likely earnings beat in its upcoming report. Get prepared with the key expectations.",
+      "banner_image": "https://staticx-tuner.zacks.com/images/default_article_images/default190.jpg",
+      "source": "Zacks Commentary",
+      "category_within_source": "n/a",
+      "source_domain": "www.zacks.com",
+      "topics": [
+        {
+          "topic": "Financial Markets",
+          "relevance_score": "0.365926"
+        },
+        {
+          "topic": "Manufacturing",
+          "relevance_score": "0.5"
+        },
+        {
+          "topic": "Earnings",
+          "relevance_score": "1.0"
+        },
+        {
+          "topic": "Technology",
+          "relevance_score": "0.5"
+        }
+      ],
+      "overall_sentiment_score": 0.110104,
+      "overall_sentiment_label": "Neutral",
+      "ticker_sentiment": [
+        {
+          "ticker": "BA",
+          "relevance_score": "0.262994",
+          "ticker_sentiment_score": "-0.064545",
+          "ticker_sentiment_label": "Neutral"
+        },
+        {
+          "ticker": "LDOS",
+          "relevance_score": "0.17715",
+          "ticker_sentiment_score": "0.066308",
+          "ticker_sentiment_label": "Neutral"
+        }
+      ]
+    },
+    {
+      "title": "Are You a Value Investor? This 1 Stock Could Be the Perfect Pick",
+      "url": "https://www.zacks.com/stock/news/2307774/are-you-a-value-investor-this-1-stock-could-be-the-perfect-pick",
+      "time_published": "20240724T134011",
+      "authors": [
+        "Zacks Equity Research"
+      ],
+      "summary": "Wondering how to pick strong, market-beating stocks for your investment portfolio? Look no further than the Zacks Style Scores.",
+      "banner_image": "https://staticx-tuner.zacks.com/images/default_article_images/default177.jpg",
+      "source": "Zacks Commentary",
+      "category_within_source": "n/a",
+      "source_domain": "www.zacks.com",
+      "topics": [
+        {
+          "topic": "Earnings",
+          "relevance_score": "0.682689"
+        },
+        {
+          "topic": "Technology",
+          "relevance_score": "1.0"
+        },
+        {
+          "topic": "Financial Markets",
+          "relevance_score": "0.161647"
+        }
+      ],
+      "overall_sentiment_score": 0.425136,
+      "overall_sentiment_label": "Bullish",
+      "ticker_sentiment": [
+        {
+          "ticker": "LDOS",
+          "relevance_score": "0.478939",
+          "ticker_sentiment_score": "0.408518",
+          "ticker_sentiment_label": "Bullish"
+        }
+      ]
+    },
+    {
+      "title": "Leidos  ( LDOS )  Ascends While Market Falls: Some Facts to Note",
+      "url": "https://www.zacks.com/stock/news/2307344/leidos-ldos-ascends-while-market-falls-some-facts-to-note",
+      "time_published": "20240723T215017",
+      "authors": [
+        "Zacks Equity Research"
+      ],
+      "summary": "Leidos (LDOS) reachead $154.94 at the closing of the latest trading day, reflecting a +1.27% change compared to its last close.",
+      "banner_image": "https://staticx-tuner.zacks.com/images/default_article_images/default208.jpg",
+      "source": "Zacks Commentary",
+      "category_within_source": "n/a",
+      "source_domain": "www.zacks.com",
+      "topics": [
+        {
+          "topic": "Earnings",
+          "relevance_score": "0.95493"
+        },
+        {
+          "topic": "Technology",
+          "relevance_score": "1.0"
+        },
+        {
+          "topic": "Financial Markets",
+          "relevance_score": "0.316726"
+        }
+      ],
+      "overall_sentiment_score": 0.164786,
+      "overall_sentiment_label": "Somewhat-Bullish",
+      "ticker_sentiment": [
+        {
+          "ticker": "LDOS",
+          "relevance_score": "0.588876",
+          "ticker_sentiment_score": "0.201075",
+          "ticker_sentiment_label": "Somewhat-Bullish"
+        }
+      ]
+    },
+    {
+      "title": "Will Sales Volume Benefit L3Harris  ( LHX )  in Q2 Earnings?",
+      "url": "https://www.zacks.com/stock/news/2307061/will-sales-volume-benefit-l3harris-lhx-in-q2-earnings",
+      "time_published": "20240723T150500",
+      "authors": [
+        "Zacks Investment Research"
+      ],
+      "summary": "L3Harris' (LHX) Q2 results are likely to reflect the benefits of strong sales volume growth and favorable synergies from the Aerojet acquisition amid the impact of higher interest expenses.",
+      "banner_image": "https://staticx-tuner.zacks.com/images/articles/main/82/60818.jpg",
+      "source": "Zacks Commentary",
+      "category_within_source": "n/a",
+      "source_domain": "www.zacks.com",
+      "topics": [
+        {
+          "topic": "Earnings",
+          "relevance_score": "0.999992"
+        },
+        {
+          "topic": "Technology",
+          "relevance_score": "0.5"
+        },
+        {
+          "topic": "Manufacturing",
+          "relevance_score": "0.5"
+        }
+      ],
+      "overall_sentiment_score": 0.261894,
+      "overall_sentiment_label": "Somewhat-Bullish",
+      "ticker_sentiment": [
+        {
+          "ticker": "HII",
+          "relevance_score": "0.098659",
+          "ticker_sentiment_score": "0.0",
+          "ticker_sentiment_label": "Neutral"
+        },
+        {
+          "ticker": "NOC",
+          "relevance_score": "0.098659",
+          "ticker_sentiment_score": "0.0",
+          "ticker_sentiment_label": "Neutral"
+        },
+        {
+          "ticker": "LHX",
+          "relevance_score": "0.290033",
+          "ticker_sentiment_score": "0.196859",
+          "ticker_sentiment_label": "Somewhat-Bullish"
+        },
+        {
+          "ticker": "LDOS",
+          "relevance_score": "0.147516",
+          "ticker_sentiment_score": "0.107988",
+          "ticker_sentiment_label": "Neutral"
+        }
+      ]
+    },
+    {
+      "title": "Leidos  ( LDOS )  Earnings Expected to Grow: Should You Buy?",
+      "url": "https://www.zacks.com/stock/news/2306931/leidos-ldos-earnings-expected-to-grow-should-you-buy",
+      "time_published": "20240723T140106",
+      "authors": [
+        "Zacks Equity Research"
+      ],
+      "summary": "Leidos (LDOS) possesses the right combination of the two key ingredients for a likely earnings beat in its upcoming report. Get prepared with the key expectations.",
+      "banner_image": "https://staticx-tuner.zacks.com/images/default_article_images/default220.jpg",
+      "source": "Zacks Commentary",
+      "category_within_source": "n/a",
+      "source_domain": "www.zacks.com",
+      "topics": [
+        {
+          "topic": "Earnings",
+          "relevance_score": "1.0"
+        },
+        {
+          "topic": "Technology",
+          "relevance_score": "1.0"
+        },
+        {
+          "topic": "Financial Markets",
+          "relevance_score": "0.365926"
+        }
+      ],
+      "overall_sentiment_score": 0.170227,
+      "overall_sentiment_label": "Somewhat-Bullish",
+      "ticker_sentiment": [
+        {
+          "ticker": "LDOS",
+          "relevance_score": "0.262052",
+          "ticker_sentiment_score": "0.222281",
+          "ticker_sentiment_label": "Somewhat-Bullish"
+        }
+      ]
+    },
+    {
+      "title": "Will Segmental Sales Growth Boost Northrop's  ( NOC )  Q2 Earnings?",
+      "url": "https://www.zacks.com/stock/news/2306632/will-segmental-sales-growth-boost-northrops-noc-q2-earnings",
+      "time_published": "20240723T112900",
+      "authors": [
+        "Zacks Equity Research"
+      ],
+      "summary": "Northrop's (NOC) second-quarter 2024 results are likely to reflect solid sales growth, along with the benefits of favorable operational performance, amid the adverse impacts of high interest expenses ...",
+      "banner_image": "https://staticx-tuner.zacks.com/images/articles/main/59/54380.jpg",
+      "source": "Zacks Commentary",
+      "category_within_source": "n/a",
+      "source_domain": "www.zacks.com",
+      "topics": [
+        {
+          "topic": "Earnings",
+          "relevance_score": "1.0"
+        },
+        {
+          "topic": "Technology",
+          "relevance_score": "0.5"
+        },
+        {
+          "topic": "Manufacturing",
+          "relevance_score": "0.5"
+        }
+      ],
+      "overall_sentiment_score": 0.255837,
+      "overall_sentiment_label": "Somewhat-Bullish",
+      "ticker_sentiment": [
+        {
+          "ticker": "HII",
+          "relevance_score": "0.097062",
+          "ticker_sentiment_score": "0.0",
+          "ticker_sentiment_label": "Neutral"
+        },
+        {
+          "ticker": "NOC",
+          "relevance_score": "0.192694",
+          "ticker_sentiment_score": "0.0",
+          "ticker_sentiment_label": "Neutral"
+        },
+        {
+          "ticker": "GD",
+          "relevance_score": "0.097062",
+          "ticker_sentiment_score": "0.0",
+          "ticker_sentiment_label": "Neutral"
+        },
+        {
+          "ticker": "LDOS",
+          "relevance_score": "0.097062",
+          "ticker_sentiment_score": "0.0",
+          "ticker_sentiment_label": "Neutral"
+        }
+      ]
+    },
+    {
+      "title": "These 2 Aerospace Stocks Could Beat Earnings: Why They Should Be on Your Radar",
+      "url": "https://www.zacks.com/stock/news/2303242/these-2-aerospace-stocks-could-beat-earnings-why-they-should-be-on-your-radar",
+      "time_published": "20240717T125009",
+      "authors": [
+        "Zacks Equity Research"
+      ],
+      "summary": "Finding stocks expected to beat quarterly earnings estimates becomes an easier task with our Zacks Earnings ESP.",
+      "banner_image": "https://staticx-tuner.zacks.com/images/default_article_images/default293.jpg",
+      "source": "Zacks Commentary",
+      "category_within_source": "n/a",
+      "source_domain": "www.zacks.com",
+      "topics": [
+        {
+          "topic": "Financial Markets",
+          "relevance_score": "0.266143"
+        },
+        {
+          "topic": "Manufacturing",
+          "relevance_score": "0.5"
+        },
+        {
+          "topic": "Earnings",
+          "relevance_score": "0.99989"
+        },
+        {
+          "topic": "Technology",
+          "relevance_score": "0.5"
+        }
+      ],
+      "overall_sentiment_score": 0.345795,
+      "overall_sentiment_label": "Somewhat-Bullish",
+      "ticker_sentiment": [
+        {
+          "ticker": "ERJ",
+          "relevance_score": "0.390904",
+          "ticker_sentiment_score": "0.376906",
+          "ticker_sentiment_label": "Bullish"
+        },
+        {
+          "ticker": "LDOS",
+          "relevance_score": "0.390904",
+          "ticker_sentiment_score": "0.327327",
+          "ticker_sentiment_label": "Somewhat-Bullish"
+        }
+      ]
+    },
+    {
+      "title": "If You Invested $1000 in Leidos a Decade Ago, This is How Much It'd Be Worth Now",
+      "url": "https://www.zacks.com/stock/news/2303187/if-you-invested-1000-in-leidos-a-decade-ago-this-is-how-much-itd-be-worth-now",
+      "time_published": "20240717T123007",
+      "authors": [
+        "Zacks Equity Research"
+      ],
+      "summary": "Why investing for the long run, especially if you buy certain popular stocks, could reap huge rewards.",
+      "banner_image": "https://staticx-tuner.zacks.com/images/default_article_images/default345.jpg",
+      "source": "Zacks Commentary",
+      "category_within_source": "n/a",
+      "source_domain": "www.zacks.com",
+      "topics": [
+        {
+          "topic": "Earnings",
+          "relevance_score": "0.360215"
+        },
+        {
+          "topic": "Technology",
+          "relevance_score": "1.0"
+        },
+        {
+          "topic": "Financial Markets",
+          "relevance_score": "0.962106"
+        }
+      ],
+      "overall_sentiment_score": 0.370239,
+      "overall_sentiment_label": "Bullish",
+      "ticker_sentiment": [
+        {
+          "ticker": "LDOS",
+          "relevance_score": "0.536744",
+          "ticker_sentiment_score": "0.571917",
+          "ticker_sentiment_label": "Bullish"
+        }
+      ]
+    },
+    {
+      "title": "Will Leidos  ( LDOS )  Beat Estimates Again in Its Next Earnings Report?",
+      "url": "https://www.zacks.com/stock/news/2302841/will-leidos-ldos-beat-estimates-again-in-its-next-earnings-report",
+      "time_published": "20240716T161014",
+      "authors": [
+        "Zacks Equity Research"
+      ],
+      "summary": "Leidos (LDOS) has an impressive earnings surprise history and currently possesses the right combination of the two key ingredients for a likely beat in its next quarterly report.",
+      "banner_image": "https://staticx-tuner.zacks.com/images/default_article_images/default109.jpg",
+      "source": "Zacks Commentary",
+      "category_within_source": "n/a",
+      "source_domain": "www.zacks.com",
+      "topics": [
+        {
+          "topic": "Earnings",
+          "relevance_score": "0.99989"
+        },
+        {
+          "topic": "Technology",
+          "relevance_score": "1.0"
+        }
+      ],
+      "overall_sentiment_score": 0.324507,
+      "overall_sentiment_label": "Somewhat-Bullish",
+      "ticker_sentiment": [
+        {
+          "ticker": "LDOS",
+          "relevance_score": "0.418689",
+          "ticker_sentiment_score": "0.468205",
+          "ticker_sentiment_label": "Bullish"
+        }
+      ]
+    },
+    {
+      "title": "Why This 1 Growth Stock Could Be a Great Addition to Your Portfolio",
+      "url": "https://www.zacks.com/stock/news/2302499/why-this-1-growth-stock-could-be-a-great-addition-to-your-portfolio",
+      "time_published": "20240716T134511",
+      "authors": [
+        "Zacks Equity Research"
+      ],
+      "summary": "Wondering how to pick strong, market-beating stocks for your investment portfolio? Look no further than the Zacks Style Scores.",
+      "banner_image": "https://staticx-tuner.zacks.com/images/default_article_images/default275.jpg",
+      "source": "Zacks Commentary",
+      "category_within_source": "n/a",
+      "source_domain": "www.zacks.com",
+      "topics": [
+        {
+          "topic": "Earnings",
+          "relevance_score": "0.682689"
+        },
+        {
+          "topic": "Technology",
+          "relevance_score": "1.0"
+        },
+        {
+          "topic": "Financial Markets",
+          "relevance_score": "0.684621"
+        }
+      ],
+      "overall_sentiment_score": 0.423915,
+      "overall_sentiment_label": "Bullish",
+      "ticker_sentiment": [
+        {
+          "ticker": "LDOS",
+          "relevance_score": "0.464633",
+          "ticker_sentiment_score": "0.460849",
+          "ticker_sentiment_label": "Bullish"
+        }
+      ]
+    },
+    {
+      "title": "How to Boost Your Portfolio with Top Aerospace Stocks Set to Beat Earnings",
+      "url": "https://www.zacks.com/stock/news/2302291/how-to-boost-your-portfolio-with-top-aerospace-stocks-set-to-beat-earnings",
+      "time_published": "20240716T125011",
+      "authors": [
+        "Zacks Equity Research"
+      ],
+      "summary": "Finding stocks expected to beat quarterly earnings estimates becomes an easier task with our Zacks Earnings ESP.",
+      "banner_image": "https://staticx-tuner.zacks.com/images/default_article_images/default276.jpg",
+      "source": "Zacks Commentary",
+      "category_within_source": "n/a",
+      "source_domain": "www.zacks.com",
+      "topics": [
+        {
+          "topic": "Financial Markets",
+          "relevance_score": "0.316726"
+        },
+        {
+          "topic": "Manufacturing",
+          "relevance_score": "0.5"
+        },
+        {
+          "topic": "Earnings",
+          "relevance_score": "0.999973"
+        },
+        {
+          "topic": "Technology",
+          "relevance_score": "0.5"
+        }
+      ],
+      "overall_sentiment_score": 0.311197,
+      "overall_sentiment_label": "Somewhat-Bullish",
+      "ticker_sentiment": [
+        {
+          "ticker": "LMT",
+          "relevance_score": "0.197413",
+          "ticker_sentiment_score": "0.18969",
+          "ticker_sentiment_label": "Somewhat-Bullish"
+        },
+        {
+          "ticker": "LDOS",
+          "relevance_score": "0.382925",
+          "ticker_sentiment_score": "0.358528",
+          "ticker_sentiment_label": "Bullish"
+        }
+      ]
+    },
+    {
+      "title": "Should BNY Mellon US Mid Cap Core Equity ETF  ( BKMC )  Be on Your Investing Radar?",
+      "url": "https://www.zacks.com/stock/news/2302201/should-bny-mellon-us-mid-cap-core-equity-etf-bkmc-be-on-your-investing-radar",
+      "time_published": "20240716T102005",
+      "authors": [
+        "Zacks Equity Research"
+      ],
+      "summary": "Style Box ETF report for ...",
+      "banner_image": "https://staticx-tuner.zacks.com/images/default_article_images/default138.jpg",
+      "source": "Zacks Commentary",
+      "category_within_source": "n/a",
+      "source_domain": "www.zacks.com",
+      "topics": [
+        {
+          "topic": "Financial Markets",
+          "relevance_score": "1.0"
+        },
+        {
+          "topic": "Real Estate & Construction",
+          "relevance_score": "0.333333"
+        },
+        {
+          "topic": "Technology",
+          "relevance_score": "0.333333"
+        },
+        {
+          "topic": "Finance",
+          "relevance_score": "0.333333"
+        }
+      ],
+      "overall_sentiment_score": 0.198082,
+      "overall_sentiment_label": "Somewhat-Bullish",
+      "ticker_sentiment": [
+        {
+          "ticker": "MORN",
+          "relevance_score": "0.064623",
+          "ticker_sentiment_score": "0.0",
+          "ticker_sentiment_label": "Neutral"
+        },
+        {
+          "ticker": "PSTG",
+          "relevance_score": "0.128822",
+          "ticker_sentiment_score": "0.066448",
+          "ticker_sentiment_label": "Neutral"
+        },
+        {
+          "ticker": "EME",
+          "relevance_score": "0.128822",
+          "ticker_sentiment_score": "0.066448",
+          "ticker_sentiment_label": "Neutral"
+        },
+        {
+          "ticker": "LDOS",
+          "relevance_score": "0.128822",
+          "ticker_sentiment_score": "0.066448",
+          "ticker_sentiment_label": "Neutral"
+        }
+      ]
+    },
+    {
+      "title": "Leidos  ( LDOS )  Stock Sinks As Market Gains: Here's Why",
+      "url": "https://www.zacks.com/stock/news/2302084/leidos-ldos-stock-sinks-as-market-gains-heres-why",
+      "time_published": "20240715T215019",
+      "authors": [
+        "Zacks Equity Research"
+      ],
+      "summary": "Leidos (LDOS) closed at $148.96 in the latest trading session, marking a -0.64% move from the prior day.",
+      "banner_image": "https://staticx-tuner.zacks.com/images/default_article_images/default261.jpg",
+      "source": "Zacks Commentary",
+      "category_within_source": "n/a",
+      "source_domain": "www.zacks.com",
+      "topics": [
+        {
+          "topic": "Earnings",
+          "relevance_score": "0.986564"
+        },
+        {
+          "topic": "Technology",
+          "relevance_score": "1.0"
+        },
+        {
+          "topic": "Financial Markets",
+          "relevance_score": "0.161647"
+        }
+      ],
+      "overall_sentiment_score": 0.215097,
+      "overall_sentiment_label": "Somewhat-Bullish",
+      "ticker_sentiment": [
+        {
+          "ticker": "LDOS",
+          "relevance_score": "0.546745",
+          "ticker_sentiment_score": "0.331747",
+          "ticker_sentiment_label": "Somewhat-Bullish"
+        }
+      ]
+    },
+    {
+      "title": "Why Leidos  ( LDOS )  is a Top Momentum Stock for the Long-Term",
+      "url": "https://www.zacks.com/stock/news/2301646/why-leidos-ldos-is-a-top-momentum-stock-for-the-long-term",
+      "time_published": "20240715T135011",
+      "authors": [
+        "Zacks Equity Research"
+      ],
+      "summary": "The Zacks Style Scores offers investors a way to easily find top-rated stocks based on their investing style. Here's why you should take advantage.",
+      "banner_image": "https://staticx-tuner.zacks.com/images/default_article_images/default250.jpg",
+      "source": "Zacks Commentary",
+      "category_within_source": "n/a",
+      "source_domain": "www.zacks.com",
+      "topics": [
+        {
+          "topic": "Earnings",
+          "relevance_score": "0.769861"
+        },
+        {
+          "topic": "Technology",
+          "relevance_score": "1.0"
+        },
+        {
+          "topic": "Financial Markets",
+          "relevance_score": "0.962106"
+        }
+      ],
+      "overall_sentiment_score": 0.303835,
+      "overall_sentiment_label": "Somewhat-Bullish",
+      "ticker_sentiment": [
+        {
+          "ticker": "LDOS",
+          "relevance_score": "0.431554",
+          "ticker_sentiment_score": "0.331306",
+          "ticker_sentiment_label": "Somewhat-Bullish"
+        }
+      ]
+    },
+    {
+      "title": "Leidos Holdings, Inc.  ( LDOS )  Hits Fresh High: Is There Still Room to Run?",
+      "url": "https://www.zacks.com/stock/news/2301498/leidos-holdings-inc-ldos-hits-fresh-high-is-there-still-room-to-run",
+      "time_published": "20240715T131516",
+      "authors": [
+        "Zacks Equity Research"
+      ],
+      "summary": "Leidos (LDOS) is at a 52-week high, but can investors hope for more gains in the future? We take a look at the company's fundamentals for clues.",
+      "banner_image": "https://staticx-tuner.zacks.com/images/default_article_images/default4.jpg",
+      "source": "Zacks Commentary",
+      "category_within_source": "n/a",
+      "source_domain": "www.zacks.com",
+      "topics": [
+        {
+          "topic": "Financial Markets",
+          "relevance_score": "0.413559"
+        },
+        {
+          "topic": "Manufacturing",
+          "relevance_score": "0.5"
+        },
+        {
+          "topic": "Earnings",
+          "relevance_score": "0.996718"
+        },
+        {
+          "topic": "Technology",
+          "relevance_score": "0.5"
+        }
+      ],
+      "overall_sentiment_score": 0.297716,
+      "overall_sentiment_label": "Somewhat-Bullish",
+      "ticker_sentiment": [
+        {
+          "ticker": "HII",
+          "relevance_score": "0.426225",
+          "ticker_sentiment_score": "0.466009",
+          "ticker_sentiment_label": "Bullish"
+        },
+        {
+          "ticker": "LDOS",
+          "relevance_score": "0.739411",
+          "ticker_sentiment_score": "0.487721",
+          "ticker_sentiment_label": "Bullish"
+        }
+      ]
+    },
+    {
+      "title": "Here's How Much $100 Invested In Leidos Holdings 10 Years Ago Would Be Worth Today - Leidos Holdings  ( NYSE:LDOS ) ",
+      "url": "https://www.benzinga.com/insights/news/24/07/39755808/heres-how-much-100-invested-in-leidos-holdings-10-years-ago-would-be-worth-today",
+      "time_published": "20240712T190111",
+      "authors": [
+        "Benzinga Insights"
+      ],
+      "summary": "Leidos Holdings LDOS has outperformed the market over the past 10 years by 3.81% on an annualized basis producing an average annual return of 14.96%. Currently, Leidos Holdings has a market capitalization of $20.14 billion.",
+      "banner_image": "https://cdn.benzinga.com/files/images/story/2023/valuestock_image_4.jpeg?width=1200&height=800&fit=crop",
+      "source": "Benzinga",
+      "category_within_source": "Trading",
+      "source_domain": "www.benzinga.com",
+      "topics": [
+        {
+          "topic": "Technology",
+          "relevance_score": "1.0"
+        },
+        {
+          "topic": "Financial Markets",
+          "relevance_score": "0.108179"
+        }
+      ],
+      "overall_sentiment_score": 0.238974,
+      "overall_sentiment_label": "Somewhat-Bullish",
+      "ticker_sentiment": [
+        {
+          "ticker": "LDOS",
+          "relevance_score": "0.9545",
+          "ticker_sentiment_score": "0.384186",
+          "ticker_sentiment_label": "Bullish"
+        }
+      ]
+    },
+    {
+      "title": "Are Aerospace Stocks Lagging Heico  ( HEI )  This Year?",
+      "url": "https://www.zacks.com/stock/news/2300745/are-aerospace-stocks-lagging-heico-hei-this-year",
+      "time_published": "20240712T134009",
+      "authors": [
+        "Zacks Equity Research"
+      ],
+      "summary": "Here is how Heico Corporation (HEI) and Leidos (LDOS) have performed compared to their sector so far this year.",
+      "banner_image": "https://staticx-tuner.zacks.com/images/default_article_images/default200.jpg",
+      "source": "Zacks Commentary",
+      "category_within_source": "n/a",
+      "source_domain": "www.zacks.com",
+      "topics": [
+        {
+          "topic": "Financial Markets",
+          "relevance_score": "0.266143"
+        },
+        {
+          "topic": "Manufacturing",
+          "relevance_score": "0.5"
+        },
+        {
+          "topic": "Earnings",
+          "relevance_score": "0.614606"
+        },
+        {
+          "topic": "Technology",
+          "relevance_score": "0.5"
+        }
+      ],
+      "overall_sentiment_score": 0.255299,
+      "overall_sentiment_label": "Somewhat-Bullish",
+      "ticker_sentiment": [
+        {
+          "ticker": "HEI",
+          "relevance_score": "0.743396",
+          "ticker_sentiment_score": "0.441426",
+          "ticker_sentiment_label": "Bullish"
+        },
+        {
+          "ticker": "LDOS",
+          "relevance_score": "0.47147",
+          "ticker_sentiment_score": "0.198452",
+          "ticker_sentiment_label": "Somewhat-Bullish"
+        }
+      ]
+    },
+    {
+      "title": "Special Aerospace Services (SAS) Welcomes Andy Crocker as New Vice President of Business Development - PR Newswire",
+      "url": "https://www.prnewswire.com/news-releases/special-aerospace-services-sas-welcomes-andy-crocker-as-new-vice-president-of-business-development-302195270.html",
+      "time_published": "20240711T200000",
+      "authors": [],
+      "summary": "Special Aerospace Services ( SAS ) Welcomes Andy Crocker as New Vice President of Business Development PR ...",
+      "banner_image": null,
+      "source": "PR Newswire",
+      "category_within_source": "n/a",
+      "source_domain": "www.prnewswire.com",
+      "topics": [
+        {
+          "topic": "Technology",
+          "relevance_score": "1.0"
+        }
+      ],
+      "overall_sentiment_score": 0.558904,
+      "overall_sentiment_label": "Bullish",
+      "ticker_sentiment": [
+        {
+          "ticker": "LDOS",
+          "relevance_score": "0.092927",
+          "ticker_sentiment_score": "0.107507",
+          "ticker_sentiment_label": "Neutral"
+        }
+      ]
+    },
+    {
+      "title": "Is Leidos  ( LDOS )  a Solid Growth Stock? 3 Reasons to Think \"Yes\"",
+      "url": "https://www.zacks.com/stock/news/2300254/is-leidos-ldos-a-solid-growth-stock-3-reasons-to-think-yes",
+      "time_published": "20240711T164508",
+      "authors": [
+        "Zacks Equity Research"
+      ],
+      "summary": "Leidos (LDOS) possesses solid growth attributes, which could help it handily outperform the market.",
+      "banner_image": "https://staticx-tuner.zacks.com/images/default_article_images/default125.jpg",
+      "source": "Zacks Commentary",
+      "category_within_source": "n/a",
+      "source_domain": "www.zacks.com",
+      "topics": [
+        {
+          "topic": "Earnings",
+          "relevance_score": "0.983783"
+        },
+        {
+          "topic": "Technology",
+          "relevance_score": "1.0"
+        },
+        {
+          "topic": "Financial Markets",
+          "relevance_score": "0.316726"
+        }
+      ],
+      "overall_sentiment_score": 0.475977,
+      "overall_sentiment_label": "Bullish",
+      "ticker_sentiment": [
+        {
+          "ticker": "LDOS",
+          "relevance_score": "0.500477",
+          "ticker_sentiment_score": "0.390475",
+          "ticker_sentiment_label": "Bullish"
+        }
+      ]
+    },
+    {
+      "title": "Reasons to Add Moog  ( MOG.A )  Stock to Your Portfolio Now",
+      "url": "https://www.zacks.com/stock/news/2300175/reasons-to-add-moog-moga-stock-to-your-portfolio-now",
+      "time_published": "20240711T145100",
+      "authors": [
+        "Zacks Equity Research"
+      ],
+      "summary": "Moog (MOG.A) makes a strong case for investment in the Aerospace sector with its robust ROE and ability to increase shareholder value through regular dividend payments.",
+      "banner_image": "https://staticx-tuner.zacks.com/images/articles/main/be/139.jpg",
+      "source": "Zacks Commentary",
+      "category_within_source": "n/a",
+      "source_domain": "www.zacks.com",
+      "topics": [
+        {
+          "topic": "Financial Markets",
+          "relevance_score": "0.365926"
+        },
+        {
+          "topic": "Manufacturing",
+          "relevance_score": "0.5"
+        },
+        {
+          "topic": "Earnings",
+          "relevance_score": "0.890401"
+        },
+        {
+          "topic": "Technology",
+          "relevance_score": "0.5"
+        }
+      ],
+      "overall_sentiment_score": 0.310247,
+      "overall_sentiment_label": "Somewhat-Bullish",
+      "ticker_sentiment": [
+        {
+          "ticker": "AIR",
+          "relevance_score": "0.255641",
+          "ticker_sentiment_score": "0.098944",
+          "ticker_sentiment_label": "Neutral"
+        },
+        {
+          "ticker": "MOG-A",
+          "relevance_score": "0.086556",
+          "ticker_sentiment_score": "0.221107",
+          "ticker_sentiment_label": "Somewhat-Bullish"
+        },
+        {
+          "ticker": "HEI",
+          "relevance_score": "0.172097",
+          "ticker_sentiment_score": "0.068977",
+          "ticker_sentiment_label": "Neutral"
+        },
+        {
+          "ticker": "LDOS",
+          "relevance_score": "0.33628",
+          "ticker_sentiment_score": "0.183906",
+          "ticker_sentiment_label": "Somewhat-Bullish"
+        }
+      ]
+    },
+    {
+      "title": "Brokers Suggest Investing in Leidos  ( LDOS ) : Read This Before Placing a Bet",
+      "url": "https://www.zacks.com/stock/news/2299892/brokers-suggest-investing-in-leidos-ldos-read-this-before-placing-a-bet",
+      "time_published": "20240711T133011",
+      "authors": [
+        "Zacks Equity Research"
+      ],
+      "summary": "According to the average brokerage recommendation (ABR), one should invest in Leidos (LDOS). It is debatable whether this highly sought-after metric is effective because Wall Street analysts' recommendations tend to be overly optimistic. Would it be worth investing in the stock?",
+      "banner_image": "https://staticx-tuner.zacks.com/images/yesopchart/brokerage_bar/LDOS_07112024.png",
+      "source": "Zacks Commentary",
+      "category_within_source": "n/a",
+      "source_domain": "www.zacks.com",
+      "topics": [
+        {
+          "topic": "Earnings",
+          "relevance_score": "0.938238"
+        },
+        {
+          "topic": "Technology",
+          "relevance_score": "1.0"
+        },
+        {
+          "topic": "Financial Markets",
+          "relevance_score": "0.459462"
+        }
+      ],
+      "overall_sentiment_score": 0.306519,
+      "overall_sentiment_label": "Somewhat-Bullish",
+      "ticker_sentiment": [
+        {
+          "ticker": "LDOS",
+          "relevance_score": "0.360005",
+          "ticker_sentiment_score": "0.20345",
+          "ticker_sentiment_label": "Somewhat-Bullish"
+        }
+      ]
+    },
+    {
+      "title": "Leidos Awarded $476 Mln Contract To Support NASA Cargo Missions",
+      "url": "https://markets.businessinsider.com/news/stocks/leidos-awarded-476-mln-contract-to-support-nasa-cargo-missions-1033546846",
+      "time_published": "20240711T122305",
+      "authors": [
+        "markets.businessinsider.com"
+      ],
+      "summary": "( RTTNews ) - Innovation company Leidos Holdings, Inc. ( LDOS ) said Thursday it was recently awarded a new contract to continue providing cargo mission engineering and integration services for NASA's International Space Station ( ISS ) Program and Artemis campaign.",
+      "banner_image": "https://markets.businessinsider.com/Images/FacebookIcon.jpg",
+      "source": "Business Insider",
+      "category_within_source": "RSS",
+      "source_domain": "markets.businessinsider.com",
+      "topics": [
+        {
+          "topic": "Technology",
+          "relevance_score": "1.0"
+        }
+      ],
+      "overall_sentiment_score": 0.364258,
+      "overall_sentiment_label": "Bullish",
+      "ticker_sentiment": [
+        {
+          "ticker": "LDOS",
+          "relevance_score": "0.917354",
+          "ticker_sentiment_score": "0.591643",
+          "ticker_sentiment_label": "Bullish"
+        }
+      ]
+    },
+    {
+      "title": "Leidos awarded $476 million NASA Cargo Mission Support contract - Leidos Holdings  ( NYSE:LDOS ) ",
+      "url": "https://www.benzinga.com/pressreleases/24/07/n39726948/leidos-awarded-476-million-nasa-cargo-mission-support-contract",
+      "time_published": "20240711T120000",
+      "authors": [
+        "PRNewswire"
+      ],
+      "summary": "RESTON, Va., July 11, 2024 /PRNewswire/ -- Leidos LDOS, a Fortune 500® innovation leader, was recently awarded a new contract to continue providing cargo mission engineering and integration services for NASA's International Space Station ( ISS ) Program and Artemis campaign.",
+      "banner_image": "https://www.benzinga.com/next-assets/images/schema-image-default.png",
+      "source": "Benzinga",
+      "category_within_source": "News",
+      "source_domain": "www.benzinga.com",
+      "topics": [
+        {
+          "topic": "Technology",
+          "relevance_score": "1.0"
+        },
+        {
+          "topic": "Financial Markets",
+          "relevance_score": "0.360215"
+        }
+      ],
+      "overall_sentiment_score": 0.271427,
+      "overall_sentiment_label": "Somewhat-Bullish",
+      "ticker_sentiment": [
+        {
+          "ticker": "LDOS",
+          "relevance_score": "0.80108",
+          "ticker_sentiment_score": "0.426092",
+          "ticker_sentiment_label": "Bullish"
+        }
+      ]
+    },
+    {
+      "title": "How Is The Market Feeling About Leidos Holdings? - Leidos Holdings  ( NYSE:LDOS ) ",
+      "url": "https://www.benzinga.com/insights/short-sellers/24/07/39716748/how-is-the-market-feeling-about-leidos-holdings",
+      "time_published": "20240710T190022",
+      "authors": [
+        "Benzinga Insights"
+      ],
+      "summary": "Leidos Holdings's LDOS short percent of float has fallen 46.19% since its last report. The company recently reported that it has 1.23 million shares sold short, which is 1.2% of all regular shares that are available for trading.",
+      "banner_image": "https://cdn.benzinga.com/files/images/story/2023/movers_image_18.jpeg?width=1200&height=800&fit=crop",
+      "source": "Benzinga",
+      "category_within_source": "Trading",
+      "source_domain": "www.benzinga.com",
+      "topics": [
+        {
+          "topic": "Technology",
+          "relevance_score": "1.0"
+        },
+        {
+          "topic": "Financial Markets",
+          "relevance_score": "0.365926"
+        }
+      ],
+      "overall_sentiment_score": 0.262256,
+      "overall_sentiment_label": "Somewhat-Bullish",
+      "ticker_sentiment": [
+        {
+          "ticker": "LDOS",
+          "relevance_score": "0.404563",
+          "ticker_sentiment_score": "0.238456",
+          "ticker_sentiment_label": "Somewhat-Bullish"
+        }
+      ]
+    },
+    {
+      "title": "LDOS vs. EADSY: Which Stock Should Value Investors Buy Now?",
+      "url": "https://www.zacks.com/stock/news/2298633/ldos-vs-eadsy-which-stock-should-value-investors-buy-now",
+      "time_published": "20240709T154020",
+      "authors": [
+        "Zacks Equity Research"
+      ],
+      "summary": "LDOS vs. EADSY: Which Stock Is the Better Value Option?",
+      "banner_image": "https://staticx-tuner.zacks.com/images/default_article_images/default192.jpg",
+      "source": "Zacks Commentary",
+      "category_within_source": "n/a",
+      "source_domain": "www.zacks.com",
+      "topics": [
+        {
+          "topic": "Earnings",
+          "relevance_score": "0.838487"
+        },
+        {
+          "topic": "Technology",
+          "relevance_score": "1.0"
+        }
+      ],
+      "overall_sentiment_score": 0.507466,
+      "overall_sentiment_label": "Bullish",
+      "ticker_sentiment": [
+        {
+          "ticker": "EADSF",
+          "relevance_score": "0.199037",
+          "ticker_sentiment_score": "0.352369",
+          "ticker_sentiment_label": "Bullish"
+        },
+        {
+          "ticker": "LDOS",
+          "relevance_score": "0.743396",
+          "ticker_sentiment_score": "0.605582",
+          "ticker_sentiment_label": "Bullish"
+        }
+      ]
+    },
+    {
+      "title": "5 Must-Buy High-Flying Non-Tech S&P 500 Stocks for 2H",
+      "url": "https://www.zacks.com/stock/news/2298432/5-must-buy-high-flying-non-tech-sp-500-stocks-for-2h",
+      "time_published": "20240709T123300",
+      "authors": [
+        "Nalak Das"
+      ],
+      "summary": "We have narrowed our search to five S&P 500 non-tech stocks. These stocks are: LDOS, VST, GE, WBA, CEG.",
+      "banner_image": "https://staticx-tuner.zacks.com/images/articles/main/31/330.jpg",
+      "source": "Zacks Commentary",
+      "category_within_source": "n/a",
+      "source_domain": "www.zacks.com",
+      "topics": [
+        {
+          "topic": "Economy - Monetary",
+          "relevance_score": "0.451494"
+        },
+        {
+          "topic": "Financial Markets",
+          "relevance_score": "0.999612"
+        },
+        {
+          "topic": "Manufacturing",
+          "relevance_score": "0.333333"
+        },
+        {
+          "topic": "Earnings",
+          "relevance_score": "1.0"
+        },
+        {
+          "topic": "Energy & Transportation",
+          "relevance_score": "0.333333"
+        },
+        {
+          "topic": "Technology",
+          "relevance_score": "0.333333"
+        }
+      ],
+      "overall_sentiment_score": 0.352983,
+      "overall_sentiment_label": "Bullish",
+      "ticker_sentiment": [
+        {
+          "ticker": "WAB",
+          "relevance_score": "0.202932",
+          "ticker_sentiment_score": "0.341432",
+          "ticker_sentiment_label": "Somewhat-Bullish"
+        },
+        {
+          "ticker": "CEG",
+          "relevance_score": "0.202932",
+          "ticker_sentiment_score": "0.115948",
+          "ticker_sentiment_label": "Neutral"
+        },
+        {
+          "ticker": "VST",
+          "relevance_score": "0.235823",
+          "ticker_sentiment_score": "0.199944",
+          "ticker_sentiment_label": "Somewhat-Bullish"
+        },
+        {
+          "ticker": "LDOS",
+          "relevance_score": "0.235823",
+          "ticker_sentiment_score": "0.473441",
+          "ticker_sentiment_label": "Bullish"
+        }
+      ]
+    },
+    {
+      "title": "Leidos  ( LDOS )  Advances But Underperforms Market: Key Facts",
+      "url": "https://www.zacks.com/stock/news/2298149/leidos-ldos-advances-but-underperforms-market-key-facts",
+      "time_published": "20240708T215022",
+      "authors": [
+        "Zacks Equity Research"
+      ],
+      "summary": "In the closing of the recent trading day, Leidos (LDOS) stood at $145.56, denoting a +0.03% change from the preceding trading day.",
+      "banner_image": "https://staticx-tuner.zacks.com/images/default_article_images/default262.jpg",
+      "source": "Zacks Commentary",
+      "category_within_source": "n/a",
+      "source_domain": "www.zacks.com",
+      "topics": [
+        {
+          "topic": "Earnings",
+          "relevance_score": "0.983783"
+        },
+        {
+          "topic": "Technology",
+          "relevance_score": "1.0"
+        },
+        {
+          "topic": "Financial Markets",
+          "relevance_score": "0.266143"
+        }
+      ],
+      "overall_sentiment_score": 0.217172,
+      "overall_sentiment_label": "Somewhat-Bullish",
+      "ticker_sentiment": [
+        {
+          "ticker": "LDOS",
+          "relevance_score": "0.603594",
+          "ticker_sentiment_score": "0.337275",
+          "ticker_sentiment_label": "Somewhat-Bullish"
+        }
+      ]
+    },
+    {
+      "title": "Why This 1 Value Stock Could Be a Great Addition to Your Portfolio",
+      "url": "https://www.zacks.com/stock/news/2297940/why-this-1-value-stock-could-be-a-great-addition-to-your-portfolio",
+      "time_published": "20240708T164223",
+      "authors": [
+        "Zacks Equity Research"
+      ],
+      "summary": "The Zacks Style Scores offers investors a way to easily find top-rated stocks based on their investing style. Here's why you should take advantage.",
+      "banner_image": "https://staticx-tuner.zacks.com/images/default_article_images/default287.jpg",
+      "source": "Zacks Commentary",
+      "category_within_source": "n/a",
+      "source_domain": "www.zacks.com",
+      "topics": [
+        {
+          "topic": "Earnings",
+          "relevance_score": "0.576289"
+        },
+        {
+          "topic": "Technology",
+          "relevance_score": "1.0"
+        },
+        {
+          "topic": "Financial Markets",
+          "relevance_score": "0.650727"
+        }
+      ],
+      "overall_sentiment_score": 0.417328,
+      "overall_sentiment_label": "Bullish",
+      "ticker_sentiment": [
+        {
+          "ticker": "LDOS",
+          "relevance_score": "0.398148",
+          "ticker_sentiment_score": "0.364949",
+          "ticker_sentiment_label": "Bullish"
+        }
+      ]
+    },
+    {
+      "title": "LDOS or EADSY: Which Is the Better Value Stock Right Now?",
+      "url": "https://www.zacks.com/stock/news/2297833/ldos-or-eadsy-which-is-the-better-value-stock-right-now",
+      "time_published": "20240708T160021",
+      "authors": [
+        "Zacks Equity Research"
+      ],
+      "summary": "LDOS vs. EADSY: Which Stock Is the Better Value Option?",
+      "banner_image": "https://staticx-tuner.zacks.com/images/default_article_images/default290.jpg",
+      "source": "Zacks Commentary",
+      "category_within_source": "n/a",
+      "source_domain": "www.zacks.com",
+      "topics": [
+        {
+          "topic": "Earnings",
+          "relevance_score": "0.838487"
+        },
+        {
+          "topic": "Technology",
+          "relevance_score": "1.0"
+        }
+      ],
+      "overall_sentiment_score": 0.453041,
+      "overall_sentiment_label": "Bullish",
+      "ticker_sentiment": [
+        {
+          "ticker": "EADSF",
+          "relevance_score": "0.206685",
+          "ticker_sentiment_score": "0.284626",
+          "ticker_sentiment_label": "Somewhat-Bullish"
+        },
+        {
+          "ticker": "LDOS",
+          "relevance_score": "0.809819",
+          "ticker_sentiment_score": "0.528306",
+          "ticker_sentiment_label": "Bullish"
+        }
+      ]
+    },
+    {
+      "title": "Boeing  ( BA )  Wins Turkish Airlines' Four 777 Freighters Order",
+      "url": "https://www.zacks.com/stock/news/2297387/boeing-ba-wins-turkish-airlines-four-777-freighters-order",
+      "time_published": "20240705T172100",
+      "authors": [
+        "Zacks Equity Research"
+      ],
+      "summary": "Boeing (BA) has received an order for four 777 Freighters from its repeat customer, Turkish Airlines.",
+      "banner_image": "https://staticx-tuner.zacks.com/images/articles/main/06/2358.jpg",
+      "source": "Zacks Commentary",
+      "category_within_source": "n/a",
+      "source_domain": "www.zacks.com",
+      "topics": [
+        {
+          "topic": "Financial Markets",
+          "relevance_score": "0.108179"
+        },
+        {
+          "topic": "Manufacturing",
+          "relevance_score": "0.5"
+        },
+        {
+          "topic": "Earnings",
+          "relevance_score": "0.576289"
+        },
+        {
+          "topic": "Technology",
+          "relevance_score": "0.5"
+        }
+      ],
+      "overall_sentiment_score": 0.223473,
+      "overall_sentiment_label": "Somewhat-Bullish",
+      "ticker_sentiment": [
+        {
+          "ticker": "EADSF",
+          "relevance_score": "0.201523",
+          "ticker_sentiment_score": "0.135239",
+          "ticker_sentiment_label": "Neutral"
+        },
+        {
+          "ticker": "BA",
+          "relevance_score": "0.628473",
+          "ticker_sentiment_score": "0.315611",
+          "ticker_sentiment_label": "Somewhat-Bullish"
+        },
+        {
+          "ticker": "LDOS",
+          "relevance_score": "0.298264",
+          "ticker_sentiment_score": "0.226152",
+          "ticker_sentiment_label": "Somewhat-Bullish"
+        }
+      ]
+    },
+    {
+      "title": "Reasons to Add Leonardo DRS  ( DRS )  Stock to Your Portfolio Now",
+      "url": "https://www.zacks.com/stock/news/2296835/reasons-to-add-leonardo-drs-drs-stock-to-your-portfolio-now",
+      "time_published": "20240704T120300",
+      "authors": [
+        "Zacks Equity Research"
+      ],
+      "summary": "Leonardo DRS (DRS) makes a strong case for investment in the aerospace sector, given its growth prospects, low debt and rising backlog.",
+      "banner_image": "https://staticx-tuner.zacks.com/images/articles/main/25/21112.jpg",
+      "source": "Zacks Commentary",
+      "category_within_source": "n/a",
+      "source_domain": "www.zacks.com",
+      "topics": [
+        {
+          "topic": "Financial Markets",
+          "relevance_score": "0.161647"
+        },
+        {
+          "topic": "Manufacturing",
+          "relevance_score": "0.5"
+        },
+        {
+          "topic": "Earnings",
+          "relevance_score": "0.986413"
+        },
+        {
+          "topic": "Technology",
+          "relevance_score": "0.5"
+        }
+      ],
+      "overall_sentiment_score": 0.289975,
+      "overall_sentiment_label": "Somewhat-Bullish",
+      "ticker_sentiment": [
+        {
+          "ticker": "AIR",
+          "relevance_score": "0.268786",
+          "ticker_sentiment_score": "0.13338",
+          "ticker_sentiment_label": "Neutral"
+        },
+        {
+          "ticker": "DRS",
+          "relevance_score": "0.640349",
+          "ticker_sentiment_score": "0.451376",
+          "ticker_sentiment_label": "Bullish"
+        },
+        {
+          "ticker": "HEI",
+          "relevance_score": "0.181137",
+          "ticker_sentiment_score": "0.104346",
+          "ticker_sentiment_label": "Neutral"
+        },
+        {
+          "ticker": "LDOS",
+          "relevance_score": "0.353059",
+          "ticker_sentiment_score": "0.201195",
+          "ticker_sentiment_label": "Somewhat-Bullish"
+        }
+      ]
+    },
+    {
+      "title": "PSTG: 3 High-Growth Tech Stocks Defying Market Volatility",
+      "url": "https://stocknews.com/news/pstg-ldos-nabl-3-high-growth-tech-stocks-defying-market-volatility/",
+      "time_published": "20240703T180434",
+      "authors": [
+        "StockNews.com Staff"
+      ],
+      "summary": "Digital technology is transforming enterprises and their operations with evolving technologies like generative AI. Also, cloud-based software and rising demand for automated business processes are prompting new innovations for efficient operations.",
+      "banner_image": "https://stocknews.com/wp-content/uploads/2024/04/Rajkumari-Saxena_Image-1.jpeg",
+      "source": "Stocknews.com",
+      "category_within_source": "n/a",
+      "source_domain": "stocknews.com",
+      "topics": [
+        {
+          "topic": "Earnings",
+          "relevance_score": "1.0"
+        },
+        {
+          "topic": "Technology",
+          "relevance_score": "1.0"
+        },
+        {
+          "topic": "Financial Markets",
+          "relevance_score": "0.5855"
+        }
+      ],
+      "overall_sentiment_score": 0.340676,
+      "overall_sentiment_label": "Somewhat-Bullish",
+      "ticker_sentiment": [
+        {
+          "ticker": "DTST",
+          "relevance_score": "0.07423",
+          "ticker_sentiment_score": "0.205653",
+          "ticker_sentiment_label": "Somewhat-Bullish"
+        },
+        {
+          "ticker": "NABL",
+          "relevance_score": "0.220141",
+          "ticker_sentiment_score": "0.233799",
+          "ticker_sentiment_label": "Somewhat-Bullish"
+        },
+        {
+          "ticker": "PSTG",
+          "relevance_score": "0.243864",
+          "ticker_sentiment_score": "0.315205",
+          "ticker_sentiment_label": "Somewhat-Bullish"
+        },
+        {
+          "ticker": "LDOS",
+          "relevance_score": "0.358669",
+          "ticker_sentiment_score": "0.386784",
+          "ticker_sentiment_label": "Bullish"
+        }
+      ]
+    },
+    {
+      "title": "4 Top Earnings Growth Stocks to Buy: RMD, BMI, LDOS, IR",
+      "url": "https://www.zacks.com/stock/news/2296377/4-top-earnings-growth-stocks-to-buy-rmd-bmi-ldos-ir",
+      "time_published": "20240702T184500",
+      "authors": [
+        "Tirthankar Chakraborty"
+      ],
+      "summary": "Stocks such as ResMed (RMD), Badger Meter (BMI), Leidos (LDOS) and Ingersoll Rand (IR) are currently exhibiting superb earnings growth.",
+      "banner_image": "https://staticx-tuner.zacks.com/images/articles/main/48/59324.jpg",
+      "source": "Zacks Commentary",
+      "category_within_source": "n/a",
+      "source_domain": "www.zacks.com",
+      "topics": [
+        {
+          "topic": "Life Sciences",
+          "relevance_score": "0.333333"
+        },
+        {
+          "topic": "Retail & Wholesale",
+          "relevance_score": "0.333333"
+        },
+        {
+          "topic": "Financial Markets",
+          "relevance_score": "0.365926"
+        },
+        {
+          "topic": "Earnings",
+          "relevance_score": "1.0"
+        },
+        {
+          "topic": "Technology",
+          "relevance_score": "0.333333"
+        }
+      ],
+      "overall_sentiment_score": 0.323185,
+      "overall_sentiment_label": "Somewhat-Bullish",
+      "ticker_sentiment": [
+        {
+          "ticker": "GIC",
+          "relevance_score": "0.049322",
+          "ticker_sentiment_score": "0.109134",
+          "ticker_sentiment_label": "Neutral"
+        },
+        {
+          "ticker": "RMD",
+          "relevance_score": "0.195419",
+          "ticker_sentiment_score": "0.186755",
+          "ticker_sentiment_label": "Somewhat-Bullish"
+        },
+        {
+          "ticker": "IR",
+          "relevance_score": "0.147216",
+          "ticker_sentiment_score": "0.178532",
+          "ticker_sentiment_label": "Somewhat-Bullish"
+        },
+        {
+          "ticker": "BMI",
+          "relevance_score": "0.147216",
+          "ticker_sentiment_score": "0.168434",
+          "ticker_sentiment_label": "Somewhat-Bullish"
+        },
+        {
+          "ticker": "BNXYF",
+          "relevance_score": "0.049322",
+          "ticker_sentiment_score": "0.187094",
+          "ticker_sentiment_label": "Somewhat-Bullish"
+        },
+        {
+          "ticker": "LDOS",
+          "relevance_score": "0.195419",
+          "ticker_sentiment_score": "0.257403",
+          "ticker_sentiment_label": "Somewhat-Bullish"
+        }
+      ]
+    },
+    {
+      "title": "4 Stocks That Boast Remarkable Interest Coverage Ratio",
+      "url": "https://www.zacks.com/stock/news/2296221/4-stocks-that-boast-remarkable-interest-coverage-ratio",
+      "time_published": "20240702T150300",
+      "authors": [
+        "Sumit Singh"
+      ],
+      "summary": "A company capable of generating earnings well above its interest expense can withstand financial hardship. THC, LDOS, ATO and CBT are sound enough to meet financial obligations.",
+      "banner_image": "https://staticx-tuner.zacks.com/images/articles/main/0c/364.jpg",
+      "source": "Zacks Commentary",
+      "category_within_source": "n/a",
+      "source_domain": "www.zacks.com",
+      "topics": [
+        {
+          "topic": "Life Sciences",
+          "relevance_score": "0.333333"
+        },
+        {
+          "topic": "Financial Markets",
+          "relevance_score": "0.99977"
+        },
+        {
+          "topic": "Earnings",
+          "relevance_score": "0.999966"
+        },
+        {
+          "topic": "Energy & Transportation",
+          "relevance_score": "0.333333"
+        },
+        {
+          "topic": "Technology",
+          "relevance_score": "0.333333"
+        }
+      ],
+      "overall_sentiment_score": 0.376854,
+      "overall_sentiment_label": "Bullish",
+      "ticker_sentiment": [
+        {
+          "ticker": "ATO",
+          "relevance_score": "0.159834",
+          "ticker_sentiment_score": "0.219296",
+          "ticker_sentiment_label": "Somewhat-Bullish"
+        },
+        {
+          "ticker": "CBT",
+          "relevance_score": "0.159834",
+          "ticker_sentiment_score": "0.206164",
+          "ticker_sentiment_label": "Somewhat-Bullish"
+        },
+        {
+          "ticker": "HCSG",
+          "relevance_score": "0.040212",
+          "ticker_sentiment_score": "0.053402",
+          "ticker_sentiment_label": "Neutral"
+        },
+        {
+          "ticker": "THC",
+          "relevance_score": "0.159834",
+          "ticker_sentiment_score": "0.189457",
+          "ticker_sentiment_label": "Somewhat-Bullish"
+        },
+        {
+          "ticker": "BNXYF",
+          "relevance_score": "0.040212",
+          "ticker_sentiment_score": "0.184085",
+          "ticker_sentiment_label": "Somewhat-Bullish"
+        },
+        {
+          "ticker": "LDOS",
+          "relevance_score": "0.199037",
+          "ticker_sentiment_score": "0.304792",
+          "ticker_sentiment_label": "Somewhat-Bullish"
+        }
+      ]
+    },
+    {
+      "title": "5 Dividend Stocks to Pick for Solid Growth in the Second Half",
+      "url": "https://www.zacks.com/stock/news/2295454/5-dividend-stocks-to-pick-for-solid-growth-in-the-second-half",
+      "time_published": "20240701T124900",
+      "authors": [
+        "Sweta Killa"
+      ],
+      "summary": "Leidos Holdings (LDOS), Cabot (CBT), Williams-Sonoma. (WSM), Booz Allen Hamilton (BAH) and Brady (BRC) could be compelling picks heading into the second half of the year.",
+      "banner_image": "https://staticx-tuner.zacks.com/images/default_article_images/default241.jpg",
+      "source": "Zacks Commentary",
+      "category_within_source": "n/a",
+      "source_domain": "www.zacks.com",
+      "topics": [
+        {
+          "topic": "Life Sciences",
+          "relevance_score": "0.25"
+        },
+        {
+          "topic": "Technology",
+          "relevance_score": "0.25"
+        },
+        {
+          "topic": "Economy - Monetary",
+          "relevance_score": "0.158519"
+        },
+        {
+          "topic": "Retail & Wholesale",
+          "relevance_score": "0.25"
+        },
+        {
+          "topic": "Financial Markets",
+          "relevance_score": "0.998962"
+        },
+        {
+          "topic": "Manufacturing",
+          "relevance_score": "0.25"
+        },
+        {
+          "topic": "Earnings",
+          "relevance_score": "0.999998"
+        }
+      ],
+      "overall_sentiment_score": 0.426383,
+      "overall_sentiment_label": "Bullish",
+      "ticker_sentiment": [
+        {
+          "ticker": "WSM",
+          "relevance_score": "0.137671",
+          "ticker_sentiment_score": "0.122549",
+          "ticker_sentiment_label": "Neutral"
+        },
+        {
+          "ticker": "BAH",
+          "relevance_score": "0.103479",
+          "ticker_sentiment_score": "0.122206",
+          "ticker_sentiment_label": "Neutral"
+        },
+        {
+          "ticker": "BRC",
+          "relevance_score": "0.137671",
+          "ticker_sentiment_score": "0.204658",
+          "ticker_sentiment_label": "Somewhat-Bullish"
+        },
+        {
+          "ticker": "CBT",
+          "relevance_score": "0.171607",
+          "ticker_sentiment_score": "0.157472",
+          "ticker_sentiment_label": "Somewhat-Bullish"
+        },
+        {
+          "ticker": "BNXYF",
+          "relevance_score": "0.03458",
+          "ticker_sentiment_score": "0.126195",
+          "ticker_sentiment_label": "Neutral"
+        },
+        {
+          "ticker": "LDOS",
+          "relevance_score": "0.137671",
+          "ticker_sentiment_score": "0.129655",
+          "ticker_sentiment_label": "Neutral"
+        }
+      ]
+    },
+    {
+      "title": "Smart Baggage Handling Solutions Market size is set to grow by USD 5.04 billion from 2024-2028, Growing need for ... - PR Newswire",
+      "url": "https://www.prnewswire.com/news-releases/smart-baggage-handling-solutions-market-size-is-set-to-grow-by-usd-5-04-billion-from-2024-2028--growing-need-for-efficient-baggage-operations-at-airports-and-railways-to-boost-the-market-growth-technavio-302184899.html",
+      "time_published": "20240628T210500",
+      "authors": [],
+      "summary": "Smart Baggage Handling Solutions Market size is set to grow by USD 5.04 billion from 2024-2028, Growing need for ... PR ...",
+      "banner_image": null,
+      "source": "PR Newswire",
+      "category_within_source": "n/a",
+      "source_domain": "www.prnewswire.com",
+      "topics": [
+        {
+          "topic": "Retail & Wholesale",
+          "relevance_score": "0.333333"
+        },
+        {
+          "topic": "Technology",
+          "relevance_score": "0.333333"
+        },
+        {
+          "topic": "Manufacturing",
+          "relevance_score": "0.333333"
+        }
+      ],
+      "overall_sentiment_score": 0.401243,
+      "overall_sentiment_label": "Bullish",
+      "ticker_sentiment": [
+        {
+          "ticker": "AMADF",
+          "relevance_score": "0.03468",
+          "ticker_sentiment_score": "0.138943",
+          "ticker_sentiment_label": "Neutral"
+        },
+        {
+          "ticker": "DFKCY",
+          "relevance_score": "0.03468",
+          "ticker_sentiment_score": "0.138943",
+          "ticker_sentiment_label": "Neutral"
+        },
+        {
+          "ticker": "GIC",
+          "relevance_score": "0.03468",
+          "ticker_sentiment_score": "0.0",
+          "ticker_sentiment_label": "Neutral"
+        },
+        {
+          "ticker": "SMAWF",
+          "relevance_score": "0.03468",
+          "ticker_sentiment_score": "0.138943",
+          "ticker_sentiment_label": "Neutral"
+        },
+        {
+          "ticker": "RTX",
+          "relevance_score": "0.03468",
+          "ticker_sentiment_score": "0.138943",
+          "ticker_sentiment_label": "Neutral"
+        },
+        {
+          "ticker": "INFY",
+          "relevance_score": "0.03468",
+          "ticker_sentiment_score": "0.138943",
+          "ticker_sentiment_label": "Neutral"
+        },
+        {
+          "ticker": "SBGSF",
+          "relevance_score": "0.03468",
+          "ticker_sentiment_score": "0.138943",
+          "ticker_sentiment_label": "Neutral"
+        },
+        {
+          "ticker": "LDOS",
+          "relevance_score": "0.03468",
+          "ticker_sentiment_score": "0.138943",
+          "ticker_sentiment_label": "Neutral"
+        }
+      ]
+    },
+    {
+      "title": "Leidos and America's Car-Mart have been highlighted as Zacks Bull and Bear of the Day",
+      "url": "https://www.zacks.com/stock/news/2294820/leidos-and-americas-car-mart-have-been-highlighted-as-zacks-bull-and-bear-of-the-day",
+      "time_published": "20240628T123900",
+      "authors": [
+        "Zacks Equity Research"
+      ],
+      "summary": "Chicago, IL - June 28, 2024 - Zacks Equity Research shares Leidos Holdings ( LDOS Quick QuoteLDOS - ) as the Bull of the Day and America's Car-Mart ( CRMT Quick QuoteCRMT - ) as the Bear of the Day.",
+      "banner_image": "https://staticx-tuner.zacks.com/images/articles/main/f1/152.jpg",
+      "source": "Zacks Commentary",
+      "category_within_source": "n/a",
+      "source_domain": "www.zacks.com",
+      "topics": [
+        {
+          "topic": "Retail & Wholesale",
+          "relevance_score": "0.333333"
+        },
+        {
+          "topic": "Financial Markets",
+          "relevance_score": "1.0"
+        },
+        {
+          "topic": "Earnings",
+          "relevance_score": "1.0"
+        },
+        {
+          "topic": "Energy & Transportation",
+          "relevance_score": "0.333333"
+        },
+        {
+          "topic": "Technology",
+          "relevance_score": "0.333333"
+        }
+      ],
+      "overall_sentiment_score": 0.262011,
+      "overall_sentiment_label": "Somewhat-Bullish",
+      "ticker_sentiment": [
+        {
+          "ticker": "CRMT",
+          "relevance_score": "0.305944",
+          "ticker_sentiment_score": "0.0",
+          "ticker_sentiment_label": "Neutral"
+        },
+        {
+          "ticker": "OXY",
+          "relevance_score": "0.166169",
+          "ticker_sentiment_score": "0.126057",
+          "ticker_sentiment_label": "Neutral"
+        },
+        {
+          "ticker": "CVX",
+          "relevance_score": "0.145646",
+          "ticker_sentiment_score": "0.231485",
+          "ticker_sentiment_label": "Somewhat-Bullish"
+        },
+        {
+          "ticker": "LDOS",
+          "relevance_score": "0.28648",
+          "ticker_sentiment_score": "0.355283",
+          "ticker_sentiment_label": "Bullish"
+        }
+      ]
+    },
+    {
+      "title": "4 Stocks Trading Near 52-Week High That Can Climb Further",
+      "url": "https://www.zacks.com/stock/news/2294807/4-stocks-trading-near-52-week-high-that-can-climb-further",
+      "time_published": "20240628T123200",
+      "authors": [
+        "Vasundhara Sawalka"
+      ],
+      "summary": "Investors target stocks that have been on a bullish run lately. Stocks like AMKR, THC, LDOS and MMS that are seeing price strength have a high chance of carrying the momentum forward.",
+      "banner_image": "https://staticx-tuner.zacks.com/images/articles/main/23/766.jpg",
+      "source": "Zacks Commentary",
+      "category_within_source": "n/a",
+      "source_domain": "www.zacks.com",
+      "topics": [
+        {
+          "topic": "Life Sciences",
+          "relevance_score": "0.333333"
+        },
+        {
+          "topic": "Financial Markets",
+          "relevance_score": "0.99977"
+        },
+        {
+          "topic": "Manufacturing",
+          "relevance_score": "0.333333"
+        },
+        {
+          "topic": "Earnings",
+          "relevance_score": "0.999858"
+        },
+        {
+          "topic": "Technology",
+          "relevance_score": "0.333333"
+        }
+      ],
+      "overall_sentiment_score": 0.325834,
+      "overall_sentiment_label": "Somewhat-Bullish",
+      "ticker_sentiment": [
+        {
+          "ticker": "MMS",
+          "relevance_score": "0.168884",
+          "ticker_sentiment_score": "0.273539",
+          "ticker_sentiment_label": "Somewhat-Bullish"
+        },
+        {
+          "ticker": "AMKR",
+          "relevance_score": "0.084922",
+          "ticker_sentiment_score": "-0.032039",
+          "ticker_sentiment_label": "Neutral"
+        },
+        {
+          "ticker": "HCSG",
+          "relevance_score": "0.056674",
+          "ticker_sentiment_score": "0.236",
+          "ticker_sentiment_label": "Somewhat-Bullish"
+        },
+        {
+          "ticker": "THC",
+          "relevance_score": "0.113062",
+          "ticker_sentiment_score": "0.131781",
+          "ticker_sentiment_label": "Neutral"
+        },
+        {
+          "ticker": "BNXYF",
+          "relevance_score": "0.028355",
+          "ticker_sentiment_score": "0.170207",
+          "ticker_sentiment_label": "Somewhat-Bullish"
+        },
+        {
+          "ticker": "LDOS",
+          "relevance_score": "0.141061",
+          "ticker_sentiment_score": "0.153816",
+          "ticker_sentiment_label": "Somewhat-Bullish"
+        }
+      ]
+    },
+    {
+      "title": "Bull of the Day: Leidos Holdings  ( LDOS ) ",
+      "url": "https://www.zacks.com/commentary/2294598/bull-of-the-day-leidos-holdings-ldos",
+      "time_published": "20240628T100000",
+      "authors": [
+        "Bryan Hayes"
+      ],
+      "summary": "Increased contract wins for Leidos from the Pentagon and other U.S. allies have been a primary growth driver.",
+      "banner_image": "https://staticx-tuner.zacks.com/images/default_article_images/default297.jpg",
+      "source": "Zacks Commentary",
+      "category_within_source": "n/a",
+      "source_domain": "www.zacks.com",
+      "topics": [
+        {
+          "topic": "Earnings",
+          "relevance_score": "0.986413"
+        },
+        {
+          "topic": "Technology",
+          "relevance_score": "1.0"
+        },
+        {
+          "topic": "Financial Markets",
+          "relevance_score": "0.999365"
+        }
+      ],
+      "overall_sentiment_score": 0.424178,
+      "overall_sentiment_label": "Bullish",
+      "ticker_sentiment": [
+        {
+          "ticker": "LDOS",
+          "relevance_score": "0.638941",
+          "ticker_sentiment_score": "0.592642",
+          "ticker_sentiment_label": "Bullish"
+        }
+      ]
+    },
+    {
+      "title": "NASA Awards Contract for Cargo Mission Support",
+      "url": "https://www.benzinga.com/pressreleases/24/06/n39537308/nasa-awards-contract-for-cargo-mission-support",
+      "time_published": "20240627T205100",
+      "authors": [
+        "PRNewswire"
+      ],
+      "summary": "WASHINGTON, June 27, 2024 /PRNewswire/ -- NASA has awarded a contract to Leidos, Inc. of Reston, Virginia, to provide mission support for the agency's International Space Station Program, Artemis campaign, and more.",
+      "banner_image": "https://www.benzinga.com/next-assets/images/schema-image-default.png",
+      "source": "Benzinga",
+      "category_within_source": "News",
+      "source_domain": "www.benzinga.com",
+      "topics": [
+        {
+          "topic": "Technology",
+          "relevance_score": "1.0"
+        }
+      ],
+      "overall_sentiment_score": 0.310207,
+      "overall_sentiment_label": "Somewhat-Bullish",
+      "ticker_sentiment": [
+        {
+          "ticker": "LDOS",
+          "relevance_score": "0.633079",
+          "ticker_sentiment_score": "0.439361",
+          "ticker_sentiment_label": "Bullish"
+        }
+      ]
+    },
+    {
+      "title": "CACI International  ( CACI )  Wins $2B NASA IT Support Services Deal",
+      "url": "https://www.zacks.com/stock/news/2294423/caci-international-caci-wins-2b-nasa-it-support-services-deal",
+      "time_published": "20240627T144800",
+      "authors": [
+        "Zacks Equity Research"
+      ],
+      "summary": "CACI International (CACI) secures an eight-year task order worth $2 billion to provide digital solutions for NASA.",
+      "banner_image": "https://staticx-tuner.zacks.com/images/articles/main/64/662.jpg",
+      "source": "Zacks Commentary",
+      "category_within_source": "n/a",
+      "source_domain": "www.zacks.com",
+      "topics": [
+        {
+          "topic": "Earnings",
+          "relevance_score": "0.928769"
+        },
+        {
+          "topic": "Technology",
+          "relevance_score": "1.0"
+        },
+        {
+          "topic": "Financial Markets",
+          "relevance_score": "0.214378"
+        }
+      ],
+      "overall_sentiment_score": 0.524236,
+      "overall_sentiment_label": "Bullish",
+      "ticker_sentiment": [
+        {
+          "ticker": "BAH",
+          "relevance_score": "0.168099",
+          "ticker_sentiment_score": "0.278091",
+          "ticker_sentiment_label": "Somewhat-Bullish"
+        },
+        {
+          "ticker": "CACI",
+          "relevance_score": "0.520773",
+          "ticker_sentiment_score": "0.683751",
+          "ticker_sentiment_label": "Bullish"
+        },
+        {
+          "ticker": "SAIC",
+          "relevance_score": "0.168099",
+          "ticker_sentiment_score": "0.278091",
+          "ticker_sentiment_label": "Somewhat-Bullish"
+        },
+        {
+          "ticker": "LDOS",
+          "relevance_score": "0.168099",
+          "ticker_sentiment_score": "0.278091",
+          "ticker_sentiment_label": "Somewhat-Bullish"
+        }
+      ]
+    },
+    {
+      "title": "Is Heico  ( HEI )  Stock Outpacing Its Aerospace Peers This Year?",
+      "url": "https://www.zacks.com/stock/news/2293615/is-heico-hei-stock-outpacing-its-aerospace-peers-this-year",
+      "time_published": "20240626T134010",
+      "authors": [
+        "Zacks Equity Research"
+      ],
+      "summary": "Here is how Heico Corporation (HEI) and Leidos (LDOS) have performed compared to their sector so far this year.",
+      "banner_image": "https://staticx-tuner.zacks.com/images/default_article_images/default186.jpg",
+      "source": "Zacks Commentary",
+      "category_within_source": "n/a",
+      "source_domain": "www.zacks.com",
+      "topics": [
+        {
+          "topic": "Financial Markets",
+          "relevance_score": "0.214378"
+        },
+        {
+          "topic": "Manufacturing",
+          "relevance_score": "0.5"
+        },
+        {
+          "topic": "Earnings",
+          "relevance_score": "0.614606"
+        },
+        {
+          "topic": "Technology",
+          "relevance_score": "0.5"
+        }
+      ],
+      "overall_sentiment_score": 0.271985,
+      "overall_sentiment_label": "Somewhat-Bullish",
+      "ticker_sentiment": [
+        {
+          "ticker": "HEI",
+          "relevance_score": "0.765728",
+          "ticker_sentiment_score": "0.396905",
+          "ticker_sentiment_label": "Bullish"
+        },
+        {
+          "ticker": "LDOS",
+          "relevance_score": "0.491255",
+          "ticker_sentiment_score": "0.455199",
+          "ticker_sentiment_label": "Bullish"
+        }
+      ]
+    },
+    {
+      "title": "Should You Buy Stocks at All Time Highs?",
+      "url": "https://www.zacks.com/commentary/2293146/should-you-buy-stocks-at-all-time-highs",
+      "time_published": "20240625T192000",
+      "authors": [
+        "Derek Lewis"
+      ],
+      "summary": "Stocks making new highs tend to make even higher highs, particularly when analysts' positive earnings estimate revisions are rolling in.",
+      "banner_image": "https://staticx-tuner.zacks.com/images/articles/main/6e/56964.jpg",
+      "source": "Zacks Commentary",
+      "category_within_source": "n/a",
+      "source_domain": "www.zacks.com",
+      "topics": [
+        {
+          "topic": "Financial Markets",
+          "relevance_score": "0.796627"
+        },
+        {
+          "topic": "Manufacturing",
+          "relevance_score": "0.333333"
+        },
+        {
+          "topic": "Earnings",
+          "relevance_score": "0.983783"
+        },
+        {
+          "topic": "Energy & Transportation",
+          "relevance_score": "0.333333"
+        },
+        {
+          "topic": "Technology",
+          "relevance_score": "0.333333"
+        }
+      ],
+      "overall_sentiment_score": 0.421652,
+      "overall_sentiment_label": "Bullish",
+      "ticker_sentiment": [
+        {
+          "ticker": "RCL",
+          "relevance_score": "0.318211",
+          "ticker_sentiment_score": "0.38911",
+          "ticker_sentiment_label": "Bullish"
+        },
+        {
+          "ticker": "LDOS",
+          "relevance_score": "0.367606",
+          "ticker_sentiment_score": "0.460295",
+          "ticker_sentiment_label": "Bullish"
+        },
+        {
+          "ticker": "VITL",
+          "relevance_score": "0.318211",
+          "ticker_sentiment_score": "0.303809",
+          "ticker_sentiment_label": "Somewhat-Bullish"
+        }
+      ]
+    },
+    {
+      "title": "Leidos  ( LDOS )  is an Incredible Growth Stock: 3 Reasons Why",
+      "url": "https://www.zacks.com/stock/news/2293110/leidos-ldos-is-an-incredible-growth-stock-3-reasons-why",
+      "time_published": "20240625T164506",
+      "authors": [
+        "Zacks Equity Research"
+      ],
+      "summary": "Leidos (LDOS) is well positioned to outperform the market, as it exhibits above-average growth in financials.",
+      "banner_image": "https://staticx-tuner.zacks.com/images/default_article_images/default122.jpg",
+      "source": "Zacks Commentary",
+      "category_within_source": "n/a",
+      "source_domain": "www.zacks.com",
+      "topics": [
+        {
+          "topic": "Earnings",
+          "relevance_score": "0.983783"
+        },
+        {
+          "topic": "Technology",
+          "relevance_score": "1.0"
+        },
+        {
+          "topic": "Financial Markets",
+          "relevance_score": "0.365926"
+        }
+      ],
+      "overall_sentiment_score": 0.466575,
+      "overall_sentiment_label": "Bullish",
+      "ticker_sentiment": [
+        {
+          "ticker": "LDOS",
+          "relevance_score": "0.50746",
+          "ticker_sentiment_score": "0.370684",
+          "ticker_sentiment_label": "Bullish"
+        }
+      ]
+    },
+    {
+      "title": "Wall Street Bulls Look Optimistic About Leidos  ( LDOS ) : Should You Buy?",
+      "url": "https://www.zacks.com/stock/news/2292815/wall-street-bulls-look-optimistic-about-leidos-ldos-should-you-buy",
+      "time_published": "20240625T133011",
+      "authors": [
+        "Zacks Equity Research"
+      ],
+      "summary": "According to the average brokerage recommendation (ABR), one should invest in Leidos (LDOS). It is debatable whether this highly sought-after metric is effective because Wall Street analysts' recommendations tend to be overly optimistic. Would it be worth investing in the stock?",
+      "banner_image": "https://staticx-tuner.zacks.com/images/yesopchart/brokerage_bar/LDOS_06252024.png",
+      "source": "Zacks Commentary",
+      "category_within_source": "n/a",
+      "source_domain": "www.zacks.com",
+      "topics": [
+        {
+          "topic": "Earnings",
+          "relevance_score": "0.938238"
+        },
+        {
+          "topic": "Technology",
+          "relevance_score": "1.0"
+        },
+        {
+          "topic": "Financial Markets",
+          "relevance_score": "0.503496"
+        }
+      ],
+      "overall_sentiment_score": 0.308736,
+      "overall_sentiment_label": "Somewhat-Bullish",
+      "ticker_sentiment": [
+        {
+          "ticker": "LDOS",
+          "relevance_score": "0.363768",
+          "ticker_sentiment_score": "0.261367",
+          "ticker_sentiment_label": "Somewhat-Bullish"
+        }
+      ]
+    }
+  ]
+}

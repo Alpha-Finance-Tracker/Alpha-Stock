@@ -1,0 +1,1 @@
+[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='```json\n["BA", "CSCO", "CTSH", "EMR", "GD", "IBM", "IR", "LHX", "MANT", "NOC", "RTX", "SAIC", "SAP", "SPLK", "TYL", "VRSK", "WIX", "ZBRA", "AAPL", "MSFT"]\n```', role='assistant', function_call=None, tool_calls=None, refusal=None))]

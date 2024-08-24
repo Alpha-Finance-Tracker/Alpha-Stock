@@ -1,0 +1,14 @@
+openai
+mysqlclient==2.2.4
+mysql-connector-python==8.4.0
+fastapi
+python-dotenv
+uvicorn
+yfinance
+alpha_vantage
+requests
+pandas
+scikit-learn
+matplotlib
+pillow
+python-jose
