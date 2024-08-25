@@ -5,7 +5,7 @@ fastapi
 python-dotenv
 uvicorn
 yfinance
-alpha_vantage
+alpha-vantage
 requests
 pandas
 scikit-learn
