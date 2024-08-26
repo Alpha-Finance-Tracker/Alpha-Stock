@@ -3,6 +3,12 @@ from abc import ABC, abstractmethod
 
 class FinancialStatement(ABC):
     @abstractmethod
-    def read(self):
+    def info(self):
         raise NotImplementedError
+
+    @abstractmethod
+    def update(self):
+        raise NotImplementedError
+
+
 

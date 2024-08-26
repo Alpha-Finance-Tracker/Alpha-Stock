@@ -87,10 +87,10 @@ class AlphaStock:
     @property
     def roe(self):
         try:
-
             self.balance_sheet['shareholdersEquity'] = (
                     pd.to_numeric(self.balance_sheet['totalAssets'], errors='coerce') - pd.to_numeric(
                 self.balance_sheet['totalLiabilities'], errors='coerce'))
+
             self.balance_sheet['roe'] = (
                     pd.to_numeric(self.income_statement['netIncome'], errors='coerce') - self.balance_sheet[
                 'shareholdersEquity'])

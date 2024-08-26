@@ -3,82 +3,97 @@ from app.data.database import insert_query, read_query
 
 async def send_parameters_towards_the_database(revenue, net_income, eps, roe,
                                                net_profit_margin, debt_level, cash_flows, symbol):
-    check_for_existence = read_query('SELECT year, symbol FROM company WHERE symbol = %s', (symbol,))
-    if len(check_for_existence) >= 13:
-        return
+
+
+
+    initiate_years(revenue, symbol)  # turn this only for new stocks
+    revenue_db_update(revenue, symbol)
+    net_income_db_update(net_income, symbol)
+    eps_db_update(eps, symbol)
+    roe_db_update(roe, symbol)
+    net_profit_margin_db_update(net_profit_margin, symbol)
+    debt_level_db_update(debt_level, symbol)
+    cash_flows_db_update(cash_flows, symbol)
+
+
+
+def check_existing_years(symbol):
+    existing_years = read_query('SELECT year FROM company WHERE symbol = %s', (symbol,))
+
+    if existing_years:
+        return set(x[0] for x in existing_years)
     else:
-        initiate_years(revenue, symbol)  # turn this only for new stocks
-        revenue_db_update(revenue, symbol)
-        net_income_db_update(net_income, symbol)
-        eps_db_update(eps, symbol)
-        roe_db_update(roe, symbol)
-        # net_profit_margin_db_update(net_profit_margin, symbol)
-        # debt_level_db_update(debt_level, symbol)
-        # cash_flows_db_update(cash_flows, symbol)
+        return {}
+
+
 
 
 def initiate_years(years, symbol):
     try:
+        existing_years = check_existing_years(symbol)
+
         for x in years['fiscalDateEnding']:
-            insert_query('INSERT INTO company(symbol, year) values (%s, %s)', (symbol, x))
+            if x not in existing_years:
+                insert_query('INSERT INTO company(symbol, year) values (%s, %s)', (symbol, x))
     except Exception as e:
         print(f"Error with initiate_years: {e}")
 
 
 def eps_db_update(eps, symbol):
-    try:
         for x, y in zip(eps['reportedEPS'], eps['fiscalDateEnding']):
-            insert_query('UPDATE company SET eps = %s WHERE year = %s AND symbol = %s', (float(x), y, symbol))
-    except Exception as e:
-        print(f"Error with eps_db_update: {e}")
+            try:
+                insert_query('UPDATE company SET eps = %s WHERE year = %s AND symbol = %s', (float(x), y, symbol))
+            except Exception as e:
+                print(f"Error with eps_db_update: {e}")
 
 
 def revenue_db_update(revenue, symbol):
-    try:
         for x, y in zip(revenue['growth_rate'], revenue['fiscalDateEnding']):
-            insert_query('UPDATE company SET revenue = %s WHERE year = %s AND symbol = %s', (x, y, symbol))
-    except Exception as e:
-        print(f"Error with revenue_db_update: {e}")
+            try:
+                insert_query('UPDATE company SET revenue_growth = %s WHERE year = %s AND symbol = %s', (x, y, symbol))
+            except Exception as e:
+                print(f"Error with revenue_db_update: {e}")
 
 
 def net_income_db_update(net_income, symbol):
-    try:
         for x, y in zip(net_income['netIncome'], net_income['fiscalDateEnding']):
-            insert_query('UPDATE company SET net_income = %s WHERE year = %s AND symbol = %s', (int(x), y, symbol))
-    except Exception as e:
-        print(f"Error with net_income_db_update: {e}")
+            try:
+                insert_query('UPDATE company SET net_income = %s WHERE year = %s AND symbol = %s', (int(x), y, symbol))
+            except Exception as e:
+                print(f"Error with net_income_db_update: {e}")
 
 
 def roe_db_update(roe, symbol):
-    try:
         for x, y in zip(roe['roe'], roe['fiscalDateEnding']):
-            insert_query('UPDATE company SET roe = %s WHERE year = %s AND symbol = %s', (x, y, symbol))
-    except Exception as e:
-        print(f"Error with roe_db_update: {e}")
+            try:
+                insert_query('UPDATE company SET roe = %s WHERE year = %s AND symbol = %s', (x, y, symbol))
+            except Exception as e:
+                print(f"Error with roe_db_update: {e}")
 
 
 def net_profit_margin_db_update(profit_margin, symbol):
-    try:
-        for x, y in zip(profit_margin['netProfitMargin'], profit_margin['fiscalDateEnding']):
+    for x, y in zip(profit_margin['netProfitMargin'], profit_margin['fiscalDateEnding']):
+        try:
             insert_query('UPDATE company SET profit_margin = %s WHERE year = %s AND symbol = %s', (x, y, symbol))
-    except Exception as e:
-        print(f"Error with net_profit_margin_db_update: {e}")
+        except Exception as e:
+            print(f"Error with net_profit_margin_db_update: {e}")
 
 
 def debt_level_db_update(debt, symbol):
-    try:
         for x, y in zip(debt['currentDebt'], debt['fiscalDateEnding']):
-            insert_query('UPDATE company SET debt_level = %s WHERE year = %s AND symbol = %s', (x, y, symbol))
-    except Exception as e:
-        print(f"Error with debt_level_db_update: {e}")
+            try:
+                insert_query('UPDATE company SET debt_level = %s WHERE year = %s AND symbol = %s', (x, y, symbol))
+            except Exception as e:
+                print(f"Error with debt_level_db_update: {e}")
 
 
 def cash_flows_db_update(cash_flows, symbol):
-    try:
+
         for x, y in zip(cash_flows['operatingCashflow'], cash_flows['fiscalDateEnding']):
-            insert_query('UPDATE company SET cash_flow = %s WHERE year = %s AND symbol = %s', (x, y, symbol))
-    except Exception as e:
-        print(f"Error with debt_level_db_update: {e}")
+            try:
+                insert_query('UPDATE company SET cash_flow = %s WHERE year = %s AND symbol = %s', (x, y, symbol))
+            except Exception as e:
+                print(f"Error with debt_level_db_update: {e}")
 
 
 def company_overview_db_update(company_overview, symbol):
