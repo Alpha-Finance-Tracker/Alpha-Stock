@@ -4,8 +4,6 @@ from alpha_vantage.fundamentaldata import FundamentalData
 from dotenv import dotenv_values
 import yfinance as yf
 
-from app.api.AI_features.open_ai_services import fetch_competitors
-
 env_vars = dotenv_values()
 Alpha_vintage_key = env_vars.get('ALPHA_VANTAGE_SECOND_KEY')
 fd = FundamentalData(Alpha_vintage_key)
@@ -119,17 +117,5 @@ def fetch_market_data_yf(stock):
     # , start = '2010-01-01', end = '2023-01-01'
     market_data = yf.download(f'{stock}')
     return market_data
-
-
-def fetch_competitors_eps_yf(symbol, sector):
-    competitors = fetch_competitors(symbol, sector)
-    competitors_pe_ratio = []
-
-    for x in competitors:
-        eps = fetch_company_pe_ratio_yf(x)
-        if eps:
-            competitors_pe_ratio.append(eps)
-
-    return competitors_pe_ratio
 
 

@@ -1,9 +1,6 @@
 import yfinance as yf
 import pandas as pd
 
-from app.api.AI_features.open_ai_services import fetch_competitors
-
-
 class YahooFinance:
 
     def fetch_cash_flow(self, symbol):
@@ -15,7 +12,7 @@ class YahooFinance:
         market_data = yf.download(f'{symbol}')
         return market_data
 
-    def fetch_company_pe_ratio(self, symbol):
+    def fetch_company_price_to_earnings_ratio(self, symbol):
         try:
             stock = yf.Ticker(symbol)
             pe_ratio = stock.info['forwardPE']
@@ -30,13 +27,3 @@ class YahooFinance:
         beta = historical_data['Close'].pct_change().cov(historical_data['Close'].pct_change())
         return beta
 
-    def fetch_competitors_eps(self, symbol, sector):
-        competitors = fetch_competitors(symbol, sector)
-        competitors_pe_ratio = []
-
-        for x in competitors:
-            eps = self.fetch_company_pe_ratio(x)
-            if eps:
-                competitors_pe_ratio.append(eps)
-
-        return competitors_pe_ratio
