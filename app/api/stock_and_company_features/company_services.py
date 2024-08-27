@@ -6,6 +6,7 @@ from app.data.requests.stock_fetches import fetch_company_income_statement_av, f
 from app.api.stock_and_company_features.stock_and_company_queries import send_parameters_towards_the_database
 from app.data.database import read_query
 from app.models.alpha_stock import AlphaStock
+from app.models.data_stream.alpha_vantage_data import AlphaVantage
 from app.models.statements_and_reports.cash_flows import CashFlow
 from app.models.statements_and_reports.debt import Debt
 from app.models.statements_and_reports.earnings_per_share import EarningsPerShare
@@ -22,10 +23,14 @@ fd = FundamentalData(Alpha_vintage_key)
 
 
 async def financial_performance(symbol):
-    income_statement = fetch_company_income_statement_av(symbol)  # fetch  income statement
-    balance_sheet = fetch_company_balance_sheet_av(symbol)  # fetch balance sheet
-    annual_eps = fetch_company_annual_eps_av(symbol)  # fetch annual eps
-    cash_flows = fetch_company_cash_flows_av(symbol)  # fetch cash flow
+    alpha_vantage = AlphaVantage()
+    income_statement = alpha_vantage.fetch_company_income_statement(symbol)
+    balance_sheet = alpha_vantage.fetch_company_balance_sheet(symbol)
+    annual_eps = alpha_vantage.fetch_company_annual_eps(symbol)
+    cash_flows = alpha_vantage.fetch_company_cash_flows(symbol)
+
+
+
 
     revenue_growth = RevenueGrowth(balance_sheet, income_statement).info()
     net_income = NetIncome(income_statement).info()
@@ -44,34 +49,6 @@ async def financial_performance(symbol):
                                                cash_flow,
                                                symbol)
     return 'Parameters successfully fetched and registered'
-
-
-# async def financial_performance(symbol):
-#     income_statement = fetch_company_income_statement_av(symbol)  # fetch  income statement
-#     balance_sheet = fetch_company_balance_sheet_av(symbol)  # fetch balance sheet
-#     annual_eps = fetch_company_annual_eps_av(symbol)  # fetch annual eps
-#     cash_flows = fetch_company_cash_flows_av(symbol)  # fetch cash flow
-#
-#     AS = AlphaStock(symbol=symbol, income_statement=income_statement, balance_sheet=balance_sheet,
-#                     annual_eps=annual_eps, cash_flows=cash_flows)
-#
-#     revenue_for_14_years = AS.revenue
-#     net_income_for_14_years = AS.net_income
-#     eps_for_14_years = AS.eps
-#     roe_for_14_years = AS.roe
-#     net_profit_margin_for_14_years = AS.net_profit_margin
-#     debt_level_for_14_years = AS.debt
-#     cash_flows_for_14_years = AS.cash
-#
-#     await send_parameters_towards_the_database(revenue_for_14_years,
-#                                                net_income_for_14_years,
-#                                                eps_for_14_years,
-#                                                roe_for_14_years,
-#                                                net_profit_margin_for_14_years,
-#                                                debt_level_for_14_years,
-#                                                cash_flows_for_14_years,
-#                                                symbol)
-#     return 'Parameters successfully fetched and registered'
 
 
 def fetch_company_info_from_db(symbol):
