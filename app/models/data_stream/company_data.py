@@ -1,4 +1,5 @@
-from app.data.database import insert_query, read_query
+from app.database import insert_query, read_query
+
 
 
 async def send_parameters_towards_the_database(revenue, net_income, eps, roe,

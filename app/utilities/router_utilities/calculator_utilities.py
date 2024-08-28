@@ -5,22 +5,22 @@ from app.models.calculators.relative_value_calculator import RelativeValue
 from app.models.data_stream.alpha_vantage_data import AlphaVantage
 from app.models.data_stream.open_ai_data import OpenAIData
 from app.models.data_stream.yahoo_finance_data import YahooFinance
-
-
 async def intrinsic_value_calculator_service(symbol):
     # Data Fetchers
     yahoo_finance = YahooFinance()
     alpha_vantage = AlphaVantage()
     open_ai = OpenAIData()
 
-
+    # Yahoo Data
     market_data = yahoo_finance.fetch_market_data(symbol)
     cash_flows = yahoo_finance.fetch_cash_flow(symbol)
 
-    company_overview = alpha_vantage.fetch_company_overview(symbol)
-    income_statement = alpha_vantage.fetch_company_income_statement(symbol)
-    balance_sheet = alpha_vantage.fetch_company_balance_sheet(symbol)
+    # Alpha Vantage Data
+    company_overview = alpha_vantage.company_overview(symbol)
+    income_statement = alpha_vantage.income_statement(symbol)
+    balance_sheet = alpha_vantage.balance_sheet(symbol)
 
+    # OpenAI data
     competitors_list = open_ai.fetch_competitors(symbol, company_overview['Sector'])
     competitors_price_to_earnings_ratio = [
         yahoo_finance.fetch_company_price_to_earnings_ratio(company) for company in competitors_list]

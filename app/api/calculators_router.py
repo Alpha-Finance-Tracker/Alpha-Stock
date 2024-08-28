@@ -1,8 +1,9 @@
 from fastapi import APIRouter, Depends
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
-from app.api.calculator_features.calculators_services import intrinsic_value_calculator_service
 from app.models.calculators.fair_value_calculator import FairValue
-from app.utilities.auth_verification_services import verify_token
+from app.models.data_stream.yahoo_finance_data import YahooFinance
+from app.utilities.router_utilities.calculator_utilities import intrinsic_value_calculator_service
+from app.utilities.token_verification import verify_token
 
 stock_calculator = APIRouter(prefix='/stock_calculator')
 
@@ -22,4 +23,5 @@ async def peter_lynch(earnings_per_share_growth_rate: float,
                       price_to_earnings_ratio: float,
                       credentials: HTTPAuthorizationCredentials = Depends(security)):
     await verify_token(credentials.credentials)
-    return FairValue(earnings_per_share_growth_rate, dividend_yield, price_to_earnings_ratio)
+    return YahooFinance().growth_estimates('AAPL')
+    # return FairValue(earnings_per_share_growth_rate, dividend_yield, price_to_earnings_ratio).calculate()

@@ -27,3 +27,6 @@ class YahooFinance:
         beta = historical_data['Close'].pct_change().cov(historical_data['Close'].pct_change())
         return beta
 
+    def growth_estimates(self,symbol):
+        stock_data = yf.Ticker(symbol)
+        return stock_data.growth_estimates.to_json

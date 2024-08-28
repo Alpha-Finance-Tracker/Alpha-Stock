@@ -1,9 +1,10 @@
-from app.data.requests.news_fetches import fetch_news_from_alpha_vantage
+from app.models.data_stream.alpha_vantage_data import AlphaVantage
 
 
 def alpha_vantage_news(symbol:str):
     try:
-        data = fetch_news_from_alpha_vantage(symbol)
+        data = AlphaVantage().news(symbol)
+
         times = [(x[0:4] + " " + x[4:6] + "." + x[6:8]) for x in data['time_published']]
         news = {'Title':data['title'],
                 'Url':data['url'],
