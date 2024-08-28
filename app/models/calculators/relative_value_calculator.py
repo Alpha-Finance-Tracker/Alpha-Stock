@@ -8,5 +8,4 @@ class RelativeValue(StockCalculator):
 
 
     def calculate(self):
-        competitors_price_to_earnings = [x for x in self.competitors_price_to_earnings_ratio_list if x is not None]
-        return sum(competitors_price_to_earnings) / len(competitors_price_to_earnings)
+        return sum(self.competitors_price_to_earnings_ratio_list) / len(self.competitors_price_to_earnings_ratio_list)

@@ -10,8 +10,8 @@ class YahooFinance:
 
     @property
     def market_data(self):
-        market_data = yf.download(f'{self.symbol}')
-        return market_data
+        return yf.download(f'{self.symbol}')
+
 
     @property
     def cash_flow(self):
@@ -24,7 +24,9 @@ class YahooFinance:
 
     @property
     def growth_estimates(self):
-        return pd.DataFrame(self.stock_data.growth_estimates).dropna(axis=1)
+        data =  pd.DataFrame(self.stock_data.growth_estimates).fillna(0)
+        return data
+
 
     @property
     def major_holders(self):

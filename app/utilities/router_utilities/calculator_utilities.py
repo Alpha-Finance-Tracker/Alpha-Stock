@@ -9,11 +9,11 @@ async def intrinsic_value_calculator_service(symbol):
     # Data Fetchers
     yahoo_finance = YahooFinance(symbol)
     alpha_vantage = AlphaVantage(symbol)
-    open_ai = OpenAIData()
+    open_ai = OpenAIData(symbol)
 
     # Yahoo Data
-    market_data = yahoo_finance.market_data(symbol)
-    cash_flows = yahoo_finance.cash_flow(symbol)
+    market_data = yahoo_finance.market_data
+    cash_flows = yahoo_finance.cash_flow
     stock_info = yahoo_finance.info
 
     # Alpha Vantage Data
@@ -22,8 +22,7 @@ async def intrinsic_value_calculator_service(symbol):
     balance_sheet = alpha_vantage.balance_sheet()
 
     # OpenAI data
-    competitors_list = open_ai.fetch_competitors(symbol, company_overview['Sector'])
-    competitors_price_to_earnings_ratio = [YahooFinance(company).info['forwardPe'] for company in competitors_list]
+    competitors_price_to_earnings_ratio = open_ai.competitors_price_to_earnings_ratio(company_overview['Sector'])
 
     # Calculators
     discount_rate = DiscountRate(income_statement, balance_sheet, company_overview, market_data,stock_info).calculate()
