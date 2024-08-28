@@ -1,6 +1,4 @@
 from app.models.base_models.financial_statement import FinancialStatement
-import pandas as pd
-
 
 class CashFlow(FinancialStatement):
 

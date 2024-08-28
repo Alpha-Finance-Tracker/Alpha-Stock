@@ -1,6 +1,5 @@
 from app.models.base_models.financial_statement import FinancialStatement
 
-
 class Debt(FinancialStatement):
 
     def __init__(self, balance_sheet):

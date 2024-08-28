@@ -3,7 +3,7 @@ from app.models.data_stream.alpha_vantage_data import AlphaVantage
 
 def alpha_vantage_news(symbol:str):
     try:
-        data = AlphaVantage().news(symbol)
+        data = AlphaVantage(symbol).news()
 
         times = [(x[0:4] + " " + x[4:6] + "." + x[6:8]) for x in data['time_published']]
         news = {'Title':data['title'],

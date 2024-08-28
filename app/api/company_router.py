@@ -21,7 +21,7 @@ async def company_financial_performance(symbol: str,
 async def company_overview(symbol: str,
                            credentials: HTTPAuthorizationCredentials = Depends(security)):
     await verify_token(credentials.credentials)
-    return AlphaVantage().company_overview(symbol)
+    return AlphaVantage(symbol).company_overview()
 
 
 @company_router.get('/information')

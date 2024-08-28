@@ -5,11 +5,10 @@ import pandas as pd
 
 class ReturnOnEquity(FinancialStatement):
 
-    def __init__(self,balance_sheet,income_statement):
-        self.balance_sheet= balance_sheet
+    def __init__(self, balance_sheet, income_statement):
+        self.balance_sheet = balance_sheet
         self.income_statement = income_statement
         self.updated = False
-
 
     def update(self):
         try:
@@ -29,7 +28,7 @@ class ReturnOnEquity(FinancialStatement):
         try:
             if not self.updated:
                 self.update()
-            return  self.balance_sheet[['fiscalDateEnding', 'roe']]
+            return self.balance_sheet[['fiscalDateEnding', 'roe']]
 
         except Exception as e:
             print(f"Error with roe: {e}")

@@ -1,6 +1,7 @@
 from fastapi import APIRouter, Depends
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from app.models.calculators.fair_value_calculator import FairValue
+from app.models.data_stream.alpha_vantage_data import AlphaVantage
 from app.models.data_stream.yahoo_finance_data import YahooFinance
 from app.utilities.router_utilities.calculator_utilities import intrinsic_value_calculator_service
 from app.utilities.token_verification import verify_token
@@ -18,10 +19,16 @@ async def intrinsic_value(symbol: str,
 
 
 @stock_calculator.get('/peter_lynch_fair_price')
-async def peter_lynch(earnings_per_share_growth_rate: float,
-                      dividend_yield: float,
-                      price_to_earnings_ratio: float,
+async def peter_lynch(symbol:str,
                       credentials: HTTPAuthorizationCredentials = Depends(security)):
     await verify_token(credentials.credentials)
-    return YahooFinance().growth_estimates('AAPL')
-    # return FairValue(earnings_per_share_growth_rate, dividend_yield, price_to_earnings_ratio).calculate()
+    return FairValue(symbol).calculate()
+
+@stock_calculator.get('/test')
+async def test(symbol:str,
+                      credentials: HTTPAuthorizationCredentials = Depends(security)):
+    await verify_token(credentials.credentials)
+    return {'data1':YahooFinance(symbol).balance_sheet,
+            'data2':AlphaVantage(symbol).balance_sheet()}
+
+

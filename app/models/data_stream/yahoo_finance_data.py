@@ -1,32 +1,71 @@
 import yfinance as yf
 import pandas as pd
 
+
 class YahooFinance:
 
-    def fetch_cash_flow(self, symbol):
-        ticker = yf.Ticker(symbol)
-        cash_flow = ticker.cash_flow.infer_objects(copy=False).fillna(0)
-        return pd.DataFrame(cash_flow)
+    def __init__(self, symbol):
+        self.symbol = symbol
+        self.stock_data = yf.Ticker(symbol)
 
-    def fetch_market_data(self, symbol):
-        market_data = yf.download(f'{symbol}')
+    @property
+    def market_data(self):
+        market_data = yf.download(f'{self.symbol}')
         return market_data
 
-    def fetch_company_price_to_earnings_ratio(self, symbol):
-        try:
-            stock = yf.Ticker(symbol)
-            pe_ratio = stock.info['forwardPE']
-            return float(pe_ratio)
-        except Exception as e:
-            print(f"Error fetching P/E ratio for {symbol}: {e}")
-            return None
+    @property
+    def cash_flow(self):
+        cash_flow = self.stock_data.cash_flow.infer_objects(copy=False).fillna(0)
+        return pd.DataFrame(cash_flow)
 
-    def fetch_company_beta(self, symbol):
-        stock_data = yf.Ticker(symbol)
-        historical_data = stock_data.history(period="max")
-        beta = historical_data['Close'].pct_change().cov(historical_data['Close'].pct_change())
-        return beta
+    @property
+    def info(self):
+        return self.stock_data.info
 
-    def growth_estimates(self,symbol):
-        stock_data = yf.Ticker(symbol)
-        return stock_data.growth_estimates.to_json
+    @property
+    def growth_estimates(self):
+        return pd.DataFrame(self.stock_data.growth_estimates).dropna(axis=1)
+
+    @property
+    def major_holders(self):
+        return self.stock_data.major_holders
+
+    @property
+    def insider_purchases(self):
+        return self.stock_data.insider_purchases
+
+    @property
+    def institutional_holders(self):
+        return self.stock_data.institutional_holders
+
+    @property
+    def insider_roster_holders(self):
+        return self.stock_data.insider_roster_holders
+
+    @property
+    def financials(self):
+        return self.stock_data.financials
+
+    @property
+    def income_statement(self):
+        return self.stock_data.income_stmt
+
+    @property
+    def balance_sheet(self):
+        return self.stock_data.balance_sheet
+
+    @property
+    def news(self):
+        return self.stock_data.news
+
+    @property
+    def analyst_price_targets(self):
+        return self.stock_data.analyst_price_targets
+
+    @property
+    def dividends(self):
+        return pd.DataFrame(self.stock_data.dividends).dropna(axis=1)
+
+    @property
+    def splits(self):
+        return pd.DataFrame(self.stock_data.splits).dropna(axis=1)

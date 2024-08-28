@@ -11,4 +11,4 @@ security = HTTPBearer()
 async def stock_news(symbol:str,
                credentials: HTTPAuthorizationCredentials = Depends(security)):
     await verify_token(credentials.credentials)
-    return AlphaVantage().news(symbol)
+    return AlphaVantage(symbol).news()

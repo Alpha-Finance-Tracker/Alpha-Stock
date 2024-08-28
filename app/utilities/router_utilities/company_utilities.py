@@ -17,12 +17,12 @@ import io
 
 
 async def financial_performance(symbol):
-    alpha_vantage = AlphaVantage()
+    alpha_vantage = AlphaVantage(symbol)
 
-    income_statement = alpha_vantage.income_statement(symbol)
-    balance_sheet = alpha_vantage.balance_sheet(symbol)
-    annual_eps = alpha_vantage.company_annual_earnings_per_share(symbol)
-    cash_flows = alpha_vantage.cash_flows(symbol)
+    income_statement = alpha_vantage.income_statement()
+    balance_sheet = alpha_vantage.balance_sheet()
+    annual_eps = alpha_vantage.company_annual_earnings_per_share()
+    cash_flows = alpha_vantage.cash_flows()
 
     revenue_growth = RevenueGrowth(balance_sheet, income_statement).info()
     net_income = NetIncome(income_statement).info()
@@ -50,7 +50,7 @@ async def fetch_company_info_from_db(symbol):
 
 
 def monthly_visualisation(symbol):
-    data = AlphaVantage().stock_months(symbol)
+    data = AlphaVantage(symbol).stock_months()
 
     try:
         info = pd.DataFrame(data['Monthly Time Series']).transpose()

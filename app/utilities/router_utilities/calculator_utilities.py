@@ -7,26 +7,26 @@ from app.models.data_stream.open_ai_data import OpenAIData
 from app.models.data_stream.yahoo_finance_data import YahooFinance
 async def intrinsic_value_calculator_service(symbol):
     # Data Fetchers
-    yahoo_finance = YahooFinance()
-    alpha_vantage = AlphaVantage()
+    yahoo_finance = YahooFinance(symbol)
+    alpha_vantage = AlphaVantage(symbol)
     open_ai = OpenAIData()
 
     # Yahoo Data
-    market_data = yahoo_finance.fetch_market_data(symbol)
-    cash_flows = yahoo_finance.fetch_cash_flow(symbol)
+    market_data = yahoo_finance.market_data(symbol)
+    cash_flows = yahoo_finance.cash_flow(symbol)
+    stock_info = yahoo_finance.info
 
     # Alpha Vantage Data
-    company_overview = alpha_vantage.company_overview(symbol)
-    income_statement = alpha_vantage.income_statement(symbol)
-    balance_sheet = alpha_vantage.balance_sheet(symbol)
+    company_overview = alpha_vantage.company_overview()
+    income_statement = alpha_vantage.income_statement()
+    balance_sheet = alpha_vantage.balance_sheet()
 
     # OpenAI data
     competitors_list = open_ai.fetch_competitors(symbol, company_overview['Sector'])
-    competitors_price_to_earnings_ratio = [
-        yahoo_finance.fetch_company_price_to_earnings_ratio(company) for company in competitors_list]
+    competitors_price_to_earnings_ratio = [YahooFinance(company).info['forwardPe'] for company in competitors_list]
 
     # Calculators
-    discount_rate = DiscountRate(income_statement, balance_sheet, company_overview, market_data).calculate()
+    discount_rate = DiscountRate(income_statement, balance_sheet, company_overview, market_data,stock_info).calculate()
     discounted_cash_flow = DiscountedCashFlow(cash_flows, discount_rate).calculate()
     intrinsic_value = IntrinsicValue(discounted_cash_flow, company_overview['SharesOutstanding']).calculate()
     relative_value = RelativeValue(competitors_price_to_earnings_ratio).calculate()

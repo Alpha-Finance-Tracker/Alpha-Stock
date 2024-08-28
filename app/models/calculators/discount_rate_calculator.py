@@ -8,11 +8,12 @@ from app.models.calculators.tax_rate_calculator import TaxRate
 
 class DiscountRate(StockCalculator):
 
-    def __init__(self, income_statement, balance_sheet, company_overview, market_data, ):
+    def __init__(self, income_statement, balance_sheet, company_overview, market_data, stock_info):
         self.income_statement = income_statement
         self.balance_sheet = balance_sheet
         self.company_overview = company_overview
         self.market_data = market_data
+        self.stock_info = stock_info
 
     def calculate(self):
         weighted_average_cost_of_capital = (
@@ -32,8 +33,7 @@ class DiscountRate(StockCalculator):
 
     @property
     def beta(self):
-        return 1 if self.company_overview['Beta'] is None else float(
-            self.company_overview['Beta'])  # Hardcoded when None
+        return self.stock_info['beta'] or self.company_overview['Beta'] or 1
 
     @property
     def cost_of_debt(self):
