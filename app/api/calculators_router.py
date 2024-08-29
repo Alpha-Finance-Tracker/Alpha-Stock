@@ -3,6 +3,7 @@ from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from app.models.calculators.fair_value_calculator import FairValue
 from app.models.data_stream.alpha_vantage_data import AlphaVantage
 from app.models.data_stream.yahoo_finance_data import YahooFinance
+from app.utilities.responses import StockDataUnavailable
 from app.utilities.router_utilities.calculator_utilities import intrinsic_value_calculator_service
 from app.utilities.token_verification import verify_token
 
@@ -22,13 +23,11 @@ async def intrinsic_value(symbol: str,
 async def peter_lynch(symbol:str,
                       credentials: HTTPAuthorizationCredentials = Depends(security)):
     await verify_token(credentials.credentials)
-    return FairValue(symbol).calculate()
 
-@stock_calculator.get('/test')
-async def test(symbol:str,
-                      credentials: HTTPAuthorizationCredentials = Depends(security)):
-    await verify_token(credentials.credentials)
-    return {'data1':YahooFinance(symbol).balance_sheet,
-            'data2':AlphaVantage(symbol).balance_sheet()}
+    try:
+        return FairValue(symbol).calculate()
+    except:
+        raise StockDataUnavailable
+
 
 

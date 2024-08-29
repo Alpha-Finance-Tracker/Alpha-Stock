@@ -9,60 +9,30 @@ class YahooFinance:
         self.stock_data = yf.Ticker(symbol)
 
     @property
-    def market_data(self):
-        return yf.download(f'{self.symbol}')
-
-
-    @property
     def cash_flow(self):
-        cash_flow = self.stock_data.cash_flow.infer_objects(copy=False).fillna(0)
-        return pd.DataFrame(cash_flow)
+        return pd.DataFrame(self.stock_data.cash_flow).infer_objects(copy=False).fillna(0)
 
-    @property
-    def info(self):
-        return self.stock_data.info
 
     @property
     def growth_estimates(self):
-        data =  pd.DataFrame(self.stock_data.growth_estimates).fillna(0)
-        return data
-
+        return pd.DataFrame(self.stock_data.growth_estimates).fillna(0)
 
     @property
     def major_holders(self):
-        return self.stock_data.major_holders
+        return pd.DataFrame(self.stock_data.major_holders).fillna(0)
 
-    @property
-    def insider_purchases(self):
-        return self.stock_data.insider_purchases
-
-    @property
-    def institutional_holders(self):
-        return self.stock_data.institutional_holders
-
-    @property
-    def insider_roster_holders(self):
-        return self.stock_data.insider_roster_holders
 
     @property
     def financials(self):
-        return self.stock_data.financials
+        return pd.DataFrame(self.stock_data.financials).fillna(0)
 
     @property
     def income_statement(self):
-        return self.stock_data.income_stmt
+        return pd.DataFrame(self.stock_data.income_stmt).fillna(0)
 
     @property
     def balance_sheet(self):
-        return self.stock_data.balance_sheet
-
-    @property
-    def news(self):
-        return self.stock_data.news
-
-    @property
-    def analyst_price_targets(self):
-        return self.stock_data.analyst_price_targets
+        return pd.DataFrame(self.stock_data.balance_sheet).fillna(0)
 
     @property
     def dividends(self):
@@ -71,3 +41,31 @@ class YahooFinance:
     @property
     def splits(self):
         return pd.DataFrame(self.stock_data.splits).dropna(axis=1)
+
+    @property
+    def news(self):
+        return pd.DataFrame(self.stock_data.news)
+
+    @property
+    def analyst_price_targets(self):
+        return self.stock_data.analyst_price_targets
+
+    @property
+    def info(self):
+        return self.stock_data.info
+
+    @property
+    def market_data(self):
+        return yf.download(f'{self.symbol}')
+
+    @property
+    def insider_purchases(self):
+        return self.stock_data.insider_purchases  # Numpy.int64 error
+
+    @property
+    def institutional_holders(self):
+        return self.stock_data.institutional_holders  # Numpy.int64 error
+
+    @property
+    def insider_roster_holders(self):
+        return self.stock_data.insider_roster_holders  # Numpy.int64 error

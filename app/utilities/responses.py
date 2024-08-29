@@ -11,6 +11,11 @@ class NotFound(HTTPException):
         super().__init__(status_code=404, detail=content)
 
 
+class StockDataUnavailable(HTTPException):
+    def __init__(self, content='Calculation unavailable, due to absence of necessary parameters on Yahoo side.'):
+        super().__init__(status_code=404, detail=content)
+
+
 class Unauthorized(HTTPException):
     def __init__(self, content='Unauthorized'):
         super().__init__(status_code=401, detail=content)
