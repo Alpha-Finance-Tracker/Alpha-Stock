@@ -33,7 +33,16 @@ class DiscountRate(StockCalculator):
 
     @property
     def beta(self):
-        return self.stock_info['beta'] or self.company_overview['Beta'] or 1
+
+        try:
+            return self.stock_info['beta']
+        except KeyError:
+            try:
+              return self.company_overview['Beta']
+            except KeyError:
+                return 1
+
+
 
     @property
     def cost_of_debt(self):

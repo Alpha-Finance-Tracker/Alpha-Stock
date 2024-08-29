@@ -16,6 +16,8 @@ security = HTTPBearer()
 async def intrinsic_value(symbol: str,
                           credentials: HTTPAuthorizationCredentials = Depends(security)):
     await verify_token(credentials.credentials)
+
+
     return await intrinsic_value_calculator_service(symbol)
 
 
@@ -30,4 +32,8 @@ async def peter_lynch(symbol:str,
         raise StockDataUnavailable
 
 
+
+@stock_calculator.get('/test')
+async def test(symbol):
+    return YahooFinance(symbol).cash_flow
 

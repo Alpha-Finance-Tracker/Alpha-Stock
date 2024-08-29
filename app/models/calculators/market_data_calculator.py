@@ -18,7 +18,7 @@ class AverageMarketData(StockCalculator):
             average_daily_return = daily_returns.mean()
 
 
-            return average_daily_return * 252
+            return float(average_daily_return * 252)
 
         except Exception as e:
             print(f"Error calculating market data: {e}")
