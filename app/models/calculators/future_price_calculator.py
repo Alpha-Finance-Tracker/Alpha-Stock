@@ -13,8 +13,8 @@ class StockPredictor(StockCalculator):
         self.alpha_vantage = AlphaVantage(self.symbol)
 
 
-    def calculate(self):
-        data = self.alpha_vantage.stock_monthly_adjusted()
+    async def calculate(self):
+        data = await self.alpha_vantage.stock_monthly_adjusted()
         try:
             open = data.loc['1. open', :].values.astype(float)
             high = data.loc['2. high', :].values.astype(float)

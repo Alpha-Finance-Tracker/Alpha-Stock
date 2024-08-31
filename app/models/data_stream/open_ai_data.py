@@ -13,7 +13,7 @@ class OpenAIData:
     def __init__(self, symbol):
         self.symbol = symbol
 
-    def competitors_price_to_earnings_ratio(self, sector):
+    async def competitors_price_to_earnings_ratio(self, sector):
         try:
             response = client.chat.completions.create(
                 model="gpt-4o-mini",
@@ -35,16 +35,10 @@ class OpenAIData:
                     if pe_ratio:
                         competitors_pe_ratio.append(pe_ratio)
 
-
                 except Exception as e:
                     print(e)
 
             return competitors_pe_ratio
-
-
-
-
-
 
         except Exception as e:
             print(f"An error occurred: {e}")

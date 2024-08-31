@@ -7,7 +7,7 @@ class EquityRatio(StockCalculator):
 
         self.balance_sheet = balance_sheet
 
-    def calculate(self):
+    async def calculate(self):
         try:
             total_liabilities = float(self.balance_sheet['totalLiabilities'].iloc[0])
             total_shareholder_equity = float(self.balance_sheet['totalShareholderEquity'].iloc[0])

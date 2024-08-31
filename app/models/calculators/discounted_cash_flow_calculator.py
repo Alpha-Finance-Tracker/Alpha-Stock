@@ -7,7 +7,7 @@ class DiscountedCashFlow(StockCalculator):
         self.cash_flows = cash_flows
         self.discount_rate = discount_rate if discount_rate > 0.03 else 0.04
 
-    def calculate(self):
+    async def calculate(self):
         return (sum([
             (self.latest_cash_flow / (1 + self.discount_rate) ** year) for year in range(1, self.projection_years + 1)])
                 + (self.terminal_value / (1 + self.discount_rate) ** self.projection_years))

@@ -8,7 +8,7 @@ class FairValue(StockCalculator):  # Peter Lynch Calculator
         self.symbol = symbol
         self.yahoo_finance = YahooFinance(self.symbol)
 
-    def calculate(self):
+    async def calculate(self):
         return (self.earnings_per_share_growth_rate + self.dividend_yield) / self.price_to_earnings_ratio
 
     @property

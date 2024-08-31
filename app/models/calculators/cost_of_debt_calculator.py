@@ -7,7 +7,7 @@ class CostOfDebt(StockCalculator):
         self.income_statement = income_statement
         self.balance_sheet = balance_sheet
 
-    def calculate(self):
+    async def calculate(self):
         try:
 
             return (float(self.income_statement['interestExpense'].iloc[0]) /

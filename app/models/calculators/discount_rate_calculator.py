@@ -15,7 +15,7 @@ class DiscountRate(StockCalculator):
         self.market_data = market_data
         self.stock_info = stock_info
 
-    def calculate(self):
+    async def calculate(self):
         weighted_average_cost_of_capital = (
                 (self.equity_ratio / self.total_market_value) * self.cost_of_equity
                 + (self.debt_ratio / self.total_market_value) * self.cost_of_debt * (1 - self.tax_rate)

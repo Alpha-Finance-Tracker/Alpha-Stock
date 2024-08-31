@@ -7,7 +7,7 @@ class TaxRate(StockCalculator):
 
         self.income_statement = income_statement
 
-    def calculate(self):
+    async def calculate(self):
         try:
             income_tax_expense = float(self.income_statement['incomeTaxExpense'].iloc[0])
             income_before_tax = float(self.income_statement['incomeBeforeTax'].iloc[0])

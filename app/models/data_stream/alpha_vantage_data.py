@@ -15,31 +15,31 @@ class AlphaVantage:
         self.api_key = Alpha_vintage_key
         self.symbol = symbol
 
-    def balance_sheet(self):
+    async def balance_sheet(self):
         try:
             balance_sheet, _ = fd.get_balance_sheet_annual(self.symbol)
             return pd.DataFrame(balance_sheet)
         except AlphaVantageDailyLimitExceeded as e:
             raise e
 
-    def income_statement(self):
+    async def income_statement(self):
         try:
             income_statement, _ = fd.get_income_statement_annual(self.symbol)
             return pd.DataFrame(income_statement)
         except AlphaVantageDailyLimitExceeded as e:
             raise e
 
-    def cash_flows(self):
+    async def cash_flows(self):
         try:
             url = f'https://www.alphavantage.co/query?function=CASH_FLOW&symbol={self.symbol}&apikey={self.api_key}'
 
             data = requests.get(url).json()
             annual_reports = data.get('annualReports')
-            return pd.DataFrame(annual_reports)
+            return  pd.DataFrame(annual_reports)
         except AlphaVantageDailyLimitExceeded as e:
             raise e
 
-    def company_price_to_earnings_ratio(self):
+    async def company_price_to_earnings_ratio(self):
         try:
             url = f'https://www.alphavantage.co/query?function=EARNINGS&symbol={self.symbol}&apikey={self.api_key}'
 
@@ -49,24 +49,23 @@ class AlphaVantage:
         except AlphaVantageDailyLimitExceeded as e:
             raise e
 
-    def company_overview(self):
+    async def company_overview(self):
         try:
             url = f'https://www.alphavantage.co/query?function=OVERVIEW&symbol={self.symbol}&apikey={self.api_key}'
-
             return requests.get(url).json()
         except AlphaVantageDailyLimitExceeded as e:
             raise e
 
-    def company_annual_earnings_per_share(self):
+    async def company_annual_earnings_per_share(self):
         try:
             url = f'https://www.alphavantage.co/query?function=EARNINGS&symbol={self.symbol}&apikey={self.api_key}'
-            data = requests.get(url).json()
-            i = data.get('annualEarnings', [])
-            return pd.DataFrame(i)
+            data =  requests.get(url).json()
+            i =  data.get('annualEarnings', [])
+            return  pd.DataFrame(i)
         except AlphaVantageDailyLimitExceeded as e:
             raise e
 
-    def stock_minutes(self, minutes: int):
+    async def stock_minutes(self, minutes: int):
         try:
             url = (
                 f'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol='
@@ -76,7 +75,7 @@ class AlphaVantage:
         except AlphaVantageDailyLimitExceeded as e:
             raise e
 
-    def stock_days(self):
+    async def stock_days(self):
         try:
             url = (f'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol='
                    f'{self.symbol}&apikey={self.api_key}')
@@ -84,15 +83,15 @@ class AlphaVantage:
         except AlphaVantageDailyLimitExceeded as e:
             raise e
 
-    def stock_weeks(self):
+    async def stock_weeks(self):
         try:
             url = (f'https://www.alphavantage.co/query?function=TIME_SERIES_WEEKLY&symbol='
                    f'{self.symbol}&apikey={self.api_key}')
-            return requests.get(url).json()
+            return  requests.get(url).json()
         except AlphaVantageDailyLimitExceeded as e:
             raise e
 
-    def stock_months(self):
+    async def stock_months(self):
         try:
             url = (f'https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY&symbol='
                    f'{self.symbol}&apikey={self.api_key}')
@@ -101,7 +100,7 @@ class AlphaVantage:
         except AlphaVantageDailyLimitExceeded as e:
             raise e
 
-    def stock_monthly_adjusted(self):
+    async def stock_monthly_adjusted(self):
         try:
             url = (f'https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY_ADJUSTED&symbol='
                    f'{self.symbol}&apikey={self.api_key}')
@@ -111,7 +110,7 @@ class AlphaVantage:
         except AlphaVantageDailyLimitExceeded as e:
             raise e
 
-    def stock_latest(self):
+    async def stock_latest(self):
         try:
             url = (f'https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol='
                    f'{self.symbol}&apikey={self.api_key}')
@@ -120,7 +119,7 @@ class AlphaVantage:
         except AlphaVantageDailyLimitExceeded as e:
             raise e
 
-    def news(self):
+    async def news(self):
         try:
             url = (f'https://www.alphavantage.co/query?function=NEWS_SENTIMENT&tickers='
                    f'{self.symbol}&apikey={Alpha_vintage_key}')

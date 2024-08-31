@@ -6,7 +6,7 @@ class AverageMarketData(StockCalculator):
     def __init__(self,market_data):
         self.market_data = market_data
 
-    def calculate(self):
+    async def calculate(self):
         try:
 
             if 'Adj Close' not in self.market_data.columns or self.market_data.empty:

@@ -1,10 +1,10 @@
 import uvicorn
 from fastapi import FastAPI
 
-from app.api.AI_router import AI_router
-from app.api.calculators_router import stock_calculator
-from app.api.company_router import company_router
-from app.api.news_router import news_router
+from app.api.routers.AI_router import AI_router
+from app.api.routers.calculators_router import stock_calculator
+from app.api.routers.company_router import company_router
+from app.api.routers.news_router import news_router
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()

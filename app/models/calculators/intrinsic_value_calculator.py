@@ -6,6 +6,6 @@ class IntrinsicValue(StockCalculator):
         self.discounted_cash_flow = discounted_cash_flow
         self.shares_outstanding = float(shares_outstanding)
 
-    def calculate(self):
+    async def calculate(self):
         return self.discounted_cash_flow / self.shares_outstanding
 
