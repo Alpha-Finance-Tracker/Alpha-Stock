@@ -12,7 +12,6 @@ class YahooFinance:
     def cash_flow(self):
         return pd.DataFrame(self.stock_data.cash_flow).infer_objects(copy=False).fillna(0)
 
-
     @property
     def growth_estimates(self):
         return pd.DataFrame(self.stock_data.growth_estimates).fillna(0)
@@ -20,7 +19,6 @@ class YahooFinance:
     @property
     def major_holders(self):
         return pd.DataFrame(self.stock_data.major_holders).fillna(0)
-
 
     @property
     def financials(self):

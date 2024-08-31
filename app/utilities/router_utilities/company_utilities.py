@@ -92,7 +92,7 @@ async def display_charts(data):
 
     # Plot data on each subplot
     axs[0, 0].plot(years, revenue, 'b-o')
-    axs[0, 0].set_title('Revenue')
+    axs[0, 0].set_title('Revenue Growth')
     axs[0, 0].set_xlabel('Year')
     axs[0, 0].set_ylabel('Revenue $')
 

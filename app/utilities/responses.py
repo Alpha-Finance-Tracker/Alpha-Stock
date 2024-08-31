@@ -39,3 +39,13 @@ class AccountNotApproved(HTTPException):
 class EmailExists(HTTPException):
     def __init__(self, content='Email already registered!'):
         super().__init__(status_code=409, detail=content)
+
+class MissingDataError(Exception):
+    """Custom exception for missing essential data."""
+    pass
+
+class AlphaVantageDailyLimitExceeded(Exception):
+    """Custom exception for missing essential data."""
+    def __init__(self):
+        self.message = 'Alpha Vantage Daily Fetch Limit Exceeded'
+        super().__init__(self.message)
