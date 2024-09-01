@@ -1,9 +1,13 @@
+import asyncio
+
 from app.models.base_models.stock_calculator import StockCalculator
 from app.models.calculators.cost_of_debt_calculator import CostOfDebt
+from app.models.calculators.cost_of_equity_calculator import CostOfEquity
 from app.models.calculators.debt_ratio_calculator import DebtRatio
 from app.models.calculators.equity_ratio_calculator import EquityRatio
 from app.models.calculators.market_data_calculator import AverageMarketData
 from app.models.calculators.tax_rate_calculator import TaxRate
+from app.models.calculators.total_market_value_calculator import TotalMarketValue
 
 
 class DiscountRate(StockCalculator):
@@ -16,54 +20,40 @@ class DiscountRate(StockCalculator):
         self.stock_info = stock_info
 
     async def calculate(self):
-        weighted_average_cost_of_capital = (
-                (self.equity_ratio / self.total_market_value) * self.cost_of_equity
-                + (self.debt_ratio / self.total_market_value) * self.cost_of_debt * (1 - self.tax_rate)
-        )
 
-        return weighted_average_cost_of_capital
+        try:
+            avg_market_value,tax_rate,cost_of_debt = await asyncio.gather(
+                AverageMarketData(self.market_data).calculate(),
+                TaxRate(self.income_statement).calculate(),
+                CostOfDebt(self.income_statement, self.balance_sheet).calculate(),
+                return_exceptions=True
+            )
+
+
+            cost_of_equity = await CostOfEquity(avg_market_value,self.risk_rate,self.beta).calculate()
+            debt_ratio = await DebtRatio(self.balance_sheet).calculate()
+            equity_ratio = await EquityRatio(self.balance_sheet).calculate()
+            total_market_value = await TotalMarketValue(equity_ratio,debt_ratio).calculate()
+
+            weighted_average_cost_of_capital = (
+                    (equity_ratio / total_market_value) * cost_of_equity
+                    + (debt_ratio / total_market_value) * cost_of_debt * (1 - tax_rate)
+            )
+
+            return weighted_average_cost_of_capital
+        except Exception as e:
+            raise  e
 
     @property
     def risk_rate(self):
-        return 0.03  # Hardcoded value for now
-
-    @property
-    def average_market_value(self):
-        return AverageMarketData(self.market_data).calculate()
+        return 0.03
 
     @property
     def beta(self):
-
         try:
             return self.stock_info['beta']
         except KeyError:
             try:
-              return self.company_overview['Beta']
+                return self.company_overview['Beta']
             except KeyError:
                 return 1
-
-
-
-    @property
-    def cost_of_debt(self):
-        return CostOfDebt(self.income_statement, self.balance_sheet).calculate()
-
-    @property
-    def debt_ratio(self):
-        return DebtRatio(self.balance_sheet).calculate()
-
-    @property
-    def equity_ratio(self):
-        return EquityRatio(self.balance_sheet).calculate()
-
-    @property
-    def tax_rate(self):
-        return TaxRate(self.income_statement).calculate()
-
-    @property
-    def cost_of_equity(self):
-        return self.risk_rate + self.beta * (self.average_market_value - self.risk_rate)
-
-    @property
-    def total_market_value(self):
-        return self.equity_ratio + self.debt_ratio

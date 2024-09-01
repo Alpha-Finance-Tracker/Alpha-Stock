@@ -35,7 +35,7 @@ class AlphaVantage:
 
             data = requests.get(url).json()
             annual_reports = data.get('annualReports')
-            return  pd.DataFrame(annual_reports)
+            return pd.DataFrame(annual_reports)
         except AlphaVantageDailyLimitExceeded as e:
             raise e
 
@@ -59,9 +59,9 @@ class AlphaVantage:
     async def company_annual_earnings_per_share(self):
         try:
             url = f'https://www.alphavantage.co/query?function=EARNINGS&symbol={self.symbol}&apikey={self.api_key}'
-            data =  requests.get(url).json()
-            i =  data.get('annualEarnings', [])
-            return  pd.DataFrame(i)
+            data = requests.get(url).json()
+            i = data.get('annualEarnings', [])
+            return pd.DataFrame(i)
         except AlphaVantageDailyLimitExceeded as e:
             raise e
 
@@ -87,7 +87,7 @@ class AlphaVantage:
         try:
             url = (f'https://www.alphavantage.co/query?function=TIME_SERIES_WEEKLY&symbol='
                    f'{self.symbol}&apikey={self.api_key}')
-            return  requests.get(url).json()
+            return requests.get(url).json()
         except AlphaVantageDailyLimitExceeded as e:
             raise e
 

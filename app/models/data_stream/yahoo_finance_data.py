@@ -53,10 +53,6 @@ class YahooFinance:
         return self.stock_data.info
 
     @property
-    def market_data(self):
-        return yf.download(f'{self.symbol}')
-
-    @property
     def insider_purchases(self):
         return self.stock_data.insider_purchases  # Numpy.int64 error
 
@@ -67,3 +63,6 @@ class YahooFinance:
     @property
     def insider_roster_holders(self):
         return self.stock_data.insider_roster_holders  # Numpy.int64 error
+
+    async def market_data(self):
+        return yf.download(f'{self.symbol}')
