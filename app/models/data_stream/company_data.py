@@ -5,7 +5,6 @@ from app.database import insert_query, read_query
 
 async def send_parameters_towards_the_database(revenue, net_income, eps, roe,
                                                net_profit_margin, debt_level, cash_flows, symbol):
-
     await asyncio.gather(
         initiate_years(revenue, symbol),
         revenue_db_update(revenue, symbol),
@@ -14,7 +13,7 @@ async def send_parameters_towards_the_database(revenue, net_income, eps, roe,
         roe_db_update(roe, symbol),
         net_profit_margin_db_update(net_profit_margin, symbol),
         debt_level_db_update(debt_level, symbol),
-        cash_flows_db_update(cash_flows, symbol),)
+        cash_flows_db_update(cash_flows, symbol), )
 
 
 async def check_existing_years(symbol):
@@ -56,7 +55,8 @@ async def revenue_db_update(revenue, symbol):
 async def net_income_db_update(net_income, symbol):
     for x, y in zip(net_income['netIncome'], net_income['fiscalDateEnding']):
         try:
-            await insert_query('UPDATE company SET net_income = %s WHERE year = %s AND symbol = %s', (int(x), y, symbol))
+            await insert_query('UPDATE company SET net_income = %s WHERE year = %s AND symbol = %s',
+                               (int(x), y, symbol))
         except Exception as e:
             print(f"Error with net_income_db_update: {e}")
 
@@ -100,7 +100,7 @@ async def company_overview_db_update(company_overview, symbol):
     # Q4: July 1 - September 30
 
     check_existence = await read_query('SELECT symbol FROM company_overview WHERE symbol = %s AND quarter = %s',
-                                 (symbol, company_overview['LatestQuarter']))
+                                       (symbol, company_overview['LatestQuarter']))
 
     if check_existence == []:
         await insert_query("""INSERT INTO company_overview (
@@ -120,25 +120,25 @@ async def company_overview_db_update(company_overview, symbol):
                         %s, %s, %s, %s, %s, %s, %s, %s, %s,  %s, %s, %s
                     )""",
 
-                     (company_overview['Symbol'], company_overview['AssetType'],
-                      company_overview['LatestQuarter'], company_overview['MarketCapitalization'],
-                      company_overview['EBITDA'], company_overview['PERatio'],
-                      company_overview['PEGRatio'], company_overview['BookValue'],
-                      company_overview['DividendPerShare'], company_overview['DividendYield'],
-                      company_overview['EPS'], company_overview['RevenuePerShareTTM'],
-                      company_overview['ProfitMargin'], company_overview['OperatingMarginTTM'],
-                      company_overview['ReturnOnAssetsTTM'], company_overview['ReturnOnEquityTTM'],
-                      company_overview['RevenueTTM'], company_overview['GrossProfitTTM'],
-                      company_overview['DilutedEPSTTM'], company_overview['QuarterlyEarningsGrowthYOY'],
-                      company_overview['QuarterlyRevenueGrowthYOY'], company_overview['AnalystTargetPrice'],
-                      company_overview['AnalystRatingStrongBuy'], company_overview['AnalystRatingBuy'],
-                      company_overview['AnalystRatingHold'], company_overview['AnalystRatingSell'],
-                      company_overview['AnalystRatingStrongSell'], company_overview['TrailingPE'],
-                      company_overview['ForwardPE'], company_overview['PriceToSalesRatioTTM'],
-                      company_overview['PriceToBookRatio'], company_overview['EVToRevenue'],
-                      company_overview['EVToEBITDA'], company_overview['Beta'], company_overview['52WeekHigh'],
-                      company_overview['52WeekLow'], company_overview['50DayMovingAverage'],
-                      company_overview['200DayMovingAverage'],
-                      company_overview['SharesOutstanding']))
+                           (company_overview['Symbol'], company_overview['AssetType'],
+                            company_overview['LatestQuarter'], company_overview['MarketCapitalization'],
+                            company_overview['EBITDA'], company_overview['PERatio'],
+                            company_overview['PEGRatio'], company_overview['BookValue'],
+                            company_overview['DividendPerShare'], company_overview['DividendYield'],
+                            company_overview['EPS'], company_overview['RevenuePerShareTTM'],
+                            company_overview['ProfitMargin'], company_overview['OperatingMarginTTM'],
+                            company_overview['ReturnOnAssetsTTM'], company_overview['ReturnOnEquityTTM'],
+                            company_overview['RevenueTTM'], company_overview['GrossProfitTTM'],
+                            company_overview['DilutedEPSTTM'], company_overview['QuarterlyEarningsGrowthYOY'],
+                            company_overview['QuarterlyRevenueGrowthYOY'], company_overview['AnalystTargetPrice'],
+                            company_overview['AnalystRatingStrongBuy'], company_overview['AnalystRatingBuy'],
+                            company_overview['AnalystRatingHold'], company_overview['AnalystRatingSell'],
+                            company_overview['AnalystRatingStrongSell'], company_overview['TrailingPE'],
+                            company_overview['ForwardPE'], company_overview['PriceToSalesRatioTTM'],
+                            company_overview['PriceToBookRatio'], company_overview['EVToRevenue'],
+                            company_overview['EVToEBITDA'], company_overview['Beta'], company_overview['52WeekHigh'],
+                            company_overview['52WeekLow'], company_overview['50DayMovingAverage'],
+                            company_overview['200DayMovingAverage'],
+                            company_overview['SharesOutstanding']))
 
     return "success"

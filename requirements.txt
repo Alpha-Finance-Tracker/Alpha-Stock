@@ -12,3 +12,4 @@ scikit-learn
 matplotlib
 pillow
 python-jose
+numpy

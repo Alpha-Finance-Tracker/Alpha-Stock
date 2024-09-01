@@ -27,4 +27,3 @@ async def verify_token(token: str):
     except JWTError:
         print('ERROR')
         raise credentials_exception
-

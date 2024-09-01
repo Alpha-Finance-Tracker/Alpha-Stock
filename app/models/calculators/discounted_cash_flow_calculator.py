@@ -12,7 +12,7 @@ class DiscountedCashFlow(StockCalculator):
 
     @property
     def terminal_growth_rate(self):
-        return 0.03 # Hardcoded for now
+        return 0.03  # Hardcoded for now
 
     @property
     def projection_years(self):

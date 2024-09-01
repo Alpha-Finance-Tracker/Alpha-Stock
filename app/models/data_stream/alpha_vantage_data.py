@@ -2,8 +2,7 @@ import pandas as pd
 import requests
 from alpha_vantage.fundamentaldata import FundamentalData
 from dotenv import dotenv_values
-
-from app.utilities.responses import AlphaVantageDailyLimitExceeded, AlphaVantageAPIKey
+from app.utilities.responses import AlphaVantageAPIKey
 
 env_vars = dotenv_values()
 Alpha_vintage_key = env_vars.get('ALPHA_VANTAGE_SECOND_KEY')
@@ -15,7 +14,6 @@ class AlphaVantage:
         self.api_key = Alpha_vintage_key
         self.symbol = symbol
         self.url = f'https://www.alphavantage.co/query?function='
-
 
     async def balance_sheet(self):
         url = self.url + f'=BALANCE_SHEET&symbol={self.symbol}&apikey={self.api_key}'
@@ -56,7 +54,7 @@ class AlphaVantage:
 
     async def company_overview(self):
         url = self.url + f'OVERVIEW&symbol={self.symbol}&apikey={self.api_key}'
-        data =  requests.get(url).json()
+        data = requests.get(url).json()
 
         if 'Information' in data:
             raise AlphaVantageAPIKey()
@@ -81,7 +79,7 @@ class AlphaVantage:
 
     async def stock_days(self):
         url = self.url + f'TIME_SERIES_DAILY&symbol={self.symbol}&apikey={self.api_key}'
-        data =  requests.get(url).json()
+        data = requests.get(url).json()
 
         if 'Information' in data:
             raise AlphaVantageAPIKey()
@@ -113,7 +111,7 @@ class AlphaVantage:
 
     async def stock_latest(self):
         url = self.url + f'GLOBAL_QUOTE&symbol={self.symbol}&apikey={self.api_key}'
-        data =  requests.get(url).json()
+        data = requests.get(url).json()
 
         if 'Information' in data:
             raise AlphaVantageAPIKey()

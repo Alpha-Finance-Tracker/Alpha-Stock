@@ -19,6 +19,7 @@ class ReturnOnEquity(FinancialStatement):
             self.balance_sheet['roe'] = (
                     pd.to_numeric(self.income_statement['netIncome'], errors='coerce') - self.balance_sheet[
                 'shareholdersEquity'])
+
             self.updated = True
         except Exception as e:
             print(f"Error with roe: {e}")

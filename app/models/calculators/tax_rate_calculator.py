@@ -12,8 +12,7 @@ class TaxRate(StockCalculator):
             income_tax_expense = float(self.income_statement['incomeTaxExpense'].iloc[0])
             income_before_tax = float(self.income_statement['incomeBeforeTax'].iloc[0])
 
-            return income_tax_expense/ income_before_tax
-
+            return income_tax_expense / income_before_tax
 
         except Exception as e:
             print(f"Error calculating market data: {e}")

@@ -9,7 +9,8 @@ from app.models.data_stream.intrinsic_value_ds import IntrinsicValueDS
 from app.models.data_stream.open_ai_data import OpenAIData
 from app.models.data_stream.yahoo_finance_data import YahooFinance
 
-class IntrinsicValueService:
+
+class CalculatorService:
 
     def __init__(self, symbol):
         self.symbol = symbol
@@ -20,7 +21,7 @@ class IntrinsicValueService:
         self.alpha_vantage = AlphaVantage(self.symbol)
         self.open_ai = OpenAIData(self.symbol)
 
-    async def service(self):
+    async def intrinsic_value_service(self):
         try:
             data = await IntrinsicValueDS(self.yahoo_finance, self.alpha_vantage, self.open_ai).unload()
 
@@ -30,12 +31,10 @@ class IntrinsicValueService:
 
             discounted_cash_flow = await DiscountedCashFlow(data['cash_flow'], discount_rate).calculate()
 
-
-
-            self.relative_value,self.intrinsic_value = await asyncio.gather(
-                 RelativeValue(data['competitors_pe_ratio']).calculate(),
-                 IntrinsicValue(discounted_cash_flow,
-                                     data['company_overview']['SharesOutstanding']).calculate(),
+            self.relative_value, self.intrinsic_value = await asyncio.gather(
+                RelativeValue(data['competitors_pe_ratio']).calculate(),
+                IntrinsicValue(discounted_cash_flow,
+                               data['company_overview']['SharesOutstanding']).calculate(),
                 return_exceptions=True
 
             )
@@ -46,4 +45,5 @@ class IntrinsicValueService:
 
     async def present(self):
         return {'intrinsic_value': self.intrinsic_value,
-                'relative_value': self.relative_value}
+                'relative_value': self.relative_value,
+                'average_value': self.intrinsic_value / self.relative_value}

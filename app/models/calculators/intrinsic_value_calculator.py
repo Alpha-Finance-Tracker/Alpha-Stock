@@ -8,4 +8,3 @@ class IntrinsicValue(StockCalculator):
 
     async def calculate(self):
         return self.discounted_cash_flow / self.shares_outstanding
-

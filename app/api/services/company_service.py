@@ -1,6 +1,6 @@
 import asyncio
 
-from starlette.responses import StreamingResponse
+from fastapi.responses import StreamingResponse
 
 from app.database import read_query
 from app.models.data_stream.alpha_vantage_data import AlphaVantage
@@ -13,7 +13,6 @@ from app.models.statements_and_reports.net_profit_margin import NetProfitMargin
 from app.models.statements_and_reports.return_on_equity import ReturnOnEquity
 from app.models.statements_and_reports.revenue_growth import RevenueGrowth
 
-
 import matplotlib.pyplot as plt
 import pandas as pd
 import io
@@ -21,11 +20,9 @@ import io
 
 class CompanyService:
 
-
-    def __init__(self,symbol):
+    def __init__(self, symbol):
         self.symbol = symbol
         self.alpha_vantage = AlphaVantage(symbol)
-
 
     async def financial_performance(self):
         income_statement, balance_sheet, annual_eps, cash_flow = await asyncio.gather(
@@ -61,7 +58,7 @@ class CompanyService:
         img = await self.display_charts(data)
         return StreamingResponse(img, media_type="image/png")
 
-    async def display_charts(self,data):
+    async def display_charts(self, data):
         # Extract the data from the input
         years = [x[1] for x in data]
         revenue = [float(x[2]) for x in data]
@@ -158,6 +155,3 @@ class CompanyService:
             return news
         except Exception as e:
             return f'Error with parsing data from AV, probably fetch limit related {e}'
-
-
-

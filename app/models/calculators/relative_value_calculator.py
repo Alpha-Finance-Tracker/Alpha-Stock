@@ -6,6 +6,5 @@ class RelativeValue(StockCalculator):
     def __init__(self, competitors_price_to_earnings_ratio_list):
         self.competitors_price_to_earnings_ratio_list = competitors_price_to_earnings_ratio_list
 
-
     async def calculate(self):
         return sum(self.competitors_price_to_earnings_ratio_list) / len(self.competitors_price_to_earnings_ratio_list)

@@ -6,12 +6,11 @@ from app.models.base_models.data_stream import DataStream
 
 class IntrinsicValueDS(DataStream):
 
-    def __init__(self,yahoo_finance,alpha_vantage,open_ai):
+    def __init__(self, yahoo_finance, alpha_vantage, open_ai):
         self.yahoo_finance = yahoo_finance
         self.alpha_vantage = alpha_vantage
         self.open_ai = open_ai
         self.data = {}
-
 
         self.competitors_pe_ratio = None
         self.company_overview = None
@@ -25,19 +24,17 @@ class IntrinsicValueDS(DataStream):
         try:
             start_time = time.time()
 
-
             cash_flow = self.yahoo_finance.cash_flow
             stock_info = self.yahoo_finance.info
             company_overview = await self.alpha_vantage.company_overview()
 
-            competitors_pe_ratio,income_statement, balance_sheet,market_data = await asyncio.gather(
+            competitors_pe_ratio, income_statement, balance_sheet, market_data = await asyncio.gather(
                 self.open_ai.competitors_price_to_earnings_ratio(company_overview['Sector']),
                 self.alpha_vantage.income_statement(),
                 self.alpha_vantage.balance_sheet(),
                 self.yahoo_finance.market_data(),
                 return_exceptions=True
             )
-
 
             self.data['company_overview'] = company_overview
             self.data['competitors_pe_ratio'] = competitors_pe_ratio
@@ -61,4 +58,4 @@ class IntrinsicValueDS(DataStream):
             return self.data
 
         except Exception as e:
-            raise  e
+            raise e
