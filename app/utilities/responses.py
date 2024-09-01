@@ -40,9 +40,11 @@ class EmailExists(HTTPException):
     def __init__(self, content='Email already registered!'):
         super().__init__(status_code=409, detail=content)
 
-class MissingDataError(Exception):
-    """Custom exception for missing essential data."""
-    pass
+class AlphaVantageAPIKey(HTTPException):
+    def __init__(self, content='Alpha Vantage daily API fetch limit(25) exceeded.!'):
+        super().__init__(status_code=429, detail=content)
+
+
 
 class AlphaVantageDailyLimitExceeded(Exception):
     """Custom exception for missing essential data."""

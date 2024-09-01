@@ -3,6 +3,8 @@ from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 
 from app.api.services.calculator_service import IntrinsicValueService
 from app.models.calculators.fair_value_calculator import FairValue
+from app.models.calculators.future_price_calculator import StockPredictor
+from app.models.data_stream.alpha_vantage_data import AlphaVantage
 from app.models.data_stream.yahoo_finance_data import YahooFinance
 from app.utilities.responses import StockDataUnavailable
 
@@ -24,8 +26,8 @@ async def intrinsic_value(symbol: str,
         raise e
 
 
-@stock_calculator.get('/peter_lynch_fair_price')
-async def peter_lynch(symbol:str,
+@stock_calculator.get('/fair_value')
+async def fair_value(symbol:str,
                       credentials: HTTPAuthorizationCredentials = Depends(security)):
     await verify_token(credentials.credentials)
 
@@ -34,8 +36,16 @@ async def peter_lynch(symbol:str,
     except StockDataUnavailable as e :
         raise e
 
+@stock_calculator.get('price_predictor')
+async def stock_prediction(symbol: str,
+                           credentials: HTTPAuthorizationCredentials = Depends(security)):
+
+    await verify_token(credentials.credentials)
+    return StockPredictor(symbol).calculate()
+
+
 
 @stock_calculator.get('/test')
 async def test(symbol):
-    return YahooFinance(symbol).cash_flow
+    return await AlphaVantage(symbol).balance_sheet()
 

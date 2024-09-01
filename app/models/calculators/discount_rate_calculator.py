@@ -19,31 +19,6 @@ class DiscountRate(StockCalculator):
         self.market_data = market_data
         self.stock_info = stock_info
 
-    async def calculate(self):
-
-        try:
-            avg_market_value,tax_rate,cost_of_debt = await asyncio.gather(
-                AverageMarketData(self.market_data).calculate(),
-                TaxRate(self.income_statement).calculate(),
-                CostOfDebt(self.income_statement, self.balance_sheet).calculate(),
-                return_exceptions=True
-            )
-
-
-            cost_of_equity = await CostOfEquity(avg_market_value,self.risk_rate,self.beta).calculate()
-            debt_ratio = await DebtRatio(self.balance_sheet).calculate()
-            equity_ratio = await EquityRatio(self.balance_sheet).calculate()
-            total_market_value = await TotalMarketValue(equity_ratio,debt_ratio).calculate()
-
-            weighted_average_cost_of_capital = (
-                    (equity_ratio / total_market_value) * cost_of_equity
-                    + (debt_ratio / total_market_value) * cost_of_debt * (1 - tax_rate)
-            )
-
-            return weighted_average_cost_of_capital
-        except Exception as e:
-            raise  e
-
     @property
     def risk_rate(self):
         return 0.03
@@ -57,3 +32,27 @@ class DiscountRate(StockCalculator):
                 return self.company_overview['Beta']
             except KeyError:
                 return 1
+
+    async def calculate(self):
+
+        try:
+            avg_market_value, tax_rate, cost_of_debt = await asyncio.gather(
+                AverageMarketData(self.market_data).calculate(),
+                TaxRate(self.income_statement).calculate(),
+                CostOfDebt(self.income_statement, self.balance_sheet).calculate(),
+                return_exceptions=True
+            )
+
+            cost_of_equity = await CostOfEquity(avg_market_value, self.risk_rate, self.beta).calculate()
+            debt_ratio = await DebtRatio(self.balance_sheet).calculate()
+            equity_ratio = await EquityRatio(self.balance_sheet).calculate()
+            total_market_value = await TotalMarketValue(equity_ratio, debt_ratio).calculate()
+
+            weighted_average_cost_of_capital = (
+                    (equity_ratio / total_market_value) * cost_of_equity
+                    + (debt_ratio / total_market_value) * cost_of_debt * (1 - tax_rate)
+            )
+
+            return weighted_average_cost_of_capital
+        except Exception as e:
+            raise e
