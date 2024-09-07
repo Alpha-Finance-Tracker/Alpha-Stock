@@ -44,7 +44,9 @@ class AlphaVantageAPIKey(HTTPException):
     def __init__(self, content='Alpha Vantage daily API fetch limit(25) exceeded.!'):
         super().__init__(status_code=429, detail=content)
 
-
+class AlphaVantageNoData(HTTPException):
+    def __init__(self, content='Alpha Vantage does not have information about the stock'):
+        super().__init__(status_code=404, detail=content)
 
 class AlphaVantageDailyLimitExceeded(Exception):
     """Custom exception for missing essential data."""

@@ -1,10 +1,9 @@
 import uvicorn
 from fastapi import FastAPI
 
-from app.api.routers.AI_router import AI_router
+
 from app.api.routers.calculators_router import stock_calculator
 from app.api.routers.company_router import company_router
-from app.api.routers.news_router import news_router
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
@@ -18,9 +17,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.include_router(news_router, tags=['News'])
 app.include_router(stock_calculator, tags=['Calculators'])
-app.include_router(AI_router, tags=['AI'])
 app.include_router(company_router, tags=['Company'])
 
 if __name__ == "__main__":

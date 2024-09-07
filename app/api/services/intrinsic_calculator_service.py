@@ -10,7 +10,7 @@ from app.models.data_stream.open_ai_data import OpenAIData
 from app.models.data_stream.yahoo_finance_data import YahooFinance
 
 
-class CalculatorService:
+class IntrinsicCalculatorService:
 
     def __init__(self, symbol):
         self.symbol = symbol

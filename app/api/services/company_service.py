@@ -28,7 +28,7 @@ class CompanyService:
         income_statement, balance_sheet, annual_eps, cash_flow = await asyncio.gather(
             self.alpha_vantage.income_statement(),
             self.alpha_vantage.balance_sheet(),
-            self.alpha_vantage.company_annual_earnings_per_share(),
+            self.alpha_vantage.company_earnings(),
             self.alpha_vantage.cash_flows()
 
         )
