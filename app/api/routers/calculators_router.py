@@ -40,5 +40,5 @@ async def fair_value(symbol: str,
 async def stock_prediction(symbol: str,
                            credentials: HTTPAuthorizationCredentials = Depends(security)):
     await verify_token(credentials.credentials)
-    return StockPredictor(symbol).calculate()
+    return await StockPredictor(symbol).calculate()
 
