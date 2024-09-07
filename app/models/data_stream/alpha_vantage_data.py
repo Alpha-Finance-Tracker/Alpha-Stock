@@ -46,36 +46,6 @@ class AlphaVantage:
         await AlphaVantageValidator(data).validate()
         return pd.DataFrame(data.get('annualEarnings'))
 
-    async def stock_minutes(self, minutes: int):
-        data = await self._fetch_data(f'TIME_SERIES_INTRADAY&interval={minutes}min')
-        await AlphaVantageValidator(data).validate()
-        return data
-
-    async def stock_days(self):
-        data = await self._fetch_data('TIME_SERIES_DAILY')
-        await AlphaVantageValidator(data).validate()
-        return data
-
-    async def stock_weeks(self):
-        data = await self._fetch_data('TIME_SERIES_WEEKLY')
-        await AlphaVantageValidator(data).validate()
-        return data
-
-    async def stock_months(self):
-        data = await self._fetch_data('TIME_SERIES_MONTHLY')
-        await AlphaVantageValidator(data).validate()
-        return data
-
-    async def stock_monthly_adjusted(self):
-        data = await self._fetch_data('TIME_SERIES_MONTHLY_ADJUSTED')
-        await AlphaVantageValidator(data).validate()
-        return pd.DataFrame(data.get('Monthly Adjusted Time Series', {}))
-
-    async def stock_latest(self):
-        data = await self._fetch_data('GLOBAL_QUOTE')
-        await AlphaVantageValidator(data).validate()
-        return data
-
     async def news(self):
         data = await self._fetch_data(f'NEWS_SENTIMENT&tickers={self.symbol}')
         await AlphaVantageValidator(data).validate()

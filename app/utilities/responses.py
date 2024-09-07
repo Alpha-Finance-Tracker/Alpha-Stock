@@ -48,8 +48,10 @@ class AlphaVantageNoData(HTTPException):
     def __init__(self, content='Alpha Vantage does not have information about the stock'):
         super().__init__(status_code=404, detail=content)
 
-class AlphaVantageDailyLimitExceeded(Exception):
-    """Custom exception for missing essential data."""
-    def __init__(self):
-        self.message = 'Alpha Vantage Daily Fetch Limit Exceeded'
-        super().__init__(self.message)
+class AlphaVantageDailyLimitExceeded(HTTPException):
+    def __init__(self, content='Alpha Vantage Daily Fetch Limit Exceeded'):
+        super().__init__(status_code=404, detail=content)
+
+class CalculationError(HTTPException):
+    def __init__(self, content='Oops, Calculation error occurred.'):
+        super().__init__(status_code=500, detail=content)

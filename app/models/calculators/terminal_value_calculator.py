@@ -1,4 +1,7 @@
+import logging
+
 from app.models.base_models.stock_calculator import StockCalculator
+from app.utilities.responses import CalculationError
 
 
 class TerminalValue(StockCalculator):
@@ -13,6 +16,7 @@ class TerminalValue(StockCalculator):
             return self.latest_cash_flow * (1 + self.terminal_growth_rate) / (
                     self.discount_rate - self.terminal_growth_rate)
 
-        except Exception as e:
-            print(f"Error calculating market data: {e}")
-            return None
+
+        except (ZeroDivisionError, ValueError, TypeError) as e:
+            logging.error(f"Calculation error: {e}")
+            raise CalculationError()

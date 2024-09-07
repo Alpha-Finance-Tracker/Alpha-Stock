@@ -1,4 +1,5 @@
 import asyncio
+import logging
 
 from app.models.base_models.stock_calculator import StockCalculator
 from app.models.calculators.cost_of_debt_calculator import CostOfDebt
@@ -8,6 +9,7 @@ from app.models.calculators.equity_ratio_calculator import EquityRatio
 from app.models.calculators.market_data_calculator import AverageMarketData
 from app.models.calculators.tax_rate_calculator import TaxRate
 from app.models.calculators.total_market_value_calculator import TotalMarketValue
+from app.utilities.responses import CalculationError
 
 
 class DiscountRate(StockCalculator):
@@ -54,5 +56,7 @@ class DiscountRate(StockCalculator):
             )
 
             return weighted_average_cost_of_capital
-        except Exception as e:
-            raise e
+        except (ZeroDivisionError, ValueError,TypeError) as e:
+            logging.error(f"Calculation error: {e}")
+            raise CalculationError()
+

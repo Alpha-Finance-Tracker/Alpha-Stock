@@ -1,4 +1,7 @@
+import logging
+
 from app.models.base_models.stock_calculator import StockCalculator
+from app.utilities.responses import CalculationError
 
 
 class TotalMarketValue(StockCalculator):
@@ -11,6 +14,6 @@ class TotalMarketValue(StockCalculator):
         try:
             return self.equity_ratio + self.debt_ratio
 
-        except Exception as e:
-            print(f"Error calculating market data: {e}")
-            return None
+        except (ZeroDivisionError, ValueError, TypeError) as e:
+            logging.error(f"Calculation error: {e}")
+            raise CalculationError()

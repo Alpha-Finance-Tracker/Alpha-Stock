@@ -1,5 +1,8 @@
+import logging
+
 from app.models.base_models.stock_calculator import StockCalculator
 from app.models.data_stream.yahoo_finance_data import YahooFinance
+from app.utilities.responses import CalculationError
 
 
 class FairValue(StockCalculator):  # Peter Lynch Calculator
@@ -8,8 +11,6 @@ class FairValue(StockCalculator):  # Peter Lynch Calculator
         self.symbol = symbol
         self.yahoo_finance = YahooFinance(self.symbol)
 
-    async def calculate(self):
-        return (self.earnings_per_share_growth_rate + self.dividend_yield) / self.price_to_earnings_ratio
 
     @property
     def price_to_earnings_ratio(self):
@@ -25,3 +26,12 @@ class FairValue(StockCalculator):  # Peter Lynch Calculator
 
         return float(
             growth_estimates['index'] if growth_estimates['stock'] == 0.0 else growth_estimates['stock'])
+
+
+    async def calculate(self):
+        try:
+
+            return (self.earnings_per_share_growth_rate + self.dividend_yield) / self.price_to_earnings_ratio
+        except (ZeroDivisionError,ValueError,TypeError) as e:
+            logging.error(f"Calculation error: {e}")
+            raise CalculationError()

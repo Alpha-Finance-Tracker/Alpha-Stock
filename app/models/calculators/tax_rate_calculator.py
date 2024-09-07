@@ -1,4 +1,7 @@
+import logging
+
 from app.models.base_models.stock_calculator import StockCalculator
+from app.utilities.responses import CalculationError
 
 
 class TaxRate(StockCalculator):
@@ -7,13 +10,17 @@ class TaxRate(StockCalculator):
 
         self.income_statement = income_statement
 
+
+    @property
+    def last_year_income_tax_expense(self):
+        return float(self.income_statement['incomeTaxExpense'].iloc[0])
+
+    @property
+    def last_year_income_before_tax(self):
+        return float(self.income_statement['incomeBeforeTax'].iloc[0])
     async def calculate(self):
         try:
-            income_tax_expense = float(self.income_statement['incomeTaxExpense'].iloc[0])
-            income_before_tax = float(self.income_statement['incomeBeforeTax'].iloc[0])
-
-            return income_tax_expense / income_before_tax
-
-        except Exception as e:
-            print(f"Error calculating market data: {e}")
-            return None
+            return self.last_year_income_tax_expense / self.last_year_income_before_tax
+        except (ZeroDivisionError, ValueError, TypeError) as e:
+            logging.error(f"Calculation error: {e}")
+            raise CalculationError()

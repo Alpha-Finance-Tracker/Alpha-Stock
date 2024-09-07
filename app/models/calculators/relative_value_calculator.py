@@ -1,4 +1,7 @@
+import logging
+
 from app.models.base_models.stock_calculator import StockCalculator
+from app.utilities.responses import CalculationError
 
 
 class RelativeValue(StockCalculator):
@@ -7,4 +10,9 @@ class RelativeValue(StockCalculator):
         self.competitors_price_to_earnings_ratio_list = competitors_price_to_earnings_ratio_list
 
     async def calculate(self):
-        return sum(self.competitors_price_to_earnings_ratio_list) / len(self.competitors_price_to_earnings_ratio_list)
+        try:
+            return sum(
+                self.competitors_price_to_earnings_ratio_list) / len(self.competitors_price_to_earnings_ratio_list)
+        except (ZeroDivisionError,ValueError,TypeError,IndexError) as e:
+            logging.error(f"Calculation error: {e}")
+            raise CalculationError()

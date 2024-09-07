@@ -1,5 +1,4 @@
 from app.models.base_models.stock_calculator import StockCalculator
-from app.models.data_stream.alpha_vantage_data import AlphaVantage
 import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
@@ -22,7 +21,6 @@ class StockPredictor(StockCalculator):
             if not all(col in data.columns for col in required_columns):
                 raise ValueError("Data missing required columns")
 
-
             monthly_data = data.resample('M').agg({
                 'Open': 'first',
                 'High': 'max',
@@ -30,7 +28,6 @@ class StockPredictor(StockCalculator):
                 'Close': 'last',
                 'Volume': 'sum'
             })
-
 
             features = ['Open', 'High', 'Low', 'Close', 'Volume']
             X = monthly_data[features].values
