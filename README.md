@@ -1,4 +1,4 @@
-![Build Status](https://img.shields.io/github/actions/workflow/status/Alpha-Finance-Tracker/Auth-Service/main.yml)
+![Build Status](https://img.shields.io/github/actions/workflow/status/Alpha-Finance-Tracker/Alpha-Stock-Service/main.yml)
 ![Python Version](https://img.shields.io/badge/python-3.12%2B-blue)
 ![Platform](https://img.shields.io/badge/platform-windows-blue)
 [![Coverage Status](https://coveralls.io/repos/github/Alpha-Finance-Tracker/Alpha-Stock-Service/badge.svg?branch=main)](https://coveralls.io/github/Alpha-Finance-Tracker/Alpha-Stock-Service?branch=main)
