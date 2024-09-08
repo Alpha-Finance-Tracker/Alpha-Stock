@@ -10,7 +10,6 @@ class TaxRate(StockCalculator):
 
         self.income_statement = income_statement
 
-
     @property
     def last_year_income_tax_expense(self):
         return float(self.income_statement['incomeTaxExpense'].iloc[0])
@@ -18,6 +17,7 @@ class TaxRate(StockCalculator):
     @property
     def last_year_income_before_tax(self):
         return float(self.income_statement['incomeBeforeTax'].iloc[0])
+
     async def calculate(self):
         try:
             return self.last_year_income_tax_expense / self.last_year_income_before_tax

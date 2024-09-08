@@ -11,7 +11,6 @@ class FairValue(StockCalculator):  # Peter Lynch Calculator
         self.symbol = symbol
         self.yahoo_finance = YahooFinance(self.symbol)
 
-
     @property
     def price_to_earnings_ratio(self):
         return float(self.yahoo_finance.info['forwardPE'])
@@ -27,11 +26,10 @@ class FairValue(StockCalculator):  # Peter Lynch Calculator
         return float(
             growth_estimates['index'] if growth_estimates['stock'] == 0.0 else growth_estimates['stock'])
 
-
     async def calculate(self):
         try:
 
             return (self.earnings_per_share_growth_rate + self.dividend_yield) / self.price_to_earnings_ratio
-        except (ZeroDivisionError,ValueError,TypeError) as e:
+        except (ZeroDivisionError, ValueError, TypeError) as e:
             logging.error(f"Calculation error: {e}")
             raise CalculationError()

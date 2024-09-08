@@ -24,7 +24,6 @@ class DiscountedCashFlow(StockCalculator):
     def last_year_free_cash_flow(self):
         return float(self.cash_flow.loc['Free Cash Flow'][0])
 
-
     async def calculate(self):
 
         try:
@@ -36,6 +35,6 @@ class DiscountedCashFlow(StockCalculator):
             return (sum([
                 (latest_cash_flow / (1 + self.discount_rate) ** year) for year in range(1, self.projection_years + 1)])
                     + (self.terminal_value / (1 + self.discount_rate) ** self.projection_years))
-        except (ZeroDivisionError,ValueError,TypeError) as e:
+        except (ZeroDivisionError, ValueError, TypeError) as e:
             logging.error(f"Calculation error: {e}")
             raise CalculationError()

@@ -59,4 +59,3 @@ class DiscountRate(StockCalculator):
         except (ZeroDivisionError, ValueError,TypeError) as e:
             logging.error(f"Calculation error: {e}")
             raise CalculationError()
-

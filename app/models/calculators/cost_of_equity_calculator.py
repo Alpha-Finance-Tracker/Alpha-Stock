@@ -17,4 +17,3 @@ class CostOfEquity(StockCalculator):
         except (ValueError,TypeError) as e:
             logging.error(f"Calculation error: {e}")
             raise CalculationError()
-

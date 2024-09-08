@@ -3,17 +3,16 @@ import asyncio
 from app.database import insert_query, read_query
 
 
-async def send_parameters_towards_the_database(revenue, net_income, eps, roe,
-                                               net_profit_margin, debt_level, cash_flows, symbol):
+async def send_parameters_towards_the_database(revenue_growth, net_income, eps, roe,
+                                               net_profit_margin, debt_level, cash_flow, symbol):
     await asyncio.gather(
-        initiate_years(revenue, symbol),
-        update_company('revenue',revenue['growth_rate'],revenue['fiscalDateEnding'],symbol),
-        update_company('net_income',net_income['netIncome'], net_income['fiscalDateEnding'], symbol),
-        update_company('eps',eps['reportedEPS'],eps['fiscalDateEnding'],symbol),
-        update_company('roe',roe['roe'],roe['fiscalDateEnding'],symbol),
-        update_company('net_profit_margin',net_profit_margin['netProfitMargin'],net_profit_margin['fiscalDateEnding'],symbol),
-        update_company('debt_level',debt_level['currentDebt'],debt_level['fiscalDateEnding'],symbol),
-        update_company('cash_flows',cash_flows['operatingCashflow'],cash_flows['fiscalDateEnding'],symbol))
+        initiate_years(revenue_growth, symbol),
+        update_company('revenue_growth', revenue_growth['growth_rate'], revenue_growth['fiscalDateEnding'], symbol),
+        update_company('net_income', net_income['netIncome'], net_income['fiscalDateEnding'], symbol),
+        update_company('eps', eps['reportedEPS'], eps['fiscalDateEnding'], symbol),
+        update_company('roe', roe['roe'], roe['fiscalDateEnding'], symbol),
+        update_company('debt_level', debt_level['currentDebt'], debt_level['fiscalDateEnding'], symbol),
+        update_company('cash_flow', cash_flow['operatingCashflow'], cash_flow['fiscalDateEnding'], symbol))
 
 
 async def check_existing_years(symbol):
@@ -24,81 +23,26 @@ async def check_existing_years(symbol):
     else:
         return {}
 
-async def update_company(column, mark, years, symbol):
 
+async def update_company(column, mark, years, symbol):
     for x, y in zip(mark, years):
         try:
             await insert_query(f"""
             UPDATE company SET {column} = %s WHERE year = %s AND symbol = %s""", (float(x), y, symbol))
         except Exception as e:
             print(e)
+
+
 #
 async def initiate_years(years, symbol):
     try:
-        existing_years = check_existing_years(symbol)
+        existing_years = await check_existing_years(symbol)
 
         for x in years['fiscalDateEnding']:
             if x not in existing_years:
                 await insert_query('INSERT INTO company(symbol, year) values (%s, %s)', (symbol, x))
     except Exception as e:
         print(f"Error with initiate_years: {e}")
-#
-#
-# async def eps_db_update(eps, symbol):
-#     for x, y in zip(eps['reportedEPS'], eps['fiscalDateEnding']):
-#         try:
-#             await insert_query('UPDATE company SET eps = %s WHERE year = %s AND symbol = %s', (float(x), y, symbol))
-#         except Exception as e:
-#             print(f"Error with eps_db_update: {e}")
-#
-#
-# async def revenue_db_update(revenue, symbol):
-#     for x, y in zip(revenue['growth_rate'], revenue['fiscalDateEnding']):
-#         try:
-#             await insert_query('UPDATE company SET revenue_growth = %s WHERE year = %s AND symbol = %s', (x, y, symbol))
-#         except Exception as e:
-#             print(f"Error with revenue_db_update: {e}")
-#
-#
-# async def net_income_db_update(net_income, symbol):
-#     for x, y in zip(net_income['netIncome'], net_income['fiscalDateEnding']):
-#         try:
-#             await insert_query('UPDATE company SET net_income = %s WHERE year = %s AND symbol = %s',
-#                                (int(x), y, symbol))
-#         except Exception as e:
-#             print(f"Error with net_income_db_update: {e}")
-#
-#
-# async def roe_db_update(roe, symbol):
-#     for x, y in zip(roe['roe'], roe['fiscalDateEnding']):
-#         try:
-#             await insert_query('UPDATE company SET roe = %s WHERE year = %s AND symbol = %s', (x, y, symbol))
-#         except Exception as e:
-#             print(f"Error with roe_db_update: {e}")
-#
-#
-# async def net_profit_margin_db_update(profit_margin, symbol):
-#     for x, y in zip(profit_margin['netProfitMargin'], profit_margin['fiscalDateEnding']):
-#         try:
-#             await insert_query('UPDATE company SET profit_margin = %s WHERE year = %s AND symbol = %s', (x, y, symbol))
-#         except Exception as e:
-#             print(f"Error with net_profit_margin_db_update: {e}")
-#
-#
-# async def debt_level_db_update(debt, symbol):
-#     for x, y in zip(debt['currentDebt'], debt['fiscalDateEnding']):
-#         try:
-#             await insert_query('UPDATE company SET debt_level = %s WHERE year = %s AND symbol = %s', (x, y, symbol))
-#         except Exception as e:
-#             print(f"Error with debt_level_db_update: {e}")
-#
-#
-# async def cash_flows_db_update(cash_flows, symbol):
-#     for x, y in zip(cash_flows['operatingCashflow'], cash_flows['fiscalDateEnding']):
-#         try:
-#             await insert_query('UPDATE company SET cash_flow = %s WHERE year = %s AND symbol = %s', (x, y, symbol))
-#         except Exception as e:
-#             print(f"Error with debt_level_db_update: {e}")
 
 
 async def company_overview_db_update(company_overview, symbol):

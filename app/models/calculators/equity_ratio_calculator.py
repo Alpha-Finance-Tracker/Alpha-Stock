@@ -10,7 +10,6 @@ class EquityRatio(StockCalculator):
 
         self.balance_sheet = balance_sheet
 
-
     @property
     def last_year_total_liabilities(self):
         return float(self.balance_sheet['totalLiabilities'].iloc[0])

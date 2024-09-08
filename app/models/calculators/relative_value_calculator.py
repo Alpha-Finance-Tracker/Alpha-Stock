@@ -11,8 +11,8 @@ class RelativeValue(StockCalculator):
 
     async def calculate(self):
         try:
-            return sum(
-                self.competitors_price_to_earnings_ratio_list) / len(self.competitors_price_to_earnings_ratio_list)
-        except (ZeroDivisionError,ValueError,TypeError,IndexError) as e:
+            return (sum(self.competitors_price_to_earnings_ratio_list) /
+                    len(self.competitors_price_to_earnings_ratio_list))
+        except (ZeroDivisionError, ValueError, TypeError, IndexError) as e:
             logging.error(f"Calculation error: {e}")
             raise CalculationError()

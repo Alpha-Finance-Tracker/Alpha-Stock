@@ -9,6 +9,3 @@ class FinancialStatement(ABC):
     @abstractmethod
     def update(self):
         raise NotImplementedError
-
-
-

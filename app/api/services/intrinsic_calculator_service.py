@@ -1,5 +1,4 @@
-import asyncio
-
+from app.models.base_models.service import Service
 from app.models.calculators.discount_rate_calculator import DiscountRate
 from app.models.calculators.discounted_cash_flow_calculator import DiscountedCashFlow
 from app.models.calculators.intrinsic_value_calculator import IntrinsicValue
@@ -10,7 +9,7 @@ from app.models.data_stream.open_ai_data import OpenAIData
 from app.models.data_stream.yahoo_finance_data import YahooFinance
 
 
-class IntrinsicCalculatorService:
+class IntrinsicCalculatorService(Service):
 
     def __init__(self, symbol):
         self.symbol = symbol
@@ -21,7 +20,7 @@ class IntrinsicCalculatorService:
         self.alpha_vantage = AlphaVantage(self.symbol)
         self.open_ai = OpenAIData(self.symbol)
 
-    async def intrinsic_value_service(self):
+    async def service(self):
         try:
             data = await IntrinsicValueDS(self.yahoo_finance, self.alpha_vantage, self.open_ai).unload()
 
@@ -31,13 +30,10 @@ class IntrinsicCalculatorService:
 
             discounted_cash_flow = await DiscountedCashFlow(data['cash_flow'], discount_rate).calculate()
 
-            self.relative_value, self.intrinsic_value = await asyncio.gather(
-                RelativeValue(data['competitors_pe_ratio']).calculate(),
-                IntrinsicValue(discounted_cash_flow,
-                               data['company_overview']['SharesOutstanding']).calculate(),
-                return_exceptions=True
+            self.relative_value = await RelativeValue(data['competitors_pe_ratio']).calculate()
+            self.intrinsic_value = await IntrinsicValue(discounted_cash_flow,
+                                                        data['company_overview']['SharesOutstanding']).calculate()
 
-            )
             return await self.present()
 
         except Exception as e:

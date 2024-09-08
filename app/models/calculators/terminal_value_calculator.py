@@ -16,7 +16,6 @@ class TerminalValue(StockCalculator):
             return self.latest_cash_flow * (1 + self.terminal_growth_rate) / (
                     self.discount_rate - self.terminal_growth_rate)
 
-
         except (ZeroDivisionError, ValueError, TypeError) as e:
             logging.error(f"Calculation error: {e}")
             raise CalculationError()

@@ -11,7 +11,6 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 ALGORITHM = os.getenv('ALGORITHM')
 
 async def verify_token(token: str):
-    print(token)
     credentials_exception = HTTPException(
         status_code=401,
         detail="Could not validate credentials",
@@ -22,7 +21,6 @@ async def verify_token(token: str):
         exp = payload.get('exp')
         if exp is None or datetime.fromtimestamp(exp) < datetime.now():
             raise credentials_exception
-        print(payload)
         return payload
     except JWTError:
         print('ERROR')
