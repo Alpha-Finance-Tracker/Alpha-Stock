@@ -4,9 +4,7 @@ from alpha_vantage.fundamentaldata import FundamentalData
 from dotenv import dotenv_values
 from app.models.validators.alpha_vantage_validator import AlphaVantageValidator
 env_vars = dotenv_values()
-Alpha_vintage_key = env_vars.get('ALPHA_VANTAGE_SECOND_KEY')
-fd = FundamentalData(Alpha_vintage_key)
-
+Alpha_vintage_key = env_vars.get('ALPHA_VANTAGE_KEY')
 
 class AlphaVantage:
     def __init__(self, symbol):
