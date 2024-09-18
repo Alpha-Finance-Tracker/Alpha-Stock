@@ -1,6 +1,5 @@
 import pandas as pd
 import httpx
-from alpha_vantage.fundamentaldata import FundamentalData
 from dotenv import dotenv_values
 from app.models.validators.alpha_vantage_validator import AlphaVantageValidator
 env_vars = dotenv_values()

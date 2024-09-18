@@ -13,6 +13,8 @@ security = HTTPBearer()
 @company_router.get('/Financial_performance')
 async def company_financial_performance(symbol: str,
                                         credentials: HTTPAuthorizationCredentials = Depends(security)):
+    """This method fetches information from AV and YH and registers it in the Database"""
+
     await verify_token(credentials.credentials)
     return await CompanyService(symbol).financial_performance()
 
@@ -20,8 +22,10 @@ async def company_financial_performance(symbol: str,
 @company_router.get('/Company_overview')
 async def company_overview(symbol: str,
                            credentials: HTTPAuthorizationCredentials = Depends(security)):
+    """This method fetches information from AV"""
+
     await verify_token(credentials.credentials)
-    return AlphaVantage(symbol).company_overview()
+    return await AlphaVantage(symbol).company_overview()
 
 
 @company_router.get('/information')

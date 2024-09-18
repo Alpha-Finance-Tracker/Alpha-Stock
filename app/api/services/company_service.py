@@ -2,7 +2,7 @@ import asyncio
 
 from fastapi.responses import StreamingResponse
 
-from app.database import read_query
+from app.database.models.company import Company
 from app.models.data_stream.alpha_vantage_data import AlphaVantage
 from app.models.data_stream.company_data import send_parameters_towards_the_database
 from app.models.statements_and_reports.cash_flows import CashFlow
@@ -22,6 +22,10 @@ class CompanyService:
     def __init__(self, symbol):
         self.symbol = symbol
         self.alpha_vantage = AlphaVantage(symbol)
+
+    async def company_overview(self):
+        pass
+
 
     async def financial_performance(self):
         income_statement, balance_sheet, annual_eps, cash_flow = await asyncio.gather(
@@ -53,25 +57,25 @@ class CompanyService:
         return 'Parameters successfully fetched and registered'
 
     async def company_info_from_db(self):
-        data = await read_query('SELECT * FROM company WHERE symbol = %s', (self.symbol,))
+        data = await Company().view(self.symbol)
         img = await self.display_charts(data)
         return StreamingResponse(img, media_type="image/png")
 
     async def display_charts(self, data):
         # Extract the data from the input
-        years = [x[1] for x in data]
-        revenue = [float(x[2]) for x in data]
-        net_income = [float(x[3]) for x in data]
-        cash_flow = [float(x[4]) for x in data]
-        debt_level = [float(x[5]) for x in data]
-        eps = [float(x[6]) for x in data]
-        roe = [float(x[7]) for x in data]
+        years = [x.year for x in data]
+        revenue_growth = [x.revenue_growth for x in data] # % based
+        net_income = [x.net_income for x in data]
+        cash_flow = [x.cash_flow for x in data]
+        debt_level = [x.debt_level for x in data]
+        eps = [x.eps for x in data]
+        roe = [x.roe for x in data]
 
         # Create a figure and a set of subplots
         fig, axs = plt.subplots(3, 2, figsize=(14, 10), facecolor='none')
 
         # Plot data on each subplot
-        axs[0, 0].plot(years, revenue, 'b-o')
+        axs[0, 0].plot(years, revenue_growth, 'b-o')
         axs[0, 0].set_title('Revenue Growth')
         axs[0, 0].set_xlabel('Year')
         axs[0, 0].set_ylabel('Revenue $')

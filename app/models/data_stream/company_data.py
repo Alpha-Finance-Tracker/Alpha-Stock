@@ -1,6 +1,7 @@
 import asyncio
 
-from app.database import insert_query, read_query
+from app.database.database import custom_query
+from app.database.models.company_overview import CompanyOverview
 
 
 async def send_parameters_towards_the_database(revenue_growth, net_income, eps, roe,
@@ -51,46 +52,52 @@ async def company_overview_db_update(company_overview, symbol):
     # Q3: April 1 - June 30
     # Q4: July 1 - September 30
 
-    check_existence = await read_query('SELECT symbol FROM company_overview WHERE symbol = %s AND quarter = %s',
-                                       (symbol, company_overview['LatestQuarter']))
+    check_existence = await custom_query('SELECT symbol FROM company_overview WHERE symbol = %s AND quarter = %s',
+                                       (symbol, company_overview['LatestQuarter']),'SELECT')
 
     if check_existence == []:
-        await insert_query("""INSERT INTO company_overview (
-                        Symbol, asset_type, quarter, market_capitalization, ebitda, 
-                        pe_ratio, peg_ratio, book_value, dividend_per_share, dividend_yield, 
-                        eps, revenue_per_share, profit_margin, operating_margin, 
-                        return_on_asset, return_on_equity, revenue, gross_profit, 
-                        diluted_eps, quarterly_earnings_growth, quarterly_revenue_growth, 
-                        analyst_target_price, analyst_rating_strong_buy, analyst_rating_buy, 
-                        analyst_rating_hold, analyst_rating_sell, analyst_rating_strong_sell, 
-                        trailing_pe, forward_pe, price_to_sales_ratio, price_to_book_ratio, 
-                        ev_to_revenue, ev_to_ebitda, beta, Year52WeekHigh, Year52WeekLow, 
-                        MovingAverage50Day, MovingAverage200Day, shares_outstanding
-                    ) VALUES (
-                        %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, 
-                        %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, 
-                        %s, %s, %s, %s, %s, %s, %s, %s, %s,  %s, %s, %s
-                    )""",
+        information = await CompanyOverview(
+            symbol=company_overview['Symbol'],
+            asset_type=company_overview['AssetType'],
+            quarter=company_overview['LatestQuarter'],
+            market_capitalization=company_overview['MarketCapitalization'],
+            ebitda=company_overview['EBITDA'],
+            pe_ratio = company_overview['PERatio'],
+            peg_ratio=company_overview['PEGRatio'],
+            book_value=company_overview['BookValue'],
+            dividend_per_share=company_overview['DividendPerShare'],
+            dividend_yield=company_overview['DividendYield'],
+            eps=company_overview['EPS'],
+            revenue_per_share=company_overview['RevenuePerShareTTM'],
+            profit_margin=company_overview['ProfitMargin'],
+            operating_margin=company_overview['OperatingMarginTTM'],
+            return_on_asset=company_overview['ReturnOnAssetsTTM'],
+            return_on_equity=company_overview['ReturnOnEquityTTM'],
+            revenue=company_overview['RevenueTTM'],
+            gross_profit=company_overview['GrossProfitTTM'],
+            diluted_eps=company_overview['DilutedEPSTTM'],
+            quarterly_earnings_growth=company_overview['QuarterlyEarningsGrowthYOY'],
+            quarterly_revenue_growth=company_overview['QuarterlyRevenueGrowthYOY'],
+            analyst_target_price=company_overview['AnalystTargetPrice'],
+            analyst_rating_strong_buy=company_overview['AnalystRatingStrongBuy'],
+            analyst_rating_buy=company_overview['AnalystRatingBuy'],
+            analyst_rating_hold=company_overview['AnalystRatingHold'],
+            analyst_rating_sell=company_overview['AnalystRatingSell'],
+            analyst_rating_strong_sell=company_overview['AnalystRatingStrongSell'],
+            trailing_pe=company_overview['TrailingPE'],
+            forward_pe=company_overview['ForwardPE'],
+            price_to_sales_ratio=company_overview['PriceToSalesRatioTTM'],
+            price_to_book_ratio=company_overview['PriceToBookRatio'],
+            ev_to_revenue=company_overview['EVToRevenue'],
+            ev_to_ebitda=company_overview['EVToEBITDA'],
+            beta=company_overview['Beta'],
+            Year52WeekHigh=company_overview['52WeekHigh'],
+            Year52WeekLow=company_overview['52WeekLow'],
+            MovingAverage50Day=company_overview['50DayMovingAverage'],
+            MovingAverage200Day=company_overview['200DayMovingAverage'],
+            shares_outstanding=company_overview['SharesOutstanding'])
 
-                           (company_overview['Symbol'], company_overview['AssetType'],
-                            company_overview['LatestQuarter'], company_overview['MarketCapitalization'],
-                            company_overview['EBITDA'], company_overview['PERatio'],
-                            company_overview['PEGRatio'], company_overview['BookValue'],
-                            company_overview['DividendPerShare'], company_overview['DividendYield'],
-                            company_overview['EPS'], company_overview['RevenuePerShareTTM'],
-                            company_overview['ProfitMargin'], company_overview['OperatingMarginTTM'],
-                            company_overview['ReturnOnAssetsTTM'], company_overview['ReturnOnEquityTTM'],
-                            company_overview['RevenueTTM'], company_overview['GrossProfitTTM'],
-                            company_overview['DilutedEPSTTM'], company_overview['QuarterlyEarningsGrowthYOY'],
-                            company_overview['QuarterlyRevenueGrowthYOY'], company_overview['AnalystTargetPrice'],
-                            company_overview['AnalystRatingStrongBuy'], company_overview['AnalystRatingBuy'],
-                            company_overview['AnalystRatingHold'], company_overview['AnalystRatingSell'],
-                            company_overview['AnalystRatingStrongSell'], company_overview['TrailingPE'],
-                            company_overview['ForwardPE'], company_overview['PriceToSalesRatioTTM'],
-                            company_overview['PriceToBookRatio'], company_overview['EVToRevenue'],
-                            company_overview['EVToEBITDA'], company_overview['Beta'], company_overview['52WeekHigh'],
-                            company_overview['52WeekLow'], company_overview['50DayMovingAverage'],
-                            company_overview['200DayMovingAverage'],
-                            company_overview['SharesOutstanding']))
+        await CompanyOverview().add(information)
+        return "success"
 
-    return "success"
+
