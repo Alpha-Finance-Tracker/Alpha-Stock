@@ -3,8 +3,17 @@ import asyncio
 from fastapi.responses import StreamingResponse
 
 from app.database.models.company import Company
+from app.models.basic_metric_evaluation.current_ratio import CurrentRatio
+from app.models.basic_metric_evaluation.debt_to_ebitda import DebtToEbitda
+from app.models.basic_metric_evaluation.debt_to_equity_ratio import DebtToEquityRatio
+from app.models.basic_metric_evaluation.ebitda import Ebitda
+from app.models.basic_metric_evaluation.interest_coverage_ratio import InterestCoverageRatio
+from app.models.basic_metric_evaluation.return_on_assets import ReturnOnAssets
+from app.models.basic_metric_evaluation.return_on_equity import ReturnOnEquityYF
+from app.models.basic_metric_evaluation.return_on_invested_capital import ReturnOnInvestedCapital
 from app.models.data_stream.alpha_vantage_data import AlphaVantage
 from app.models.data_stream.company_data import send_parameters_towards_the_database
+from app.models.data_stream.yahoo_finance_data import YahooFinance
 from app.models.statements_and_reports.cash_flows import CashFlow
 from app.models.statements_and_reports.debt import Debt
 from app.models.statements_and_reports.earnings_per_share import EarningsPerShare
@@ -22,9 +31,33 @@ class CompanyService:
     def __init__(self, symbol):
         self.symbol = symbol
         self.alpha_vantage = AlphaVantage(symbol)
+        self.yahoo_finance = YahooFinance(symbol)
 
     async def company_overview(self):
         pass
+
+    async def basic_metrics(self):
+       ebitda =  await Ebitda(self.yahoo_finance).evaluate()
+       debt_to_ebitda = await DebtToEbitda(self.yahoo_finance).evaluate()
+       roe = await ReturnOnAssets(self.yahoo_finance).evaluate()
+       roa= await ReturnOnEquityYF(self.yahoo_finance).evaluate()
+       current_ratio = await  CurrentRatio(self.yahoo_finance).evaluate()
+       debt_to_equity = await DebtToEquityRatio(self.yahoo_finance).evaluate()
+       interest_coverage_ratio = await InterestCoverageRatio(self.yahoo_finance).evaluate()
+       roic = await ReturnOnInvestedCapital(self.yahoo_finance).evaluate()
+
+       return {'ebitda':ebitda,
+               'debt_to_ebitda':debt_to_ebitda,
+               'roe':roe,
+               'roa':roa,
+               'current_ratio':current_ratio,
+               'debt_to_equity':debt_to_equity,
+               'interest_coverage_ratio':interest_coverage_ratio,
+               'roic':roic}
+
+
+        # metrics = {'EBITDA',Ebitda(self.yahoo_finance).evaluate()}
+
 
 
     async def financial_performance(self):

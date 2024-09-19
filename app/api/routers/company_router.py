@@ -10,6 +10,11 @@ company_router = APIRouter(prefix='/company')
 security = HTTPBearer()
 
 
+@company_router.get('/Basic_evaluation_metric')
+async def basic_evaluation_metrics(symbol:str):
+
+    return await CompanyService(symbol).basic_metrics()
+
 @company_router.get('/Financial_performance')
 async def company_financial_performance(symbol: str,
                                         credentials: HTTPAuthorizationCredentials = Depends(security)):

@@ -7,6 +7,7 @@ class YahooFinance:
     def __init__(self, symbol):
         self.symbol = symbol
         self.stock_data = yf.Ticker(symbol)
+        self.x = None
 
     @property
     def cash_flow(self):
