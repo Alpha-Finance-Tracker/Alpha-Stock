@@ -10,6 +10,7 @@ class ReturnOnInvestedCapital(BasicMetricEvaluator):
 
     async def evaluate(self):
         try:
+
             net_profit = self.yahoo_finance.income_statement.loc['Net Income'].iloc[0]
             invested_capital = self.yahoo_finance.balance_sheet.loc['Invested Capital'].iloc[0]
             dividends = self.yahoo_finance.info['trailingAnnualDividendRate']

@@ -4,10 +4,9 @@ from app.database.database import custom_query
 from app.database.models.company_overview import CompanyOverview
 
 
-async def send_parameters_towards_the_database(revenue_growth, net_income, eps, roe,
-                                               net_profit_margin, debt_level, cash_flow, symbol):
+async def send_parameters_towards_the_database(revenue_growth, net_income, eps, roe, debt_level, cash_flow, symbol):
+    await initiate_years(revenue_growth, symbol)
     await asyncio.gather(
-        initiate_years(revenue_growth, symbol),
         update_company('revenue_growth', revenue_growth['growth_rate'], revenue_growth['fiscalDateEnding'], symbol),
         update_company('net_income', net_income['netIncome'], net_income['fiscalDateEnding'], symbol),
         update_company('eps', eps['reportedEPS'], eps['fiscalDateEnding'], symbol),
@@ -17,7 +16,9 @@ async def send_parameters_towards_the_database(revenue_growth, net_income, eps, 
 
 
 async def check_existing_years(symbol):
-    existing_years = await read_query('SELECT year FROM company WHERE symbol = %s', (symbol,))
+    existing_years = await custom_query('SELECT year FROM company WHERE symbol = :symbol',
+                                        {'symbol':symbol},
+                                        'SELECT')
 
     if existing_years:
         return set(x[0] for x in existing_years)
@@ -25,11 +26,13 @@ async def check_existing_years(symbol):
         return {}
 
 
-async def update_company(column, mark, years, symbol):
-    for x, y in zip(mark, years):
+async def update_company(column, marks, years, symbol):
+    for mark, year in zip(marks, years):
         try:
-            await insert_query(f"""
-            UPDATE company SET {column} = %s WHERE year = %s AND symbol = %s""", (float(x), y, symbol))
+            await custom_query(f"""
+            UPDATE company SET {column} = :mark WHERE year = :year AND symbol = :symbol""",
+                               {'mark':float(mark),'year':year,'symbol':symbol},
+                               'UPDATE')
         except Exception as e:
             print(e)
 
@@ -39,9 +42,11 @@ async def initiate_years(years, symbol):
     try:
         existing_years = await check_existing_years(symbol)
 
-        for x in years['fiscalDateEnding']:
-            if x not in existing_years:
-                await insert_query('INSERT INTO company(symbol, year) values (%s, %s)', (symbol, x))
+        for year in years['fiscalDateEnding']:
+            if year not in existing_years:
+                await custom_query('INSERT INTO company(symbol, year) values (:symbol, :year)',
+                                   {'symbol':symbol,'year':year},
+                                   'INSERT')
     except Exception as e:
         print(f"Error with initiate_years: {e}")
 
@@ -52,8 +57,9 @@ async def company_overview_db_update(company_overview, symbol):
     # Q3: April 1 - June 30
     # Q4: July 1 - September 30
 
-    check_existence = await custom_query('SELECT symbol FROM company_overview WHERE symbol = %s AND quarter = %s',
-                                       (symbol, company_overview['LatestQuarter']),'SELECT')
+    check_existence = await custom_query('SELECT symbol FROM company_overview WHERE symbol = :s AND quarter = :s',
+                                         [(symbol, company_overview['LatestQuarter'])],
+                                         'SELECT')
 
     if check_existence == []:
         information = await CompanyOverview(
@@ -62,7 +68,7 @@ async def company_overview_db_update(company_overview, symbol):
             quarter=company_overview['LatestQuarter'],
             market_capitalization=company_overview['MarketCapitalization'],
             ebitda=company_overview['EBITDA'],
-            pe_ratio = company_overview['PERatio'],
+            pe_ratio=company_overview['PERatio'],
             peg_ratio=company_overview['PEGRatio'],
             book_value=company_overview['BookValue'],
             dividend_per_share=company_overview['DividendPerShare'],
@@ -99,5 +105,3 @@ async def company_overview_db_update(company_overview, symbol):
 
         await CompanyOverview().add(information)
         return "success"
-
-

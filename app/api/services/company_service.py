@@ -37,28 +37,26 @@ class CompanyService:
         pass
 
     async def basic_metrics(self):
-       ebitda =  await Ebitda(self.yahoo_finance).evaluate()
-       debt_to_ebitda = await DebtToEbitda(self.yahoo_finance).evaluate()
-       roe = await ReturnOnAssets(self.yahoo_finance).evaluate()
-       roa= await ReturnOnEquityYF(self.yahoo_finance).evaluate()
-       current_ratio = await  CurrentRatio(self.yahoo_finance).evaluate()
-       debt_to_equity = await DebtToEquityRatio(self.yahoo_finance).evaluate()
-       interest_coverage_ratio = await InterestCoverageRatio(self.yahoo_finance).evaluate()
-       roic = await ReturnOnInvestedCapital(self.yahoo_finance).evaluate()
-
-       return {'ebitda':ebitda,
-               'debt_to_ebitda':debt_to_ebitda,
-               'roe':roe,
-               'roa':roa,
-               'current_ratio':current_ratio,
-               'debt_to_equity':debt_to_equity,
-               'interest_coverage_ratio':interest_coverage_ratio,
-               'roic':roic}
-
+        return self.yahoo_finance.income_statement
+        # ebitda = await Ebitda(self.yahoo_finance).evaluate()
+        # debt_to_ebitda = await DebtToEbitda(self.yahoo_finance).evaluate()
+        # roe = await ReturnOnAssets(self.yahoo_finance).evaluate()
+        # roa = await ReturnOnEquityYF(self.yahoo_finance).evaluate()
+        # current_ratio = await  CurrentRatio(self.yahoo_finance).evaluate()
+        # debt_to_equity = await DebtToEquityRatio(self.yahoo_finance).evaluate()
+        # interest_coverage_ratio = await InterestCoverageRatio(self.yahoo_finance).evaluate()
+        # roic = await ReturnOnInvestedCapital(self.yahoo_finance).evaluate()
+        #
+        # return {'ebitda': ebitda,
+        #         'debt_to_ebitda': debt_to_ebitda,
+        #         'roe': roe,
+        #         'roa': roa,
+        #         'current_ratio': current_ratio,
+        #         'debt_to_equity': debt_to_equity,
+        #         'interest_coverage_ratio': interest_coverage_ratio,
+        #         'roic': roic}
 
         # metrics = {'EBITDA',Ebitda(self.yahoo_finance).evaluate()}
-
-
 
     async def financial_performance(self):
         income_statement, balance_sheet, annual_eps, cash_flow = await asyncio.gather(
@@ -83,7 +81,6 @@ class CompanyService:
                                                    net_income,
                                                    earnings_per_share,
                                                    return_on_equity,
-                                                   net_profit_margin,
                                                    debt_level,
                                                    cash_flow_parsed,
                                                    self.symbol)
@@ -97,7 +94,7 @@ class CompanyService:
     async def display_charts(self, data):
         # Extract the data from the input
         years = [x.year for x in data]
-        revenue_growth = [x.revenue_growth for x in data] # % based
+        revenue_growth = [x.revenue_growth for x in data]  # % based
         net_income = [x.net_income for x in data]
         cash_flow = [x.cash_flow for x in data]
         debt_level = [x.debt_level for x in data]
