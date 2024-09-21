@@ -19,5 +19,4 @@ class ReturnOnEquityYF(BasicMetricEvaluator):
             return NoContent(content='No Information found for roe for this company')
 
     async def evaluate(self):
-        return self.roe
-
+        return round(self.roe * 100,2)

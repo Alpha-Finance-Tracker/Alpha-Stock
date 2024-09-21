@@ -5,10 +5,8 @@ from app.utilities.responses import NoContent
 
 class CurrentRatio(BasicMetricEvaluator):
 
-
-    def __init__(self,yahoo_finance):
+    def __init__(self, yahoo_finance):
         self.yahoo_finance = yahoo_finance
-
 
     @property
     def latest_current_ratio(self):

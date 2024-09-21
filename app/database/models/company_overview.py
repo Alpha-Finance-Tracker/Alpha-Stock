@@ -46,13 +46,15 @@ class CompanyOverview(Base):
     MovingAverage200Day = Column(Numeric(20, 3), default=None)
     shares_outstanding = Column(Numeric(20, 3), default=None)
 
-    async def view(self,symbol):
+    @classmethod
+    async def view(cls,symbol):
         async with get_db() as db:
             stmt = select(CompanyOverview).filter(CompanyOverview.Symbol == symbol)
             result = await db.execute(stmt)
         return result.scalars().all()
 
-    async def add(self,information):
+    @classmethod
+    async def add(cls,information):
 
         async with get_db as db:
             db.add(information)

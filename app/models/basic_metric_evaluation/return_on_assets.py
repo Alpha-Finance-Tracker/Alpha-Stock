@@ -5,9 +5,8 @@ from app.utilities.responses import NoContent
 
 class ReturnOnAssets(BasicMetricEvaluator):
 
-    def __init__(self,yahoo_finance):
+    def __init__(self, yahoo_finance):
         self.yahoo_finance = yahoo_finance
-
 
     @property
     def roa(self):
@@ -18,6 +17,4 @@ class ReturnOnAssets(BasicMetricEvaluator):
             return NoContent(content='No Information found for roa for this company')
 
     async def evaluate(self):
-        return self.roa
-
-
+        return round(self.roa * 100,2)

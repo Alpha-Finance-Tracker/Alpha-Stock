@@ -4,7 +4,7 @@ from app.utilities.responses import CalculationError
 
 class Ebitda(BasicMetricEvaluator):
 
-    def __init__(self,yahoo_finance):
+    def __init__(self, yahoo_finance):
         self.yahoo_finance = yahoo_finance
 
     @property
@@ -15,7 +15,6 @@ class Ebitda(BasicMetricEvaluator):
     def historical_ebitda(self):
         return self.yahoo_finance.income_statement.loc['EBITDA']
 
-
     async def evaluate(self):
 
         try:
@@ -23,6 +22,3 @@ class Ebitda(BasicMetricEvaluator):
         except Exception as e:
             print(e)
             return CalculationError(content='Ebitda missing')
-
-
-

@@ -37,26 +37,24 @@ class CompanyService:
         pass
 
     async def basic_metrics(self):
-        return self.yahoo_finance.income_statement
-        # ebitda = await Ebitda(self.yahoo_finance).evaluate()
-        # debt_to_ebitda = await DebtToEbitda(self.yahoo_finance).evaluate()
-        # roe = await ReturnOnAssets(self.yahoo_finance).evaluate()
-        # roa = await ReturnOnEquityYF(self.yahoo_finance).evaluate()
-        # current_ratio = await  CurrentRatio(self.yahoo_finance).evaluate()
-        # debt_to_equity = await DebtToEquityRatio(self.yahoo_finance).evaluate()
-        # interest_coverage_ratio = await InterestCoverageRatio(self.yahoo_finance).evaluate()
-        # roic = await ReturnOnInvestedCapital(self.yahoo_finance).evaluate()
-        #
-        # return {'ebitda': ebitda,
-        #         'debt_to_ebitda': debt_to_ebitda,
-        #         'roe': roe,
-        #         'roa': roa,
-        #         'current_ratio': current_ratio,
-        #         'debt_to_equity': debt_to_equity,
-        #         'interest_coverage_ratio': interest_coverage_ratio,
-        #         'roic': roic}
 
-        # metrics = {'EBITDA',Ebitda(self.yahoo_finance).evaluate()}
+
+        debt_to_ebitda = await DebtToEbitda(self.yahoo_finance).evaluate()
+        roe = await ReturnOnAssets(self.yahoo_finance).evaluate()
+        roa = await ReturnOnEquityYF(self.yahoo_finance).evaluate()
+        current_ratio = await CurrentRatio(self.yahoo_finance).evaluate()
+        debt_to_equity = await DebtToEquityRatio(self.yahoo_finance).evaluate()
+        interest_coverage_ratio = await InterestCoverageRatio(self.yahoo_finance).evaluate()
+        roic = await ReturnOnInvestedCapital(self.yahoo_finance).evaluate()
+
+        return {
+                'debt_to_ebitda_ratio': debt_to_ebitda,
+                'roe_%': roe,
+                'roa_%': roa,
+                'current_ratio': current_ratio,
+                'debt_to_equity_ratio': debt_to_equity,
+                'interest_coverage_ratio': interest_coverage_ratio,
+                'roic_%': roic}
 
     async def financial_performance(self):
         income_statement, balance_sheet, annual_eps, cash_flow = await asyncio.gather(

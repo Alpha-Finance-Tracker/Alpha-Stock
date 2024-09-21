@@ -5,10 +5,8 @@ from app.utilities.responses import CalculationError
 
 class InterestCoverageRatio(BasicMetricEvaluator):
 
-    def __init__(self,yahoo_finance):
+    def __init__(self, yahoo_finance):
         self.yahoo_finance = yahoo_finance
-
-
 
     async def evaluate(self):
         try:
@@ -17,5 +15,5 @@ class InterestCoverageRatio(BasicMetricEvaluator):
             return ebit / interest_expense
         except Exception as e:
             print(e)
-            return CalculationError(content='Error calculating interest coverage ratio, ebit or interest_expense missing')
-
+            return CalculationError(
+                content='Error calculating interest coverage ratio, ebit or interest_expense missing')

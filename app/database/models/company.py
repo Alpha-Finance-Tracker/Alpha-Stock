@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, select,Numeric
+from sqlalchemy import Column, Integer, String, select, Numeric
 from app.database.database import Base, get_db
 
 
@@ -15,8 +15,8 @@ class Company(Base):
     eps = Column(Numeric(20, 3), nullable=False)
     roe = Column(Numeric(20, 3), nullable=False)
 
-
-    async def view(self,symbol):
+    @classmethod
+    async def view(cls, symbol):
         async with get_db() as db:
             stmt = select(Company).filter(Company.symbol == symbol)
             result = await db.execute(stmt)

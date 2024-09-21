@@ -14,7 +14,8 @@ class ReturnOnInvestedCapital(BasicMetricEvaluator):
             net_profit = self.yahoo_finance.income_statement.loc['Net Income'].iloc[0]
             invested_capital = self.yahoo_finance.balance_sheet.loc['Invested Capital'].iloc[0]
             dividends = self.yahoo_finance.info['trailingAnnualDividendRate']
-            return (net_profit - dividends) / invested_capital
+            return round(((net_profit - dividends) / invested_capital) * 100,2)
         except Exception as e:
             print(e)
-            return CalculationError(content='Error calculating roic, missing dividends ot net_profit or invested_capital')
+            return CalculationError(content='Error calculating roic, missing dividends ot net_profit or '
+                                            'invested_capital')
