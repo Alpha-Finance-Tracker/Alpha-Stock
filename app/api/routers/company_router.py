@@ -2,7 +2,9 @@ from fastapi import APIRouter, Depends
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 
 from app.api.services.company_service import CompanyService
+from app.api.services.yf_company_analysis import YFCompanyAnalysis
 from app.models.data_stream.alpha_vantage_data import AlphaVantage
+from app.models.data_stream.yahoo_finance_data import YahooFinance
 from app.utilities.token_verification import verify_token
 
 company_router = APIRouter(prefix='/company')
@@ -10,8 +12,8 @@ company_router = APIRouter(prefix='/company')
 security = HTTPBearer()
 
 
-@company_router.get('/Basic_evaluation_metric')
-async def basic_evaluation_metrics(symbol:str):
+@company_router.get('/Yahoo_Finance_company_evaluation')
+async def yahoo_finance_company_evaluation(symbol:str):
 
     return await CompanyService(symbol).basic_metrics()
 
@@ -47,3 +49,7 @@ async def stock_news(symbol: str,
                      credentials: HTTPAuthorizationCredentials = Depends(security)):
     await verify_token(credentials.credentials)
     return await CompanyService(symbol).news()
+
+@company_router.get('/experiment')
+async def experiment(symbol:str):
+    return await YFCompanyAnalysis(symbol).company_analysis()

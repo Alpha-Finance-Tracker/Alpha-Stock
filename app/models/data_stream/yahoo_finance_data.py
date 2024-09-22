@@ -12,6 +12,9 @@ class YahooFinance:
     @property
     def cash_flow(self):
         return pd.DataFrame(self.stock_data.cash_flow).infer_objects(copy=False).fillna(0)
+    @property
+    def quarterly_cash_flow(self):
+        return pd.DataFrame(self.stock_data.quarterly_cash_flow).fillna(0)
 
     @property
     def growth_estimates(self):
@@ -30,8 +33,16 @@ class YahooFinance:
         return pd.DataFrame(self.stock_data.income_stmt).fillna(0)
 
     @property
+    def quarterly_income_statement(self):
+        return pd.DataFrame(self.stock_data.quarterly_income_stmt).fillna(0)
+
+    @property
     def balance_sheet(self):
         return pd.DataFrame(self.stock_data.balance_sheet).fillna(0)
+
+    @property
+    def quarterly_balance_sheet(self):
+        return pd.DataFrame(self.stock_data.quarterly_balance_sheet).fillna(0)
 
     @property
     def dividends(self):

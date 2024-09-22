@@ -31,3 +31,4 @@ async def stock_prediction(symbol: str,
                            credentials: HTTPAuthorizationCredentials = Depends(security)):
     await verify_token(credentials.credentials)
     return await StockPredictor(symbol).calculate()
+
