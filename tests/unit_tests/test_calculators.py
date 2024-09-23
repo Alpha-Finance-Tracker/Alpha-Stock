@@ -3,7 +3,7 @@ import pytest
 from app.models.calculators.cost_of_debt_calculator import CostOfDebt
 from app.models.calculators.cost_of_equity_calculator import CostOfEquity
 from app.models.calculators.debt_ratio_calculator import DebtRatio
-from app.models.calculators.discount_rate_calculator import DiscountRate
+from app.models.calculators.discount_and_growth_rates.discount_rate_calculator import DiscountRate
 from app.models.calculators.discounted_cash_flow_calculator import DiscountedCashFlow
 from app.models.calculators.equity_ratio_calculator import EquityRatio
 from app.models.calculators.fair_value_calculator import FairValue

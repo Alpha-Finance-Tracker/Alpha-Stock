@@ -1,5 +1,5 @@
 from app.models.base_models.service import Service
-from app.models.calculators.discount_rate_calculator import DiscountRate
+from app.models.calculators.discount_and_growth_rates.discount_rate_calculator import DiscountRate
 from app.models.calculators.discounted_cash_flow_calculator import DiscountedCashFlow
 from app.models.calculators.intrinsic_value_calculator import IntrinsicValue
 from app.models.calculators.relative_value_calculator import RelativeValue

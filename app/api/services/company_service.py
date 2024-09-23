@@ -3,14 +3,6 @@ import asyncio
 from fastapi.responses import StreamingResponse
 
 from app.database.models.company import Company
-from app.models.basic_metric_evaluation.current_ratio import CurrentRatio
-from app.models.basic_metric_evaluation.debt_to_ebitda import DebtToEbitda
-from app.models.basic_metric_evaluation.debt_to_equity_ratio import DebtToEquityRatio
-from app.models.basic_metric_evaluation.ebitda import Ebitda
-from app.models.basic_metric_evaluation.interest_coverage_ratio import InterestCoverageRatio
-from app.models.basic_metric_evaluation.return_on_assets import ReturnOnAssets
-from app.models.basic_metric_evaluation.return_on_equity import ReturnOnEquityYF
-from app.models.basic_metric_evaluation.return_on_invested_capital import ReturnOnInvestedCapital
 from app.models.data_stream.alpha_vantage_data import AlphaVantage
 from app.models.data_stream.company_data import send_parameters_towards_the_database
 from app.models.data_stream.yahoo_finance_data import YahooFinance

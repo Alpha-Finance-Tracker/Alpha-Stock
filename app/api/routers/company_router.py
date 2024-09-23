@@ -2,7 +2,6 @@ from fastapi import APIRouter, Depends
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 
 from app.api.services.company_service import CompanyService
-from app.api.services.yf_company_analysis import YFCompanyAnalysis
 from app.models.data_stream.alpha_vantage_data import AlphaVantage
 from app.models.data_stream.yahoo_finance_data import YahooFinance
 from app.utilities.token_verification import verify_token
