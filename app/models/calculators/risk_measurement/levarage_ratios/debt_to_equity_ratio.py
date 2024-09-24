@@ -4,12 +4,13 @@ from app.models.base_models.stock_calculator import StockCalculator
 from app.utilities.responses import CalculationError
 
 
-class DebtToEquityRatio(StockCalculator):
+class DebtToEquity(StockCalculator):
 
-
-    def __init__(self,current_liabilities,stockholders_equity):
-        self.current_liabilities=current_liabilities
-        self.stockholders_equity=stockholders_equity
+    def __init__(self, current_liabilities, stockholders_equity):
+        self.current_liabilities = current_liabilities
+        self.stockholders_equity = stockholders_equity
 
     async def calculate(self):
-        return self.current_liabilities / self.stockholders_equity
+        debt_to_equity = self.current_liabilities / self.stockholders_equity
+        debt_to_equity = debt_to_equity.round(2).dropna()
+        return debt_to_equity

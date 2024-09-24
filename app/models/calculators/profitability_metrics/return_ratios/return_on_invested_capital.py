@@ -6,16 +6,11 @@ from app.utilities.responses import CalculationError
 
 class ReturnOnInvestedCapital(StockCalculator):
 
-    def __init__(self,nopat,average_invested_capital):
+    def __init__(self,nopat,invested_capital):
         self.nopat=nopat
-        self.average_invested_capital=average_invested_capital
+        self.invested_capital=invested_capital
     async def calculate(self):
-        if self.validate_params():
-            return (self.nopat/self.average_invested_capital) * 100
-        else:
-            return f'Error calculating nopat={self.nopat},average_invested_capital={self.average_invested_capital}'
-
-    async def validate_params(self):
-        if isinstance(self.nopat,float) and isinstance(self.average_invested_capital,float):
-            return True
-        return False
+            avg_invested_capital = (self.invested_capital + self.invested_capital.shift(1)) / 2
+            roic = (self.nopat / avg_invested_capital) * 100
+            roic = roic.round(2).dropna()
+            return roic

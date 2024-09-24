@@ -4,7 +4,7 @@ from app.models.base_models.stock_calculator import StockCalculator
 from app.utilities.responses import CalculationError
 
 
-class InterestCoverageRatio(StockCalculator):
+class InterestCoverage(StockCalculator):
 
 
     def __init__(self,ebit,interest_expense):
@@ -12,4 +12,6 @@ class InterestCoverageRatio(StockCalculator):
         self.interest_expense=interest_expense
 
     async def calculate(self):
-        return self.ebit / self.interest_expense
+        interest_coverage =  self.ebit / self.interest_expense
+        interest_coverage=interest_coverage.round(2).dropna()
+        return interest_coverage

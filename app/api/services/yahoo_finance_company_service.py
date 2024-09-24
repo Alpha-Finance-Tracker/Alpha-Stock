@@ -1,4 +1,9 @@
 from app.models.calculators.profitability_metrics.return_ratios.nopat import Nopat
+from app.models.calculators.profitability_metrics.return_ratios.return_on_invested_capital import \
+    ReturnOnInvestedCapital
+from app.models.calculators.risk_measurement.levarage_ratios.cash_to_debt import CashToDebt
+from app.models.calculators.risk_measurement.levarage_ratios.debt_to_equity_ratio import DebtToEquity
+from app.models.calculators.risk_measurement.levarage_ratios.interest_coverage_ratio import InterestCoverage
 from app.models.calculators.risk_measurement.solvency_ratios.tax_rate import TaxRate
 from app.models.data_stream.yahoo_finance_data import YahooFinance
 import pandas as pd
@@ -30,22 +35,33 @@ class YFCompanyAnalysis:
         return roe
 
     async def roic_service(self):
+        operating_incomes = self.yahoo_finance.income_statement.loc['Operating Income']
+        invested_capital = self.yahoo_finance.balance_sheet.loc['Invested Capital']
 
-
-
-
-
-        # operating_income = self.yahoo_finance.income_statement.loc['Operating Income']
-        # invested_capital = self.yahoo_finance.balance_sheet.loc['Invested Capital']
-        #
         tax_rates = await TaxRate(self.yahoo_finance.income_statement).calculate()
-        print(tax_rates)
-        nopat = await Nopat(self.yahoo_finance.income_statement).calculate(tax_rates)
-        print(nopat)
+        nopat = await Nopat(operating_incomes,tax_rates).calculate()
+        roic = await ReturnOnInvestedCapital(nopat,invested_capital).calculate()
+        return roic
+
+    async def cash_to_debt_service(self):
+
+        total_debt = self.yahoo_finance.balance_sheet.loc['Total Debt']
+        cash_and_cash_equivalents = self.yahoo_finance.balance_sheet.loc['Cash And Cash Equivalents']
+
+        return await CashToDebt(total_debt,cash_and_cash_equivalents).calculate()
+
+    async def debt_to_equity_service(self):
+        current_liabilities=self.yahoo_finance.balance_sheet.loc['Current Liabilities']
+        stockholders_equity=self.yahoo_finance.balance_sheet.loc['Stockholders Equity']
+
+        return await DebtToEquity(current_liabilities,stockholders_equity).calculate()
 
 
+    async def interest_coverage_ratio_service(self):
+        ebit=self.yahoo_finance.income_statement.loc['EBIT']
+        interest_expense=self.yahoo_finance.income_statement.loc['Interest Expense']
 
-
+        return await InterestCoverage(ebit,interest_expense).calculate()
 
 
 
