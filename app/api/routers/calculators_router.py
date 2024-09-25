@@ -3,7 +3,7 @@ from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 
 from app.api.services.fair_value_service import FairValueService
 from app.api.services.intrinsic_calculator_service import IntrinsicCalculatorService
-from app.models.calculators.future_price_calculator import StockPredictor
+from app.models.calculators.valuation.future_price_calculator import StockPredictor
 
 from app.utilities.token_verification import verify_token
 

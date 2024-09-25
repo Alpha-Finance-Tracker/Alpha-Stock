@@ -1,5 +1,5 @@
 from app.models.base_models.service import Service
-from app.models.calculators.fair_value_calculator import FairValue
+from app.models.calculators.valuation.fair_value_calculator import FairValue
 
 
 class FairValueService(Service):

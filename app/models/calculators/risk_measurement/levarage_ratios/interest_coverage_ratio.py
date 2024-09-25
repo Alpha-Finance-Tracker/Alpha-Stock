@@ -4,7 +4,7 @@ from app.models.base_models.stock_calculator import StockCalculator
 from app.utilities.responses import CalculationError
 
 
-class InterestCoverage(StockCalculator):
+class InterestCoverageRatio(StockCalculator):
 
 
     def __init__(self,ebit,interest_expense):

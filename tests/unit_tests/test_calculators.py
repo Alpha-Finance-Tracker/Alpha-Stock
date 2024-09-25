@@ -4,11 +4,11 @@ from app.models.calculators.cost_of_debt_calculator import CostOfDebt
 from app.models.calculators.cost_of_equity_calculator import CostOfEquity
 from app.models.calculators.debt_ratio_calculator import DebtRatio
 from app.models.calculators.discount_and_growth_rates.discount_rate_calculator import DiscountRate
-from app.models.calculators.discounted_cash_flow_calculator import DiscountedCashFlow
+from app.models.calculators.valuation.discounted_cash_flow_calculator import DiscountedCashFlow
 from app.models.calculators.equity_ratio_calculator import EquityRatio
-from app.models.calculators.fair_value_calculator import FairValue
-from app.models.calculators.intrinsic_value_calculator import IntrinsicValue
-from app.models.calculators.relative_value_calculator import RelativeValue
+from app.models.calculators.valuation.fair_value_calculator import FairValue
+from app.models.calculators.valuation.intrinsic_value_calculator import IntrinsicValue
+from app.models.calculators.valuation.relative_value_calculator import RelativeValue
 from app.models.calculators.tax_rate_calculator import TaxRate
 from app.models.calculators.terminal_value_calculator import TerminalValue
 from app.models.calculators.total_market_value_calculator import TotalMarketValue

@@ -1,7 +1,7 @@
 from app.models.base_models.stock_calculator import StockCalculator
 
 
-class CashToDebt(StockCalculator):
+class CashToDebtRatio(StockCalculator):
 
     def __init__(self,total_debt,cash_and_cash_equivalents):
         self.total_debt=total_debt

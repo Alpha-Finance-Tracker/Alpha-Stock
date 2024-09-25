@@ -4,7 +4,7 @@ from app.models.base_models.stock_calculator import StockCalculator
 from app.utilities.responses import CalculationError
 
 
-class DebtToEquity(StockCalculator):
+class DebtToEquityRatio(StockCalculator):
 
     def __init__(self, current_liabilities, stockholders_equity):
         self.current_liabilities = current_liabilities
