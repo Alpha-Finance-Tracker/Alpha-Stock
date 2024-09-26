@@ -10,7 +10,7 @@ from app.models.calculators.valuation.fair_value_calculator import FairValue
 from app.models.calculators.valuation.intrinsic_value_calculator import IntrinsicValue
 from app.models.calculators.valuation.relative_value_calculator import RelativeValue
 from app.models.calculators.tax_rate_calculator import TaxRate
-from app.models.calculators.terminal_value_calculator import TerminalValue
+from app.models.calculators.valuation.terminal_value_calculator import TerminalValue
 from app.models.calculators.total_market_value_calculator import TotalMarketValue
 from app.utilities.responses import CalculationError
 

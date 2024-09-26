@@ -63,3 +63,7 @@ async def fair_value(symbol:str):
 @yahoo_router.get('/relative_value')
 async def relative_value(symbol:str):
     return await YFCompanyAnalysis(symbol).relative_value()
+
+@yahoo_router.get('/dcf')
+async def dcf(symbol:str):
+    return await YFCompanyAnalysis(symbol).dcf()

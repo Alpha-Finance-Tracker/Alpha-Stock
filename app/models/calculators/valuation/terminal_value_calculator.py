@@ -6,10 +6,10 @@ from app.utilities.responses import CalculationError
 
 class TerminalValue(StockCalculator):
 
-    def __init__(self, latest_cash_flow, terminal_growth_rate, discount_rate):
+    def __init__(self, latest_cash_flow, discount_rate):
         self.latest_cash_flow = latest_cash_flow
-        self.terminal_growth_rate = terminal_growth_rate
         self.discount_rate = discount_rate
+        self.terminal_growth_rate = 0.3
 
     async def calculate(self):
         try:
