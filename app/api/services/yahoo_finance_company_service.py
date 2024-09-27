@@ -11,6 +11,7 @@ from app.models.calculators.risk_measurement.levarage_ratios.interest_coverage_r
 from app.models.calculators.risk_measurement.liquidity_ratios.current_ratio import CurrentRatio
 from app.models.calculators.risk_measurement.solvency_ratios.debt_to_ebitda_ratio import DebtToEbitdaRatio
 from app.models.calculators.risk_measurement.solvency_ratios.tax_rate import TaxRate
+from app.models.calculators.valuation.intrinsic_value_calculator import IntrinsicValue
 from app.models.calculators.valuation.terminal_value_calculator import TerminalValue
 from app.models.calculators.valuation.discounted_cash_flow_calculator import DiscountedCashFlow
 from app.models.calculators.valuation.fair_value_calculator import FairValue
@@ -179,7 +180,7 @@ class YFCompanyAnalysis:
                                   cost_of_debt=cost_of_debt,
                                   tax_rate=tax_rate).calculate()
 
-        print(wacc)
+
         if wacc < 0.10:
             if latest_free_cash_flow < 0:
                 raise CalculationError(content='WACC below 10 %')
@@ -190,7 +191,9 @@ class YFCompanyAnalysis:
         dcf = await DiscountedCashFlow(latest_cash_flow=latest_free_cash_flow,
                                        discount_rate=wacc,
                                        terminal_value=terminal_value).calculate()
-        return dcf
+
+        return await IntrinsicValue(discounted_cash_flow=dcf,shares_outstanding=shares_outstanding).calculate()
+
 
     async def fair_value(self):
         return await FairValue(self.yahoo_finance).calculate()

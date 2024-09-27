@@ -24,3 +24,11 @@ class DiscountedCashFlow(StockCalculator):
         except (ZeroDivisionError, ValueError, TypeError) as e:
             logging.error(f"Calculation error: {e}")
             raise CalculationError()
+
+    def __repr__(self):
+        return (
+            f"DiscountedCashFlow(latest_cash_flow={self.latest_cash_flow}, "
+            f"discount_rate={self.discount_rate}, "
+            f"terminal_value={self.terminal_value}, "
+            f"projection_years={self.projection_years})"
+        )

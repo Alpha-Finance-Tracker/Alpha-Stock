@@ -54,4 +54,4 @@ class AlphaVantageDailyLimitExceeded(HTTPException):
 
 class CalculationError(HTTPException):
     def __init__(self, content='Oops, Calculation error occurred.'):
-        super().__init__(status_code=500, detail=content)
+        super().__init__(status_code=422, detail=content)

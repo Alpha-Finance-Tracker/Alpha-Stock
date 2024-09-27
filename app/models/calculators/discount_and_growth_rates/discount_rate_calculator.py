@@ -27,3 +27,14 @@ class DiscountRate:
         except (ZeroDivisionError, ValueError, TypeError) as e:
             logging.error(f"Calculation error: {e}")
             raise CalculationError()
+
+    def __repr__(self):
+        return (
+            f"DiscountRate(market_value_of_equity={self.market_value_of_equity},\n"
+            f"               market_value_of_debt={self.market_value_of_debt},\n"
+            f"               total_value_of_the_company={self.total_value_of_the_company},\n"
+            f"               cost_of_equity={self.cost_of_equity},\n"
+            f"               cost_of_debt={self.cost_of_debt},\n"
+            f"               tax_rate={self.tax_rate})"
+        )
+

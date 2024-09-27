@@ -11,7 +11,7 @@ class IntrinsicValue(StockCalculator):
 
     async def calculate(self):
         try:
-            return self.discounted_cash_flow / float(self.shares_outstanding)
+            return round(self.discounted_cash_flow / float(self.shares_outstanding),2)
         except (ZeroDivisionError,ValueError,TypeError) as e:
             logging.error(f"Calculation error: {e}")
             raise CalculationError()

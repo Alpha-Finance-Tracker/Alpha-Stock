@@ -15,7 +15,7 @@ class RelativeValue(StockCalculator):
             competitors_price_to_earnings_ratio_list = await self.competitors()
             result =  (sum(competitors_price_to_earnings_ratio_list) /
                     len(competitors_price_to_earnings_ratio_list))
-            return result.round(2)
+            return round(result,2)
 
         except (ZeroDivisionError, ValueError, TypeError, IndexError) as e:
             logging.error(f"Calculation error: {e}")
