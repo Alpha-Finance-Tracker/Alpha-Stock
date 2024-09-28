@@ -3,7 +3,6 @@ from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 
 from app.api.services.company_service import CompanyService
 from app.models.data_stream.alpha_vantage_data import AlphaVantage
-from app.models.data_stream.yahoo_finance_data import YahooFinance
 from app.utilities.token_verification import verify_token
 
 company_router = APIRouter(prefix='/company')

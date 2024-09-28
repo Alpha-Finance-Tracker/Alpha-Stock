@@ -6,7 +6,8 @@ class AlphaVantageValidator:
     def __init__(self,data):
         self.data = data
 
-    async def validate(self):
+    def validate(self):
+        print('Validator was used')
         if len(self.data) == 0:
             raise AlphaVantageNoData()
 

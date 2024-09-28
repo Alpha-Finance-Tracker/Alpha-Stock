@@ -1,7 +1,7 @@
 from async_lru import alru_cache
 from fastapi import APIRouter
 
-from app.api.services.alpha_vantage_company_service import AVCompanyAnalysis
+from app.api.services.alpha_vantage_company_service import AVCompanyAnalysis, cached_AVCompanyAnalysis
 from app.utilities.timing_decorator import timeit
 
 alpha_vantage_router = APIRouter(prefix='/alpha_vantage_company')
@@ -13,17 +13,21 @@ alpha_vantage_router = APIRouter(prefix='/alpha_vantage_company')
 @timeit
 @alru_cache
 async def return_on_assets(symbol:str):
-    return await AVCompanyAnalysis(symbol).roa_service()
+    service = await cached_AVCompanyAnalysis(symbol)
+    return await service.roa_service()
 
 @alpha_vantage_router.get('/roe')
 @alru_cache
 async def return_on_equity(symbol:str):
-    return await AVCompanyAnalysis(symbol).roe_service()
+    service = await cached_AVCompanyAnalysis(symbol)
+    return await service.roe_service()
 
-# @alpha_vantage_router.get('/roic')
-# @alru_cache
-# async def return_on_equity(symbol:str):
-#     return await AVCompanyAnalysis(symbol).roic_service()
+@alpha_vantage_router.get('/roic')
+@alru_cache
+async def return_on_equity(symbol:str):
+    service = await cached_AVCompanyAnalysis(symbol)
+    return await service.roic_service()
+
 #
 # @alpha_vantage_router.get('/cash_to_debt')
 # @alru_cache
