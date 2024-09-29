@@ -10,13 +10,15 @@ class TaxRate(StockCalculator):
         self.income_after_tax=income_after_tax
 
     def __repr__(self):
-        return (f"TaxRate(income_before_tax={self.income_before_tax}, "
-                f"income_after_tax={self.income_after_tax})")
+        return (f"TaxRate(\n"
+                f"  income_before_tax={self.income_before_tax},\n"
+                f"  income_after_tax={self.income_after_tax}\n"
+                f")")
 
     async def calculate(self):
         try:
 
-            tax_rate = (self.income_after_tax / self.income_before_tax) * 100
+            tax_rate = (self.income_after_tax / self.income_before_tax)
             tax_rate = tax_rate.round(2).dropna()
 
             return tax_rate

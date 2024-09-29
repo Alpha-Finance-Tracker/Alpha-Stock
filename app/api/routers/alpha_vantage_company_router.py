@@ -28,11 +28,12 @@ async def return_on_invested_capital(symbol:str):
     service = await cached_AVCompanyAnalysis(symbol)
     return await service.roic_service()
 
-#
-# @alpha_vantage_router.get('/cash_to_debt')
-# @alru_cache
-# async def cash_to_debt(symbol:str):
-#     return await YFCompanyAnalysis(symbol).cash_to_debt_service()
+
+@alpha_vantage_router.get('/cash_to_debt')
+@alru_cache
+async def cash_to_debt(symbol:str):
+    service = await cached_AVCompanyAnalysis(symbol)
+    return await service.cash_to_debt()
 #
 # @alpha_vantage_router.get('/debt_to_equity')
 # @alru_cache

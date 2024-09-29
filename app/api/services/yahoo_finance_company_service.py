@@ -50,7 +50,11 @@ class YFCompanyAnalysis:
         operating_incomes = self.yahoo_finance.income_statement.loc['Operating Income']
         invested_capital = self.yahoo_finance.balance_sheet.loc['Invested Capital']
 
-        tax_rates = await TaxRate(self.yahoo_finance.income_statement).calculate()
+        income_before_tax=self.yahoo_finance.income_statement.loc['Pretax Income']
+        income_after_tax=self.yahoo_finance.income_statement.loc['Tax Provision']
+
+
+        tax_rates = await TaxRate(income_before_tax=income_before_tax,income_after_tax=income_after_tax).calculate()
         nopat = await Nopat(operating_incomes, tax_rates).calculate()
         roic = await ReturnOnInvestedCapital(nopat, invested_capital).calculate()
         return roic

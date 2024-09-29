@@ -7,8 +7,10 @@ class Nopat(StockCalculator):
         self.tax_rates=tax_rates
 
     def __repr__(self):
-        return (f"Nopat(operating_incomes={self.operating_incomes}, "
-                f"tax_rates={self.tax_rates})")
+        return (f"Nopat(\n"
+                f"  operating_incomes={self.operating_incomes},\n"
+                f"  tax_rates={self.tax_rates}\n"
+                f")")
 
 
     async def calculate(self):

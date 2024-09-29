@@ -17,10 +17,6 @@ class FairValue(StockCalculator):  # Peter Lynch Calculator
             growth_estimates = self.yahoo_finance.growth_estimates.iloc[4]
             earnings_per_share_growth_rate = (growth_estimates['index'] if growth_estimates['stock'] == 0.0 else growth_estimates['stock']) * 100
 
-            print(price_to_earnings_ratio)
-            print(dividend_yield)
-            print(earnings_per_share_growth_rate)
-
             return (earnings_per_share_growth_rate + dividend_yield) / price_to_earnings_ratio
 
         except (ZeroDivisionError, ValueError, TypeError,KeyError) as e:
