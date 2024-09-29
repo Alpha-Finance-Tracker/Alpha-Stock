@@ -10,6 +10,10 @@ class ReturnOnAssets(StockCalculator):
         self.net_income_common_stockholders = net_income_common_stockholders
         self.total_assets = total_assets
 
+    def __repr__(self):
+        return (f"ReturnOnAssets(net_income_common_stockholders={self.net_income_common_stockholders}, "
+                f"total_assets={self.total_assets})")
+
     async def calculate(self):
         if self.validate_params():
             return (self.net_income_common_stockholders/self.total_assets)*100

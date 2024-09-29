@@ -24,7 +24,7 @@ async def return_on_equity(symbol:str):
 
 @alpha_vantage_router.get('/roic')
 @alru_cache
-async def return_on_equity(symbol:str):
+async def return_on_invested_capital(symbol:str):
     service = await cached_AVCompanyAnalysis(symbol)
     return await service.roic_service()
 

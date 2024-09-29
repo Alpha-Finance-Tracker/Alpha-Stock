@@ -200,3 +200,6 @@ class YFCompanyAnalysis:
 
     async def relative_value(self):
         return await RelativeValue(self.yahoo_finance).calculate()
+
+    async def news(self):
+        return self.yahoo_finance.news

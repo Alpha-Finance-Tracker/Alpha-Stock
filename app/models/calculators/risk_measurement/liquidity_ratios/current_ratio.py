@@ -10,6 +10,10 @@ class CurrentRatio(StockCalculator):
         self.current_assets = current_assets
         self.current_liabilities=current_liabilities
 
+    def __repr__(self):
+        return (f"CurrentRatio(current_assets={self.current_assets}, "
+                f"current_liabilities={self.current_liabilities})")
+
     async def calculate(self):
         current_ratio= self.current_assets / self.current_liabilities
         current_ratio=current_ratio.round(2).dropna()

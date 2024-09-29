@@ -5,19 +5,23 @@ from app.utilities.responses import CalculationError
 
 class TaxRate(StockCalculator):
 
-    def __init__(self, income_statement):
-        self.income_statement = income_statement
+    def __init__(self, income_before_tax,income_after_tax):
+        self.income_before_tax = income_before_tax
+        self.income_after_tax=income_after_tax
+
+    def __repr__(self):
+        return (f"TaxRate(income_before_tax={self.income_before_tax}, "
+                f"income_after_tax={self.income_after_tax})")
 
     async def calculate(self):
         try:
 
-            tax_provision = self.income_statement.loc['Tax Provision']
-            pretax_income = self.income_statement.loc['Pretax Income']
-
-            tax_rate = (tax_provision / pretax_income) * 100
+            tax_rate = (self.income_after_tax / self.income_before_tax) * 100
             tax_rate = tax_rate.round(2).dropna()
 
             return tax_rate
         except (ZeroDivisionError, ValueError, TypeError) as e:
             logging.error(f"Calculation error: {e}")
             raise CalculationError()
+
+

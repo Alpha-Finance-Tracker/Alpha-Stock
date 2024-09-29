@@ -7,6 +7,10 @@ class OperatingProfitMargin(StockCalculator):
          self.operating_incomes=operating_incomes
          self.total_revenues=total_revenues
 
+     def __repr__(self):
+         return (f"OperatingProfitMargin(operating_incomes={self.operating_incomes}, "
+                 f"total_revenues={self.total_revenues})")
+
 
      async def calculate(self):
          operating_profit_margin = (self.operating_incomes/self.total_revenues) * 100

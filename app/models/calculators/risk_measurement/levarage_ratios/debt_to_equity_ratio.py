@@ -10,6 +10,10 @@ class DebtToEquityRatio(StockCalculator):
         self.current_liabilities = current_liabilities
         self.stockholders_equity = stockholders_equity
 
+    def __repr__(self):
+        return (f"DebtToEquityRatio(current_liabilities={self.current_liabilities}, "
+                f"stockholders_equity={self.stockholders_equity})")
+
     async def calculate(self):
         debt_to_equity = self.current_liabilities / self.stockholders_equity
         debt_to_equity = debt_to_equity.round(2).dropna()

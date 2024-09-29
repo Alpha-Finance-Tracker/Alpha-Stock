@@ -9,6 +9,11 @@ class ReturnOnInvestedCapital(StockCalculator):
     def __init__(self,nopat,invested_capital):
         self.nopat=nopat
         self.invested_capital=invested_capital
+
+    def __repr__(self):
+        return (f"ReturnOnInvestedCapital(nopat={self.nopat}, "
+                f"invested_capital={self.invested_capital})")
+
     async def calculate(self):
             avg_invested_capital = (self.invested_capital + self.invested_capital.shift(1)) / 2
             roic = (self.nopat / avg_invested_capital) * 100

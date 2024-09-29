@@ -103,3 +103,8 @@ async def intrinsic_value(symbol:str,credentials: HTTPAuthorizationCredentials =
     await verify_token(credentials.credentials)
     return await YFCompanyAnalysis(symbol).dcf()
 
+@yahoo_router.get('/news')
+@alru_cache
+async def news(symbol:str):
+    # await verify_token(credentials.credentials)
+    return await YFCompanyAnalysis(symbol).news()

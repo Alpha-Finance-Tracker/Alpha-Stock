@@ -54,7 +54,7 @@ class YahooFinance:
 
     @property
     def news(self):
-        return pd.DataFrame(self.stock_data.news)
+        return  self.stock_data.news
 
     @property
     def analyst_price_targets(self):
