@@ -1,4 +1,3 @@
-
 import logging
 from app.utilities.responses import CalculationError
 
@@ -15,7 +14,6 @@ class DiscountRate:
         self.cost_of_debt = cost_of_debt  # Rd
         self.tax_rate = tax_rate  # Tc
 
-
     def __repr__(self):
         return (
             f"DiscountRate(market_value_of_equity={self.market_value_of_equity},\n"
@@ -26,18 +24,16 @@ class DiscountRate:
             f"               tax_rate={self.tax_rate})"
         )
 
-
-
     async def calculate(self):
         try:
             weighted_average_cost_of_capital = (
-                (self.market_value_of_equity / self.total_value_of_the_company) * self.cost_of_equity +
-                (self.market_value_of_debt / self.total_value_of_the_company) * self.cost_of_debt * (1 - self.tax_rate)
+                    (self.market_value_of_equity / self.total_value_of_the_company) * self.cost_of_equity +
+                    (self.market_value_of_debt / self.total_value_of_the_company) * self.cost_of_debt * (
+                                1 - self.tax_rate)
             )
 
-            return round(weighted_average_cost_of_capital,2)
+            return round(weighted_average_cost_of_capital, 2)
 
         except (ZeroDivisionError, ValueError, TypeError) as e:
             logging.error(f"Calculation error: {e}")
             raise CalculationError()
-

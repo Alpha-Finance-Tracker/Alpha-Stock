@@ -1,7 +1,6 @@
 import logging
 
 from app.models.base_models.stock_calculator import StockCalculator
-from app.models.data_stream.yahoo_finance_data import YahooFinance
 from app.utilities.responses import CalculationError
 
 

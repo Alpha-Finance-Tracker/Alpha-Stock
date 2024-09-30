@@ -8,14 +8,14 @@ from app.utilities.responses import CalculationError
 class RelativeValue(StockCalculator):
 
     def __init__(self, yahoo_finance):
-        self.yahoo_finance=yahoo_finance
+        self.yahoo_finance = yahoo_finance
 
     async def calculate(self):
         try:
             competitors_price_to_earnings_ratio_list = await self.competitors()
-            result =  (sum(competitors_price_to_earnings_ratio_list) /
-                    len(competitors_price_to_earnings_ratio_list))
-            return round(result,2)
+            result = (sum(competitors_price_to_earnings_ratio_list) /
+                      len(competitors_price_to_earnings_ratio_list))
+            return round(result, 2)
 
         except (ZeroDivisionError, ValueError, TypeError, IndexError) as e:
             logging.error(f"Calculation error: {e}")

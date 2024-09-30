@@ -50,11 +50,10 @@ class YFCompanyAnalysis:
         operating_incomes = self.yahoo_finance.income_statement.loc['Operating Income']
         invested_capital = self.yahoo_finance.balance_sheet.loc['Invested Capital']
 
-        income_before_tax=self.yahoo_finance.income_statement.loc['Pretax Income']
-        income_after_tax=self.yahoo_finance.income_statement.loc['Tax Provision']
+        income_before_tax = self.yahoo_finance.income_statement.loc['Pretax Income']
+        income_after_tax = self.yahoo_finance.income_statement.loc['Tax Provision']
 
-
-        tax_rates = await TaxRate(income_before_tax=income_before_tax,income_after_tax=income_after_tax).calculate()
+        tax_rates = await TaxRate(income_before_tax=income_before_tax, income_after_tax=income_after_tax).calculate()
         nopat = await Nopat(operating_incomes, tax_rates).calculate()
         roic = await ReturnOnInvestedCapital(nopat, invested_capital).calculate()
         return roic
@@ -184,7 +183,6 @@ class YFCompanyAnalysis:
                                   cost_of_debt=cost_of_debt,
                                   tax_rate=tax_rate).calculate()
 
-
         if wacc < 0.10:
             if latest_free_cash_flow < 0:
                 raise CalculationError(content='WACC below 10 %')
@@ -196,8 +194,7 @@ class YFCompanyAnalysis:
                                        discount_rate=wacc,
                                        terminal_value=terminal_value).calculate()
 
-        return await IntrinsicValue(discounted_cash_flow=dcf,shares_outstanding=shares_outstanding).calculate()
-
+        return await IntrinsicValue(discounted_cash_flow=dcf, shares_outstanding=shares_outstanding).calculate()
 
     async def fair_value(self):
         return await FairValue(self.yahoo_finance).calculate()
@@ -206,4 +203,17 @@ class YFCompanyAnalysis:
         return await RelativeValue(self.yahoo_finance).calculate()
 
     async def news(self):
-        return self.yahoo_finance.news
+        data =  self.yahoo_finance.news
+
+        news = {
+            'Title': [article['title'] for article in data],
+            'Url': [article['link'] for article in data],
+            'Time': [(article['providerPublishTime']) for article in data],
+            'Image': [article['thumbnail']['resolutions'][0]['url'] for article in data]
+        }
+        return news
+
+
+
+
+

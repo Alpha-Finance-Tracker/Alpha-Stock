@@ -12,6 +12,7 @@ class YahooFinance:
     @property
     def cash_flow(self):
         return pd.DataFrame(self.stock_data.cash_flow).infer_objects(copy=False).fillna(0)
+
     @property
     def quarterly_cash_flow(self):
         return pd.DataFrame(self.stock_data.quarterly_cash_flow).fillna(0)
@@ -54,7 +55,7 @@ class YahooFinance:
 
     @property
     def news(self):
-        return  self.stock_data.news
+        return self.stock_data.news
 
     @property
     def analyst_price_targets(self):

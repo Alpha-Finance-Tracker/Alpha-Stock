@@ -7,7 +7,7 @@ class TaxRate(StockCalculator):
 
     def __init__(self, income_before_tax,income_after_tax):
         self.income_before_tax = income_before_tax
-        self.income_after_tax=income_after_tax
+        self.income_after_tax = income_after_tax
 
     def __repr__(self):
         return (f"TaxRate(\n"
@@ -25,5 +25,3 @@ class TaxRate(StockCalculator):
         except (ZeroDivisionError, ValueError, TypeError) as e:
             logging.error(f"Calculation error: {e}")
             raise CalculationError()
-
-

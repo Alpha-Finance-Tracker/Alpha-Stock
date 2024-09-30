@@ -2,11 +2,12 @@ from functools import cache
 
 import pandas as pd
 import httpx
-from async_lru import alru_cache
 from dotenv import dotenv_values
 from app.models.validators.alpha_vantage_validator import AlphaVantageValidator
+
 env_vars = dotenv_values()
 Alpha_vintage_key = env_vars.get('ALPHA_VANTAGE_KEY')
+
 
 class AlphaVantage:
     def __init__(self, symbol):
@@ -17,14 +18,14 @@ class AlphaVantage:
     def _fetch_data(self, endpoint):
         url = self.url + endpoint + f'&symbol={self.symbol}&apikey={self.api_key}'
         with httpx.Client() as client:
-            response =  client.get(url)
+            response = client.get(url)
             response.raise_for_status()
             return response.json()
 
     @cache
     def balance_sheet(self):
         print(f'Fetching balance sheet')
-        data =  self._fetch_data('BALANCE_SHEET')
+        data = self._fetch_data('BALANCE_SHEET')
         AlphaVantageValidator(data).validate()
         return pd.DataFrame(data.get('annualReports'))
 

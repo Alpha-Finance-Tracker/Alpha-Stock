@@ -1,7 +1,6 @@
 # good if below  1 or 0.5
-from app.models.base_models.basic_metric_evaluator import BasicMetricEvaluator
+
 from app.models.base_models.stock_calculator import StockCalculator
-from app.utilities.responses import CalculationError
 
 
 class DebtToEquityRatio(StockCalculator):
