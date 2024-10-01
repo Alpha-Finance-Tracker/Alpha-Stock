@@ -3,6 +3,7 @@
 # good above 12 %
 
 from app.models.base_models.stock_calculator import StockCalculator
+from app.utilities.responses import CalculationError
 
 
 class ReturnOnEquity(StockCalculator):
@@ -16,13 +17,7 @@ class ReturnOnEquity(StockCalculator):
                 f"stockholders_equity={self.stockholders_equity})")
 
     async def calculate(self):
-        if self.validate_params():
+        try:
             return (self.net_income_common_stockholders / self.stockholders_equity) * 100
-        else:
-            return (f'Error calculating net_income = {self.net_income_common_stockholders},'
-                    f'stockholders_equity={self.stockholders_equity}')
-
-    async def validate_params(self):
-        if isinstance(self.net_income_common_stockholders, float) and isinstance(self.stockholders_equity, float):
-            return True
-        return False
+        except:
+            raise CalculationError()

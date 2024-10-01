@@ -1,4 +1,5 @@
 from app.models.base_models.stock_calculator import StockCalculator
+from app.utilities.responses import CalculationError
 
 
 class DebtToEbitdaRatio(StockCalculator):
@@ -12,6 +13,9 @@ class DebtToEbitdaRatio(StockCalculator):
                 f"total_debt={self.total_debt})")
 
     async def calculate(self):
-        total_debt = self.total_debt / self.ebitda
-        total_debt = total_debt.round(2).dropna()
-        return total_debt
+        try:
+            total_debt = self.total_debt / self.ebitda
+            total_debt = total_debt.round(2).dropna()
+            return total_debt
+        except:
+            raise CalculationError()

@@ -1,4 +1,5 @@
 from app.models.base_models.stock_calculator import StockCalculator
+from app.utilities.responses import CalculationError
 
 
 class Nopat(StockCalculator):
@@ -13,6 +14,9 @@ class Nopat(StockCalculator):
                 f")")
 
     async def calculate(self):
-        nopat = self.operating_incomes * (1 - self.tax_rates / 100)
-        nopat = nopat.round(2).dropna()
-        return nopat
+        try:
+            nopat = self.operating_incomes * (1 - self.tax_rates / 100)
+            nopat = nopat.round(2).dropna()
+            return nopat
+        except:
+            raise CalculationError()

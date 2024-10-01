@@ -1,4 +1,5 @@
 from app.models.base_models.stock_calculator import StockCalculator
+from app.utilities.responses import CalculationError
 
 
 class NetProfitMargin(StockCalculator):
@@ -12,6 +13,9 @@ class NetProfitMargin(StockCalculator):
                 f"total_revenues={self.total_revenues})")
 
     async def calculate(self):
-        net_profit_margin = (self.net_incomes / self.total_revenues) * 100
-        net_profit_margin = net_profit_margin.round(2).dropna()
-        return net_profit_margin
+        try:
+            net_profit_margin = (self.net_incomes / self.total_revenues) * 100
+            net_profit_margin = net_profit_margin.round(2).dropna()
+            return net_profit_margin
+        except:
+            raise CalculationError()

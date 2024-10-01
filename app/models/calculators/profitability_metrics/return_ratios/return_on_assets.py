@@ -1,5 +1,6 @@
 # good above 12 %
 from app.models.base_models.stock_calculator import StockCalculator
+from app.utilities.responses import CalculationError
 
 
 class ReturnOnAssets(StockCalculator):
@@ -13,13 +14,7 @@ class ReturnOnAssets(StockCalculator):
                 f"total_assets={self.total_assets})")
 
     async def calculate(self):
-        if self.validate_params():
+        try:
             return (self.net_income_common_stockholders / self.total_assets) * 100
-        else:
-            return (f'Error calculating net_income = {self.net_income_common_stockholders},'
-                    f'total_assets={self.total_assets}')
-
-    async def validate_params(self):
-        if isinstance(self.net_income_common_stockholders, float) and isinstance(self.total_assets, float):
-            return True
-        return False
+        except:
+            raise CalculationError()
