@@ -36,7 +36,8 @@ class YFCompanyAnalysis:
         roa = round((net_income_common_stockholders / total_assets) * 100, 2)
 
         status = 'above' if roa[0] > 7 else 'below'
-        return {'roa':roa,'status':status}
+
+        return {'data':roa,'status':status}
 
     async def roe_service(self):
         net_income_common_stockholders = self.yahoo_finance.income_statement.loc['Net Income Common Stockholders']
@@ -47,7 +48,8 @@ class YFCompanyAnalysis:
 
         roe = round((net_income_common_stockholders / stockholders_equity) * 100, 2)
         status = 'above' if roe[0] > 12 else 'below'
-        return {'roa':roe,'status':status}
+
+        return {'data':roe,'status':status}
 
     async def roic_service(self):
         operating_incomes = self.yahoo_finance.income_statement.loc['Operating Income']
@@ -60,7 +62,8 @@ class YFCompanyAnalysis:
         nopat = await Nopat(operating_incomes, tax_rates).calculate()
         roic = await ReturnOnInvestedCapital(nopat, invested_capital).calculate()
         status = 'above' if roic[0] > 12 else 'below'
-        return {'roa':roic,'status':status}
+
+        return {'data':roic,'status':status}
 
     async def cash_to_debt_service(self):
         total_debt = self.yahoo_finance.balance_sheet.loc['Total Debt']
